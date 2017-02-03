@@ -9,12 +9,17 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
   </head>
   <body>
+	
 	<div class="container-fluid">
 		<div class="d-flex flex-wrap">
-			<div class="col-12 col-xl-3 col-lg-4 col-md-6 col-sm-12 p-2">Flex item 1</div>
-			<div class="col-12 col-xl-3 col-lg-4 col-md-6 col-sm-12 p-2">Flex item 2</div>
-			<div class="col-12 col-xl-3 col-lg-4 col-md-6 col-sm-12 p-2">Flex item 3</div>
-			<div class="col-12 col-xl-3 col-lg-4 col-md-6 col-sm-12 p-2">Flex item 4</div>
+			{% setcontent boxes = 'entries/latest/10' %}
+			{% for box in boxes %}
+				<div class="col-12 col-xl-3 col-lg-4 col-md-6 col-sm-12 p-2">
+					<h2>{{ box.title }}</h2>
+					<p><img src="{{ box.image|thumbnail(300,200,'c') }}"></p>
+					<p>{{ box.teaser }}</p>
+				</div>
+			{% endfor %}
 		</div>
 	</div>
 	
