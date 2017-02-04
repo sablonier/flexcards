@@ -21,6 +21,7 @@
 					<h4 class="card-title">{{ box.title }}</h4>
 					<img class="card-img" src="{{ thumbnail(box.image) }}">
 					<p class="card-text">{{ box.teaser }}</p>
+					{{ link(box.link, "Read more") }}
 				</div>
 			</div>
 			{% endfor %}
