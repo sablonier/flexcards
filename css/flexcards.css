@@ -1,3 +1,10 @@
+/* Import font files (css/ttf) */
+@import "../fonts/hk-grotesk.css";
+
+body {
+  font-family: 'HKGroteskRegular', sans-serif;
+}
+
 /* Bootstrap overrides and other custom stuff */
 
 .card {

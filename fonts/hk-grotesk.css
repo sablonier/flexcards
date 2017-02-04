@@ -1,0 +1,70 @@
+@font-face {
+    font-family: 'HKGroteskBold';
+        src: url('hkgrotesk/HKGrotesk-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+      }
+
+@font-face {
+    font-family: 'HKGroteskBoldItalic';
+        src: url('hkgrotesk/HKGrotesk-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+      }
+
+@font-face {
+    font-family: 'HKGroteskItalic';
+        src: url('hkgrotesk/HKGrotesk-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+      }
+
+@font-face {
+    font-family: 'HKGroteskLight';
+        src: url('hkgrotesk/HKGrotesk-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+      }
+
+@font-face {
+    font-family: 'HKGroteskLightItalic';
+        src: url('hkgrotesk/HKGrotesk-LightItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+      }
+
+@font-face {
+    font-family: 'HKGroteskMedium';
+        src: url('hkgrotesk/HKGrotesk-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+      }
+
+@font-face {
+    font-family: 'HKGroteskMediumItalic';
+        src: url('hkgrotesk/HKGrotesk-MediumItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+      }
+
+@font-face {
+    font-family: 'HKGroteskRegular';
+        src: url('hkgrotesk/HKGrotesk-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+      }
+
+@font-face {
+    font-family: 'HKGroteskSemiBold';
+        src: url('hkgrotesk/HKGrotesk-SemiBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+      }
+
+@font-face {
+    font-family: 'HKGroteskSemiBoldItalic';
+        src: url('hkgrotesk/HKGrotesk-SemiBoldItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+      }
+
