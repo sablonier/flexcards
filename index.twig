@@ -9,16 +9,21 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
   </head>
   <body>
-
 	<div class="container-fluid">
-		<div class="card-columns">
+		<div class="card-columns p-2">
 			{% setcontent boxes = 'entries/latest/10' %}
 			{% for box in boxes %}
 			<div class="card">
 				<div class="card-block">
-					
 					<h4 class="card-title">{{ box.title }}</h4>
-					<p class="card-text">{{ box.teaser|excerpt(200) }}</p>
+					{% if imageinfo(box.image).landscape %}
+					<img src="{{ thumbnail(box.image, 300, 200) }}" class="landscape">
+					{% elseif imageinfo(box.image).portrait %}
+					<img src="{{ thumbnail(box.image, 200, 300) }}" class="portrait">
+					{% else %}
+					<img src="{{ thumbnail(box.image, 300, 300) }}" class="square">
+					{% endif %}
+					<p class="card-text">{{ box.teaser }}</p>
 				</div>
 			</div>
 			{% endfor %}
