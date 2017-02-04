@@ -3,6 +3,21 @@
 
 body {
   font-family: 'HKGroteskRegular', sans-serif;
+  font-weight: normal;
+  line-height: 1.5;
+  color: #292b2c;
+  background-color: #cecece;
+
+}
+
+b, strong {
+  font-family: 'HKGroteskBold', sans-serif;
+  font-weight: normal;
+}
+
+i {
+  font-family: 'HKGroteskItalic', sans-serif;
+  font-weight: normal;
 }
 
 /* Bootstrap overrides and other custom stuff */
@@ -18,7 +33,7 @@ body {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-color: #ccc;
+  background-color: #fff;
   border: 0px solid rgba(0, 0, 0, 0.125);
   border-radius: 0px;
 }
