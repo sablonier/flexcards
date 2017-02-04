@@ -342,7 +342,7 @@ body {
   font-weight: normal;
   line-height: 1.5;
   color: #292b2c;
-  background-color: #292b2c;
+  background-color: #fff;
 }
 
 [tabindex="-1"]:focus {
@@ -2099,7 +2099,7 @@ pre code {
 }
 
 .table .table {
-  background-color: #292b2c;
+  background-color: #fff;
 }
 
 .table-sm th,
@@ -2222,7 +2222,7 @@ pre code {
 .table-inverse th,
 .table-inverse td,
 .table-inverse thead th {
-  border-color: #292b2c;
+  border-color: #fff;
 }
 
 .table-inverse.table-bordered {
@@ -2519,8 +2519,6 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
   -webkit-flex-flow: row wrap;
       -ms-flex-flow: row wrap;
           flex-flow: row wrap;
@@ -2559,8 +2557,6 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
     -webkit-flex: 0 0 auto;
         -ms-flex: 0 0 auto;
             flex: 0 0 auto;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
     -webkit-flex-flow: row wrap;
         -ms-flex-flow: row wrap;
             flex-flow: row wrap;
@@ -4633,8 +4629,6 @@ tbody.collapse.show {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
     -webkit-flex-flow: row wrap;
         -ms-flex-flow: row wrap;
             flex-flow: row wrap;
@@ -4668,8 +4662,6 @@ tbody.collapse.show {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
     -webkit-flex-flow: row wrap;
         -ms-flex-flow: row wrap;
             flex-flow: row wrap;
@@ -5154,8 +5146,6 @@ a.badge:focus, a.badge:hover {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
   -webkit-flex-flow: row wrap;
       -ms-flex-flow: row wrap;
           flex-flow: row wrap;
@@ -6087,7 +6077,7 @@ button.close {
 }
 
 .bg-faded {
-  background-color: #222324;
+  background-color: #f7f7f7;
 }
 
 .bg-primary {
