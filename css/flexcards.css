@@ -20,6 +20,10 @@ i {
   font-weight: normal;
 }
 
+mark {
+  background-color: #cdeeee;
+}
+
 /* Bootstrap overrides and other custom stuff */
 
 .card {
