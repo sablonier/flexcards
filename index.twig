@@ -9,16 +9,18 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
   </head>
   <body>
-	
+
 	<div class="container-fluid">
-		<div class="d-flex flex-wrap">
+		<div class="card-columns">
 			{% setcontent boxes = 'entries/latest/10' %}
 			{% for box in boxes %}
-				<div class="col-12 col-xl-3 col-lg-4 col-md-6 col-sm-12 p-2">
-					<h2>{{ box.title }}</h2>
-					<p><img src="{{ box.image|thumbnail(300,200,'c') }}"></p>
-					<p>{{ box.teaser }}</p>
+			<div class="card">
+				<div class="card-block">
+					
+					<h4 class="card-title">{{ box.title }}</h4>
+					<p class="card-text">{{ box.teaser|excerpt(200) }}</p>
 				</div>
+			</div>
 			{% endfor %}
 		</div>
 	</div>
