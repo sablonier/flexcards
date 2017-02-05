@@ -1,13 +1,20 @@
    <nav class="navbar navbar-toggleable-md navbar-light fixed-top bg-faded">
+   
+      <!-- Responsive Toggle -->
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
       </button>
+      
+      <!-- Brand -->
       <a class="navbar-brand" href="/#">
         <img src="{{ asset('brand/flexcard.svg', 'theme') }}" width="33" height="33" class="d-inline-block align-top" alt=""> Flexcard
       </a>
-
+      
+      <!-- Menu -->
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         {{ menu('main', 'partials/_menu.twig') }}
+        
+      <!-- Search -->  
         <form class="form-inline my-2 my-lg-0" method="get" action="{{ path('search') }}" id="searchform-inline" enctype="text/plain">
         <div class="input-group">
           <input class="form-control mr-sm-2" type="search" value="{% if search is defined %}{{ search|escape }}{% endif %}" placeholder="{{ __('general.phrase.search-ellipsis') }}" name="search">
@@ -15,4 +22,5 @@
         </div>
         </form>
       </div>
+      
     </nav>
