@@ -1,15 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% include 'partials/_header.twig' %}
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.css', 'theme') }}">
-    <!-- Flexcards CSS -->
-    <link rel="stylesheet" href="{{ asset('css/flexcards.css', 'theme') }}">
-  </head>
   <body>
 	<div class="container-fluid">
 
@@ -28,10 +18,5 @@
 		</div>
 		
 	</div>
-	
-    <!-- jQuery first, then Tether, then Bootstrap JS. -->
-    <script src={{ asset('js/jquery-3.1.1.slim.min.js', 'theme') }}></script>
-    <script src={{ asset('js/tether.min.js', 'theme') }}></script>
-    <script src={{ asset('js/bootstrap.min.js', 'theme') }}></script>
-  </body>
-</html>
+
+{% include 'partials/_footer.twig' %}
