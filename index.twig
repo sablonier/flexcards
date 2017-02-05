@@ -2,20 +2,7 @@
 
   <body>
 	  
-    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-	  <!-- Branding -->
-	  <a class="navbar-brand" href="#">
-        <img src="{{ asset('brand/flexcard.svg', 'theme') }}" width="30" height="30" class="d-inline-block align-top" alt=""> Flexcard 
-      </a>
-      <!-- Responsive toggle -->
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-         <span class="navbar-toggler-icon"></span>
-      </button>
-      <!-- Include _menu.twig -->
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        {{ menu('main', 'partials/_menu.twig') }}
-      </div>
-    </nav>
+{% include 'partials/_navbar.twig' %}
 	  
 	<div class="container-fluid">
 
