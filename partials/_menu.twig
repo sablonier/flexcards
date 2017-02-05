@@ -1,7 +1,7 @@
 <ul class="navbar-nav">
 {% for item in menu %}
     {% if item.submenu is defined %}
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown {% if item|current %}active{% endif %}">
             <a class="nav-link dropdown-toggle" href="{{ item.link }} id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{item.label}}</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"> 
             {% for item in item.submenu %}
@@ -10,9 +10,10 @@
             </div>
         </li>
     {% else %}
-        <li class="nav-item">
+        <li class="nav-item {% if item|current %}active{% endif %}">
             <a class="nav-link" href="{{ item.link }}">{{item.label}}</a>
         </li>
     {% endif %}
 {% endfor %}
 </ul>
+
