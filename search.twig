@@ -1,0 +1,52 @@
+{% include 'partials/_header.twig' %}
+
+  <body>
+	  
+{% include 'partials/_navbar.twig' %}
+	  
+	<div class="container-fluid">
+	
+        <h1>
+            {% if search is not empty %}
+                {{ __('general.phrase.search-results-for-variable', { '%search%': search }) }}
+            {% else %}
+                {{ __('general.phrase.search') }}
+            {% endif %}
+        </h1>
+
+
+        {% for record in records %}
+            <article>
+
+                <h2><a href="{{ record.link }}">{{ record.title }}</a></h2>
+
+                {% if record.image!="" %}
+                    <div class="large-4 imageholder">
+                        <a href="{{ image(record.image) }}">
+                            <img src="{{ thumbnail(record.image, 400, 260) }}">
+                        </a>
+                    </div>
+                {% endif %}
+
+                {# display something introduction-like.. #}
+                <p>{{ record.excerpt(300, false, search|default('')) }}</p>
+
+            </article>
+
+            {% if not loop.last %}
+                <hr>
+            {% endif %}
+
+        {% else %}
+            <article>
+
+                <p>
+                    {{ __('general.phrase.no-result-for-search-term', { '%SEARCHTERM%': search|escape }) }}
+                </p>
+
+            </article>
+        {% endfor %}
+
+        {# If there are more records than will fit on one page, the pager is shown. #}
+        
+{% include 'partials/_footer.twig' %}
