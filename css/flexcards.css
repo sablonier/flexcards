@@ -28,6 +28,10 @@ mark {
     background-color: #f3f1e1;
 }
 
+button, input, optgroup, select, textarea {
+    font-family: 'HKGroteskRegular', sans-serif;
+}
+
 /* Bootstrap overrides and other custom stuff */
 
 .card {

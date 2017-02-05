@@ -6,47 +6,35 @@
 	  
 	<div class="container-fluid">
 	
-        <h1>
+        <h2>
             {% if search is not empty %}
                 {{ __('general.phrase.search-results-for-variable', { '%search%': search }) }}
             {% else %}
                 {{ __('general.phrase.search') }}
             {% endif %}
-        </h1>
+        </h2>
 
-
-        {% for record in records %}
-            <article>
-
-                <h2><a href="{{ record.link }}">{{ record.title }}</a></h2>
-
-                {% if record.image!="" %}
-                    <div class="large-4 imageholder">
-                        <a href="{{ image(record.image) }}">
-                            <img src="{{ thumbnail(record.image, 400, 260) }}">
-                        </a>
-                    </div>
-                {% endif %}
-
-                {# display something introduction-like.. #}
-                <p>{{ record.excerpt(300, false, search|default('')) }}</p>
-
-            </article>
-
-            {% if not loop.last %}
-                <hr>
-            {% endif %}
-
-        {% else %}
-            <article>
-
-                <p>
-                    {{ __('general.phrase.no-result-for-search-term', { '%SEARCHTERM%': search|escape }) }}
-                </p>
-
-            </article>
-        {% endfor %}
-
-        {# If there are more records than will fit on one page, the pager is shown. #}
+		<div class="card-columns p-2">
+			{% for record in records %}
+			<div class="card">
+				<div class="card-block">
+					<h4 class="card-title"><a href="{{ record.link }}">{{ record.title }}</a></h4>
+					{% if record.image!="" %}
+					<a href="{{ image(record.image) }}">
+					   <img class="card-img" src="{{ thumbnail(record.image) }}">
+					</a>
+					{% endif %}
+					<p class="card-text">{{ record.excerpt(300, false, search|default('')) }}</p>
+				</div>
+			</div>
+		    {% else %}
+		    <div class="card">
+				<div class="card-block">
+                    <p class="card-text">{{ __('general.phrase.no-result-for-search-term', { '%SEARCHTERM%': search|escape }) }}</p>
+				</div>
+			</div>
+            {% endfor %}
+		</div>
+		
         
 {% include 'partials/_footer.twig' %}
