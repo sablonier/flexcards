@@ -1,12 +1,13 @@
 /* Import font files (css/ttf) */
 @import "../fonts/hk-grotesk.css";
 
+/* Bootstrap default override */
+
 body {
   font-family: 'HKGroteskRegular', sans-serif;
   font-weight: normal;
-  line-height: 1.5;
-  color: #292b2c;
   background-color: #f3f1e1;
+  padding-top: 80px;
 
 }
 
@@ -21,18 +22,18 @@ i {
 }
 
 mark {
-  background-color: #cdeeee;
+  background-color: #ffff00;
 }
 
 .bg-faded {
-    background-color: #f3f1e1;
+    background-color: #e3e1d1;
 }
 
 button, input, optgroup, select, textarea {
     font-family: 'HKGroteskRegular', sans-serif;
 }
 
-/* Bootstrap overrides and other custom stuff */
+/* Bootstrap card override and custom stuff */
 
 .card {
   position: relative;
