@@ -1,9 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ htmllang() }}">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Adding title for every page, default bolt style -->
+    <title>
+            {%- if record.title is defined %}{{ record.title|striptags }} | {% endif -%}
+                {{ app.config.get('general/sitename') -}}
+            {% if record.title is not defined and app.config.get('general/payoff') %} | {{ app.config.get('general/payoff') }}{% endif -%}
+    </title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css', 'theme') }}">
