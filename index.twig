@@ -3,23 +3,76 @@
   <body>
 	  
 {% include 'partials/_navbar.twig' %}
-	  
-	<div class="container-fluid">
+    
+    {% set ordar = [] %}
+    {% set newordar = [] %}
+    {% setcontent boxes = 'entries/latest/10' %}
+	{% for box in boxes %}
+	  {% set ordar = ordar|merge([box.id]) %}
+	{% endfor %}
+	{% set newordar = [ordar[0],ordar[4],ordar[8],ordar[1],ordar[5],ordar[9],ordar[2],ordar[6],ordar[3],ordar[7]] %}
+	{{ dump(newordar) }}
 
-		<div class="card-columns">
-			{% setcontent boxes = 'entries/latest/10' %}
-			{% for box in boxes %}
+	<div class="container-fluid">
+    
+    <div class="row">
+    <div class="col-3" >
+    {% for i in 0..2 %}
+			{% setcontent boxy = 'entry/%this%'|replace({'%this%': newordar[i]}) %}
 			<div class="card">
 				<div class="card-block">
-					<h4 class="card-title">{{ box.title }}</h4>
-					<img class="card-img" src="{{ thumbnail(box.image) }}">
-					<p class="card-text">{{ box.teaser }}</p>
-					{{ link(box.link, "Read more") }}
+					<h4 class="card-title">{{ boxy.title }}</h4>
+					<img class="card-img" src="{{ thumbnail(boxy.image) }}">
+					<p class="card-text">{{ boxy.teaser }}</p>
+					{{ link(boxy.link, "Read more") }}
 				</div>
 			</div>
-			{% endfor %}
-		</div>
+			<p></p>
+	{% endfor %}
+    </div>
+    <div class="col-3">
+    {% for i in 3..5 %}
+			{% setcontent boxy = 'entry/%this%'|replace({'%this%': newordar[i]}) %}
+			<div class="card">
+				<div class="card-block">
+					<h4 class="card-title">{{ boxy.title }}</h4>
+					<img class="card-img" src="{{ thumbnail(boxy.image) }}">
+					<p class="card-text">{{ boxy.teaser }}</p>
+					{{ link(boxy.link, "Read more") }}
+				</div>
+			</div>
+			<p></p>
+	{% endfor %}
+    </div>
+    <div class="col-3">
+    {% for i in 6..7 %}
+			{% setcontent boxy = 'entry/%this%'|replace({'%this%': newordar[i]}) %}
+			<div class="card">
+				<div class="card-block">
+					<h4 class="card-title">{{ boxy.title }}</h4>
+					<img class="card-img" src="{{ thumbnail(boxy.image) }}">
+					<p class="card-text">{{ boxy.teaser }}</p>
+					{{ link(boxy.link, "Read more") }}
+				</div>
+			</div>
+			<p></p>
+	{% endfor %}
+    </div>
+    <div class="col-3">
+    {% for i in 8..9 %}
+			{% setcontent boxy = 'entry/%this%'|replace({'%this%': newordar[i]}) %}
+			<div class="card">
+				<div class="card-block">
+					<h4 class="card-title">{{ boxy.title }}</h4>
+					<img class="card-img" src="{{ thumbnail(boxy.image) }}">
+					<p class="card-text">{{ boxy.teaser }}</p>
+					{{ link(boxy.link, "Read more") }}
+				</div>
+			</div>
+			<p></p>
+	{% endfor %}
+    </div>
+  </div>
 		
-	</div>
 
 {% include 'partials/_footer.twig' %}
