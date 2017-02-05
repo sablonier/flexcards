@@ -1,0 +1,18 @@
+<ul class="navbar-nav">
+{% for item in menu %}
+    {% if item.submenu is defined %}
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="{{ item.link }} id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{item.label}}</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"> 
+            {% for item in item.submenu %}
+                <a class="dropdown-item" href="{{ item.link }}">{{item.label}}</a>
+            {% endfor %}
+            </div>
+        </li>
+    {% else %}
+        <li class="nav-item">
+            <a class="nav-link" href="{{ item.link }}">{{item.label}}</a>
+        </li>
+    {% endif %}
+{% endfor %}
+</ul>
