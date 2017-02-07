@@ -25,10 +25,7 @@
 
 	{% for key in flipper|keys %}
       {% set horizontal = horizontal|merge({0: vertical[flipper[key]]|trim}) %}
-    {% endfor %}
-    
-    {{ dump(horizontal) }}
-    
+    {% endfor %} 
 	
 	<div class="container-fluid">
     
@@ -38,7 +35,7 @@
             <div class="col-3" >
 				{% for key in horizontal|keys|slice(rowstart, rows|length) %}
 				{% if horizontal[key] != "" %}
-				{{ dump(horizontal[key]) }}
+				{# {{ dump(horizontal[key]) }} #}
 			    {% setcontent record = 'entry/%this%'|replace({'%this%': horizontal[key]}) %}
 			    <div class="card">
 				    <div class="card-block">
