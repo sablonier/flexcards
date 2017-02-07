@@ -6,24 +6,46 @@
     
     {% set vertical = [] %}
     {% set horizontal = [] %}
-    {% setcontent boxes = 'entries/latest/1' %}
+    {% setcontent boxes = 'entries/latest/6' %}
 	{% for box in boxes %}
 	  {% set vertical = vertical|merge([box.id]) %}
 	{% endfor %}
 	{% set horizontal = [vertical[0],vertical[4],vertical[8],vertical[1],vertical[5],vertical[9],vertical[2],vertical[6],vertical[3],vertical[7]] %}
     
+    {% set cols = [1,2,3,4] %}
+    {% set rows = [1,2,3] %}
+    
+    {% set vals = [1,2,3,4,5,6,7,8,9,10,11,12] %}
+    {% set horz = [] %}
+    {% set temp = [] %}
+    
+    {% for i in cols %}
+      {% for j in rows %}
+        {% set horz = horz|merge([ i-4+j*4 ]) %}
+      {% endfor %}
+    {% endfor %}
+    {{ dump(horz) }}
+    
     {# {{ dump('vertical',vertical) }}
     {{ dump('horizontal',vertical) }} #}
+    
+    {% set bar = horizontal|split(0,3) %}
+    {{ dump(bar) }}
+    
+    {% for i in horizontal|slice(0, 3) %}
+      {{ dump(i) }}
+    {% endfor %}
+    
+    {% set refa = boxes|length // 3 %}
+
 
 </div>	
 	
 	<div class="container-fluid">
-    
     <div class="row">
     <div class="col-3" >
-	{% set fst = horizontal|length-1 %}
-    {% for i in 0..fst*0.3 %}
-			{% setcontent boxy = 'entry/%this%'|replace({'%this%': horizontal[i]}) %}
+    {% for i in horizontal|slice(0, refa) %}
+			{% setcontent boxy = 'entry/%this%'|replace({'%this%': i}) %}
 			<div class="card">
 				<div class="card-block">
 					<h4 class="card-title">{{ boxy.title }}</h4>
@@ -36,8 +58,8 @@
 	{% endfor %}
     </div>
     <div class="col-3">
-    {% for i in fst*0.4..fst*0.6 %}
-			{% setcontent boxy = 'entry/%this%'|replace({'%this%': horizontal[i]}) %}
+    {% for i in horizontal|slice(refa+1, refa) %}
+			{% setcontent boxy = 'entry/%this%'|replace({'%this%': i}) %}
 			<div class="card">
 				<div class="card-block">
 					<h4 class="card-title">{{ boxy.title }}</h4>
@@ -50,8 +72,8 @@
 	{% endfor %}
     </div>
     <div class="col-3">
-    {% for i in fst*0.7..fst*0.9 %}
-			{% setcontent boxy = 'entry/%this%'|replace({'%this%': horizontal[i]}) %}
+    {% for i in horizontal|slice(refa+4, refa-1) %}
+			{% setcontent boxy = 'entry/%this%'|replace({'%this%': i}) %}
 			<div class="card">
 				<div class="card-block">
 					<h4 class="card-title">{{ boxy.title }}</h4>
@@ -64,8 +86,8 @@
 	{% endfor %}
     </div>
     <div class="col-3">
-    {% for i in fst*0.9..fst*1.1 %}
-			{% setcontent boxy = 'entry/%this%'|replace({'%this%': horizontal[i]}) %}
+    {% for i in horizontal|slice(refa+6,refa-1) %}
+			{% setcontent boxy = 'entry/%this%'|replace({'%this%': i}) %}
 			<div class="card">
 				<div class="card-block">
 					<h4 class="card-title">{{ boxy.title }}</h4>
