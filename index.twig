@@ -12,14 +12,14 @@
 	  {% set vertical = vertical|merge([box.id]) %}
 	{% endfor %}
     
-    {% set cols = 4 %}
-    {% set rows = 3 %}
+    {% set cols = [1,2,3,4] %}
+    {% set rows = [1,2,3] %}
     
     {% set vals = vertical %}
     {% set horz = [] %}
     
-    {% for i in 1..cols %}
-      {% for j in 1..rows %}
+    {% for i in cols %}
+      {% for j in rows %}
         {% set horz = horz|merge([ (i-(cols|length)+j*(cols|length))-1 ]) %}
       {% endfor %}
     {% endfor %}
@@ -28,70 +28,36 @@
       {% set horizontal = horizontal|merge([vertical[horz[i]]]) %}
     {% endfor %}
     
-    {% set refa = boxes|length // 3 %}
-
-
-</div>	
+    {{ dump(horizontal) }}
 	
 	<div class="container-fluid">
-    <div class="row">
-    <div class="col-3" >
-    {% for i in horizontal|slice(0, refa) %}
-			{% setcontent boxy = 'entry/%this%'|replace({'%this%': i}) %}
-			<div class="card">
-				<div class="card-block">
-					<h4 class="card-title">{{ boxy.title }}</h4>
-					<img class="card-img" src="{{ thumbnail(boxy.image) }}">
-					<p class="card-text">{{ boxy.teaser }}</p>
-					{{ link(boxy.link, "Read more") }}
-				</div>
-			</div>
-			<p></p>
-	{% endfor %}
+    
+        <div class="row">
+			{% set rowstart = 0 %}
+			{% for col in cols|keys %}
+            <div class="col-3" >
+				{% for key in horizontal|keys|slice(rowstart, rows|length) %}
+				{{ dump(horizontal[key]) }}
+			    {% setcontent boxy = 'entry/%this%'|replace({'%this%': horizontal[key]}) %}
+			    <div class="card">
+				    <div class="card-block">
+					    <h4 class="card-title">{{ boxy.title }}</h4>
+					    <img class="card-img" src="{{ thumbnail(boxy.image) }}">
+					    <p class="card-text">{{ boxy.teaser }}</p>
+					    {{ link(boxy.link, "Read more") }}
+				    </div>
+			    </div>
+			    <p></p>
+			    {% endfor %}
+			    {% set rowstart = rowstart+rows|length %}
+            </div>
+            {% endfor %}
+            
+        </div>
+        
+    
     </div>
-    <div class="col-3">
-    {% for i in horizontal|slice(refa+1, refa) %}
-			{% setcontent boxy = 'entry/%this%'|replace({'%this%': i}) %}
-			<div class="card">
-				<div class="card-block">
-					<h4 class="card-title">{{ boxy.title }}</h4>
-					<img class="card-img" src="{{ thumbnail(boxy.image) }}">
-					<p class="card-text">{{ boxy.teaser }}</p>
-					{{ link(boxy.link, "Read more") }}
-				</div>
-			</div>
-			<p></p>
-	{% endfor %}
-    </div>
-    <div class="col-3">
-    {% for i in horizontal|slice(refa+4, refa-1) %}
-			{% setcontent boxy = 'entry/%this%'|replace({'%this%': i}) %}
-			<div class="card">
-				<div class="card-block">
-					<h4 class="card-title">{{ boxy.title }}</h4>
-					<img class="card-img" src="{{ thumbnail(boxy.image) }}">
-					<p class="card-text">{{ boxy.teaser }}</p>
-					{{ link(boxy.link, "Read more") }}
-				</div>
-			</div>
-			<p></p>
-	{% endfor %}
-    </div>
-    <div class="col-3">
-    {% for i in horizontal|slice(refa+6,refa-1) %}
-			{% setcontent boxy = 'entry/%this%'|replace({'%this%': i}) %}
-			<div class="card">
-				<div class="card-block">
-					<h4 class="card-title">{{ boxy.title }}</h4>
-					<img class="card-img" src="{{ thumbnail(boxy.image) }}">
-					<p class="card-text">{{ boxy.teaser }}</p>
-					{{ link(boxy.link, "Read more") }}
-				</div>
-			</div>
-			<p></p>
-	{% endfor %}
-    </div>
-  </div>
+    
 		
 
 {% include 'partials/_footer.twig' %}
