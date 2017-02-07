@@ -7,13 +7,13 @@
     {% set vertical = [] %}
     {% set horizontal = [] %}
     
-    {% setcontent boxes = 'entries/latest/12' %}
+    {% setcontent boxes = 'entries/latest/5' %}
 	{% for box in boxes %}
 	  {% set vertical = vertical|merge([box.id]) %}
 	{% endfor %}
     
     {% set cols = [1,2,3,4] %}
-    {% set rows = [1,2,3] %}
+    {% set rows = [1,2,3,4] %}
     
     {% set flipper = [] %}
     
@@ -22,10 +22,13 @@
         {% set flipper = flipper|merge([ (i-(cols|length)+j*(cols|length))-1 ]) %}
       {% endfor %}
     {% endfor %}
-    
-    {% for i in vertical|keys %}
-      {% set horizontal = horizontal|merge([vertical[flipper[i]]]) %}
+
+	{% for key in flipper|keys %}
+      {% set horizontal = horizontal|merge({0: vertical[flipper[key]]|trim}) %}
     {% endfor %}
+    
+    {{ dump(horizontal) }}
+    
 	
 	<div class="container-fluid">
     
@@ -34,25 +37,25 @@
 			{% for col in cols|keys %}
             <div class="col-3" >
 				{% for key in horizontal|keys|slice(rowstart, rows|length) %}
+				{% if horizontal[key] != "" %}
 				{{ dump(horizontal[key]) }}
-			    {% setcontent boxy = 'entry/%this%'|replace({'%this%': horizontal[key]}) %}
+			    {% setcontent record = 'entry/%this%'|replace({'%this%': horizontal[key]}) %}
 			    <div class="card">
 				    <div class="card-block">
-					    <h4 class="card-title">{{ boxy.title }}</h4>
-					    <img class="card-img" src="{{ thumbnail(boxy.image) }}">
-					    <p class="card-text">{{ boxy.teaser }}</p>
-					    {{ link(boxy.link, "Read more") }}
+					    <h4 class="card-title">{{ record.title }}</h4>
+					    <img class="card-img" src="{{ thumbnail(record.image) }}">
+					    <p class="card-text">{{ record.teaser }}</p>
+					    {{ link(record.link, "Read more") }}
 				    </div>
 			    </div>
 			    <p></p>
+			    {% endif %}
 			    {% endfor %}
 			    {% set rowstart = rowstart+rows|length %}
             </div>
             {% endfor %}
             
         </div>
-        
-    
     </div>
     
 		
