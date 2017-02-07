@@ -15,20 +15,17 @@
     {% set cols = [1,2,3,4] %}
     {% set rows = [1,2,3] %}
     
-    {% set vals = vertical %}
-    {% set horz = [] %}
+    {% set flipper = [] %}
     
     {% for i in cols %}
       {% for j in rows %}
-        {% set horz = horz|merge([ (i-(cols|length)+j*(cols|length))-1 ]) %}
+        {% set flipper = flipper|merge([ (i-(cols|length)+j*(cols|length))-1 ]) %}
       {% endfor %}
     {% endfor %}
     
     {% for i in vertical|keys %}
-      {% set horizontal = horizontal|merge([vertical[horz[i]]]) %}
+      {% set horizontal = horizontal|merge([vertical[flipper[i]]]) %}
     {% endfor %}
-    
-    {{ dump(horizontal) }}
 	
 	<div class="container-fluid">
     
