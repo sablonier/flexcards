@@ -6,34 +6,26 @@
     
     {% set vertical = [] %}
     {% set horizontal = [] %}
-    {% setcontent boxes = 'entries/latest/6' %}
+    
+    {% setcontent boxes = 'entries/latest/12' %}
 	{% for box in boxes %}
 	  {% set vertical = vertical|merge([box.id]) %}
 	{% endfor %}
-	{% set horizontal = [vertical[0],vertical[4],vertical[8],vertical[1],vertical[5],vertical[9],vertical[2],vertical[6],vertical[3],vertical[7]] %}
     
-    {% set cols = [1,2,3,4] %}
-    {% set rows = [1,2,3] %}
+    {% set cols = 4 %}
+    {% set rows = 3 %}
     
-    {% set vals = [1,2,3,4,5,6,7,8,9,10,11,12] %}
+    {% set vals = vertical %}
     {% set horz = [] %}
-    {% set temp = [] %}
     
-    {% for i in cols %}
-      {% for j in rows %}
-        {% set horz = horz|merge([ i-4+j*4 ]) %}
+    {% for i in 1..cols %}
+      {% for j in 1..rows %}
+        {% set horz = horz|merge([ (i-(cols|length)+j*(cols|length))-1 ]) %}
       {% endfor %}
     {% endfor %}
-    {{ dump(horz) }}
     
-    {# {{ dump('vertical',vertical) }}
-    {{ dump('horizontal',vertical) }} #}
-    
-    {% set bar = horizontal|split(0,3) %}
-    {{ dump(bar) }}
-    
-    {% for i in horizontal|slice(0, 3) %}
-      {{ dump(i) }}
+    {% for i in vertical|keys %}
+      {% set horizontal = horizontal|merge([vertical[horz[i]]]) %}
     {% endfor %}
     
     {% set refa = boxes|length // 3 %}
