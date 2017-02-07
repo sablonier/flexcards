@@ -7,11 +7,15 @@
     {% set vertical = [] %}
     {% set horizontal = [] %}
     
-    {% setcontent boxes = 'entries/latest/5' %}
+    {# The 5 latest entries, you can change the query to whatever you want  #}
+    {% setcontent boxes = 'entries/latest/12' %}
+    
+    {# get the common ordering #}
 	{% for box in boxes %}
 	  {% set vertical = vertical|merge([box.id]) %}
 	{% endfor %}
     
+    {# This is a 4x4 grid, adding rows extends it  #}
     {% set cols = [1,2,3,4] %}
     {% set rows = [1,2,3,4] %}
     
@@ -31,13 +35,13 @@
     
         <div class="row">
 			{% set rowstart = 0 %}
+			{% set sortorder = 0 %}
 			{% for col in cols|keys %}
             <div class="col-3" >
 				{% for key in horizontal|keys|slice(rowstart, rows|length) %}
 				{% if horizontal[key] != "" %}
-				{# {{ dump(horizontal[key]) }} #}
 			    {% setcontent record = 'entry/%this%'|replace({'%this%': horizontal[key]}) %}
-			    <div class="card">
+			    <div class="card" data-sort="{flipper[key]}}">
 				    <div class="card-block">
 					    <h4 class="card-title">{{ record.title }}</h4>
 					    <img class="card-img" src="{{ thumbnail(record.image) }}">
