@@ -3,5 +3,53 @@
     <script src={{ asset('js/jquery-3.1.1.slim.min.js', 'theme') }}></script>
     <script src={{ asset('js/tether.min.js', 'theme') }}></script>
     <script src={{ asset('js/bootstrap.min.js', 'theme') }}></script>
+    
+<!--<script>
+(function($) {
+    var uniqueCntr = 0;
+    $.fn.resized = function (waitTime, fn) {
+        if (typeof waitTime === "function") {
+            fn = waitTime;
+            waitTime = 250;
+        }
+        var tag = "resizeTimer" + uniqueCntr++;
+        this.resize(function () {
+            var self = $(this);
+            var timer = self.data(tag);
+            if (timer) {
+                clearTimeout(timer);
+            }
+            timer = setTimeout(function () {
+                self.removeData(tag);
+                fn.call(self[0]);
+            }, waitTime);
+            self.data(tag, timer);
+        });
+    }
+})(jQuery);
+
+$(window).resized(function() {
+	if ($(window).innerWidth() <= 1199) {
+		$('#4').append($('#2').html());
+        $('#c4').remove();
+    }
+    
+});
+-->
+<script>
+console.log("Width: " + $(window).innerWidth());
+console.log("Boxes: " + "{{boxes|length}}");
+
+if ($(window).innerWidth() < 1199) {
+		$('#4').append($('#2').html());
+        $('#c4').remove();
+        $('#5').append($('#3').html());
+        $('#c5').remove();
+        
+    }
+
+</script>
+    
+
   </body>
 </html>

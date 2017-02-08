@@ -5,7 +5,8 @@
 {% include 'partials/_navbar.twig' %}
     
     {% set vertical = [] %}
-    {% set horizontal = [] %}
+    {% set horizontal4x4 = [] %}
+    {% set horizontal2x8 = [] %}
     
     {# The 5 latest entries, you can change the query to whatever you want  #}
     {% setcontent boxes = 'entries/latest/12' %}
@@ -20,16 +21,34 @@
     {% set rows = [1,2,3,4] %}
     
     {% set flipper = [] %}
+    {% set flipper2 = [] %}
     
+    // 4 x 4 grid
     {% for i in cols %}
       {% for j in rows %}
         {% set flipper = flipper|merge([ (i-(cols|length)+j*(cols|length))-1 ]) %}
       {% endfor %}
     {% endfor %}
+    
+    {% for key in flipper|keys %}
+      {% set horizontal4x4 = horizontal4x4|merge({0: vertical[flipper[key]]|trim}) %}
+    {% endfor %}
+    
+    // 2 x 8 grid
+    {% for i in [1,2] %}
+      {% for j in [1,2,3,4,5,6,7,8] %}
+        {% set flipper2 = flipper2|merge([ (i+(j*2)-1)-2 ]) %}
+      {% endfor %}
+    {% endfor %}
+    
+    {% for key in flipper2|keys %}
+      {% set horizontal2x8 = horizontal2x8|merge({0: vertical[flipper2[key]]|trim}) %}
+    {% endfor %}
+    
+    {{ dump(horizontal4x4) }}
+    {{ dump(horizontal2x8) }}
 
-	{% for key in flipper|keys %}
-      {% set horizontal = horizontal|merge({0: vertical[flipper[key]]|trim}) %}
-    {% endfor %} 
+	 
 	
 	<div class="container-fluid">
     
@@ -37,11 +56,13 @@
 			{% set rowstart = 0 %}
 			{% set sortorder = 0 %}
 			{% for col in cols|keys %}
-            <div class="col-3" >
-				{% for key in horizontal|keys|slice(rowstart, rows|length) %}
-				{% if horizontal[key] != "" %}
-			    {% setcontent record = 'entry/%this%'|replace({'%this%': horizontal[key]}) %}
-			    <div class="card" data-sort="{flipper[key]}}">
+            <div class="col-sm-3 col-md-6 col-lg-6 col-xl-3">
+				{% for key in horizontal4x4|keys|slice(rowstart, rows|length) %}
+				{% if horizontal4x4[key] != "" %}
+				{{ dump(flipper[key]) }}
+			    {% setcontent record = 'entry/%this%'|replace({'%this%': horizontal4x4[key]}) %}
+			    <div id="{{flipper[key]}}">
+			    <div class="card" id="c{{flipper[key]}}">
 				    <div class="card-block">
 					    <h4 class="card-title">{{ record.title }}</h4>
 					    <img class="card-img" src="{{ thumbnail(record.image) }}">
@@ -50,6 +71,7 @@
 				    </div>
 			    </div>
 			    <p></p>
+			    </div>
 			    {% endif %}
 			    {% endfor %}
 			    {% set rowstart = rowstart+rows|length %}
@@ -58,7 +80,5 @@
             
         </div>
     </div>
-    
-		
 
 {% include 'partials/_footer.twig' %}
