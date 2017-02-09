@@ -5,25 +5,25 @@
 {% include 'partials/_navbar.twig' %}
     
     {% set vertical = [] %}
-    {% set horizontal4x4 = [] %}
-    {% set horizontal2x8 = [] %}
+    {% set horizontal = [] %}
+    {% set horizontal3x = [] %}
+    {% set horizontal2x = [] %}
     
-    {# The 5 latest entries, you can change the query to whatever you want  #}
+    
+    {# The latest entries, you can change the query to whatever you want  #}
     {% setcontent boxes = 'entries/latest/12' %}
     
-    {# get the common ordering #}
+    {# get the query ordering #}
 	{% for box in boxes %}
 	  {% set vertical = vertical|merge([box.id]) %}
 	{% endfor %}
-    
-    {# This is a 4x4 grid, adding rows extends it  #}
+ 
+    {% set rows = [1,2,3] %}
     {% set cols = [1,2,3,4] %}
-    {% set rows = [1,2,3,4] %}
     
+    {# 4 cols #}
+    {% set cols = [1,2,3,4] %}
     {% set flipper = [] %}
-    {% set flipper2 = [] %}
-    
-    // 4 x 4 grid
     {% for i in cols %}
       {% for j in rows %}
         {% set flipper = flipper|merge([ (i-(cols|length)+j*(cols|length))-1 ]) %}
@@ -31,23 +31,38 @@
     {% endfor %}
     
     {% for key in flipper|keys %}
-      {% set horizontal4x4 = horizontal4x4|merge({0: vertical[flipper[key]]|trim}) %}
+      {% set horizontal = horizontal|merge({0: vertical[flipper[key]]|trim}) %}
     {% endfor %}
     
-    // 2 x 8 grid
-    {% for i in [1,2] %}
-      {% for j in [1,2,3,4,5,6,7,8] %}
-        {% set flipper2 = flipper2|merge([ (i+(j*2)-1)-2 ]) %}
+    {# 3 cols #}
+    {% set cols3x = [1,2,3] %}
+    {% set flipper3x = [] %}
+    {% for i in cols3x %}
+      {% for j in rows %}
+        {% set flipper3x = flipper3x|merge([ i-(cols3x|length+1)+j*cols3x|length ]) %}
       {% endfor %}
     {% endfor %}
     
-    {% for key in flipper2|keys %}
-      {% set horizontal2x8 = horizontal2x8|merge({0: vertical[flipper2[key]]|trim}) %}
+    {% for key in flipper3x|keys %}
+      {% set horizontal3x = horizontal3x|merge({0: vertical[flipper3x[key]]|trim}) %}
     {% endfor %}
     
-    {{ dump(horizontal4x4) }}
-    {{ dump(horizontal2x8) }}
-
+    {# 2 cols #}
+    {% set cols2x = [1,2] %}
+    {% set flipper2x = [] %}
+    {% for i in cols2x %}
+      {% for j in [1,2,3,4,5,6,7,8] %}
+        {% set flipper2x = flipper2x|merge([ (i+(j*cols2x|length)-1)-cols2x|length ]) %}
+      {% endfor %}
+    {% endfor %}
+    
+    {% for key in flipper2x|keys %}
+      {% set horizontal2x = horizontal2x|merge({0: vertical[flipper2x[key]]|trim}) %}
+    {% endfor %}
+    
+    {#{{ dump(horizontal4x) }}
+    {{ dump(horizontal3x) }}
+    {{ dump(horizontal2x) }}#}
 	 
 	
 	<div class="container-fluid">
@@ -57,10 +72,10 @@
 			{% set sortorder = 0 %}
 			{% for col in cols|keys %}
             <div class="col-sm-3 col-md-6 col-lg-6 col-xl-3">
-				{% for key in horizontal4x4|keys|slice(rowstart, rows|length) %}
-				{% if horizontal4x4[key] != "" %}
-				{{ dump(flipper[key]) }}
-			    {% setcontent record = 'entry/%this%'|replace({'%this%': horizontal4x4[key]}) %}
+				{% for key in horizontal|keys|slice(rowstart, rows|length) %}
+				{% if horizontal[key] != "" %}
+				{{ dump(horizontal[key]) }}
+			    {% setcontent record = 'entry/%this%'|replace({'%this%': horizontal[key]}) %}
 			    <div id="{{flipper[key]}}">
 			    <div class="card" id="c{{flipper[key]}}">
 				    <div class="card-block">
