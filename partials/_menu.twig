@@ -2,7 +2,7 @@
 {% for item in menu %}
     {% if item.submenu is defined %}
         <li class="nav-item dropdown {% if item|current %}active{% endif %}">
-            <a class="nav-link dropdown-toggle" href="{{ item.link }} id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{item.label}}</a>
+            <a class="nav-link dropdown-toggle" href="{{ item.link }}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{item.label}}</a>
             <div class="dropdown-menu"> 
             {% for item in item.submenu %}
                 <a class="dropdown-item" href="{{ item.link }}">{{item.label}}</a>

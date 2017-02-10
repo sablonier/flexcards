@@ -3,26 +3,24 @@
   <body>
 	  
 {% include 'partials/_navbar.twig' %}
+
+    {% set cols = [1,2,3,4] %}
+    {% set rows = [1,2,3] %}
     
     {% set vertical = [] %}
     {% set horizontal = [] %}
     {% set horizontal3x = [] %}
     {% set horizontal2x = [] %}
     
-    
     {# The latest entries, you can change the query to whatever you want  #}
     {% setcontent boxes = 'entries/latest/12' %}
     
-    {# get the query ordering #}
+    {# Get the query ordering #}
 	{% for box in boxes %}
 	  {% set vertical = vertical|merge([box.id]) %}
 	{% endfor %}
- 
-    {% set rows = [1,2,3] %}
-    {% set cols = [1,2,3,4] %}
     
-    {# 4 cols #}
-    {% set cols = [1,2,3,4] %}
+    {# 4 columns #}
     {% set flipper = [] %}
     {% for i in cols %}
       {% for j in rows %}
@@ -30,40 +28,37 @@
       {% endfor %}
     {% endfor %}
     
-    {% for key in flipper|keys %}
-      {% set horizontal = horizontal|merge({0: vertical[flipper[key]]|trim}) %}
-    {% endfor %}
-    
-    {# 3 cols #}
-    {% set cols3x = [1,2,3] %}
+    {# 3 columns #}
     {% set flipper3x = [] %}
-    {% for i in cols3x %}
-      {% for j in rows %}
-        {% set flipper3x = flipper3x|merge([ i-(cols3x|length+1)+j*cols3x|length ]) %}
+    {% for i in cols|slice[0:3] %}
+      {% for j in 0..3 %}
+        {% set flipper3x = flipper3x|merge([ i-4+(j*3)+3 ]) %}
       {% endfor %}
     {% endfor %}
     
-    {% for key in flipper3x|keys %}
-      {% set horizontal3x = horizontal3x|merge({0: vertical[flipper3x[key]]|trim}) %}
-    {% endfor %}
-    
-    {# 2 cols #}
-    {% set cols2x = [1,2] %}
+    {# 2 columns #}
     {% set flipper2x = [] %}
-    {% for i in cols2x %}
-      {% for j in [1,2,3,4,5,6,7,8] %}
-        {% set flipper2x = flipper2x|merge([ (i+(j*cols2x|length)-1)-cols2x|length ]) %}
+    {% for i in cols|slice[0:2] %}
+      {% for j in 0..(boxes|length//2) %}
+        {% set flipper2x = flipper2x|merge([ i+2*j-1 ]) %}
       {% endfor %}
     {% endfor %}
     
-    {% for key in flipper2x|keys %}
+    {% for key in flipper|keys %}
+      {% if vertical[flipper[key]] is not empty %}
+      {% set horizontal = horizontal|merge({0: vertical[flipper[key]]|trim}) %}
+      {% endif %}
+      {% if vertical[flipper3x[key]] is not empty %}
+      {% set horizontal3x = horizontal3x|merge({0: vertical[flipper3x[key]]|trim}) %}
+      {% endif %}
+      {% if vertical[flipper2x[key]] is not empty %}
       {% set horizontal2x = horizontal2x|merge({0: vertical[flipper2x[key]]|trim}) %}
+      {% endif %}
     {% endfor %}
-    
-    {#{{ dump(horizontal4x) }}
-    {{ dump(horizontal3x) }}
-    {{ dump(horizontal2x) }}#}
-	 
+	
+	{#{{ dump(horizontal) }}
+	{{ dump(horizontal3x) }}
+	{{ dump(horizontal2x) }}#}
 	
 	<div class="container-fluid">
     
@@ -71,14 +66,13 @@
 			{% set rowstart = 0 %}
 			{% set sortorder = 0 %}
 			{% for col in cols|keys %}
-            <div class="col-sm-3 col-md-6 col-lg-6 col-xl-3">
+            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
 				{% for key in horizontal|keys|slice(rowstart, rows|length) %}
-				{% if horizontal[key] != "" %}
-				{{ dump(horizontal[key]) }}
 			    {% setcontent record = 'entry/%this%'|replace({'%this%': horizontal[key]}) %}
-			    <div id="{{flipper[key]}}">
-			    <div class="card" id="c{{flipper[key]}}">
+			    <div id="{{horizontal[key]}}">
+			    <div class="card" data-sort="{{horizontal[key]}}">
 				    <div class="card-block">
+						<div>Id: {{horizontal[key]}}</div>
 					    <h4 class="card-title">{{ record.title }}</h4>
 					    <img class="card-img" src="{{ thumbnail(record.image) }}">
 					    <p class="card-text">{{ record.teaser }}</p>
@@ -87,7 +81,6 @@
 			    </div>
 			    <p></p>
 			    </div>
-			    {% endif %}
 			    {% endfor %}
 			    {% set rowstart = rowstart+rows|length %}
             </div>

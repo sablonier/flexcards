@@ -4,51 +4,57 @@
     <script src={{ asset('js/tether.min.js', 'theme') }}></script>
     <script src={{ asset('js/bootstrap.min.js', 'theme') }}></script>
     
-<!--<script>
-(function($) {
-    var uniqueCntr = 0;
-    $.fn.resized = function (waitTime, fn) {
-        if (typeof waitTime === "function") {
-            fn = waitTime;
-            waitTime = 250;
-        }
-        var tag = "resizeTimer" + uniqueCntr++;
-        this.resize(function () {
-            var self = $(this);
-            var timer = self.data(tag);
-            if (timer) {
-                clearTimeout(timer);
-            }
-            timer = setTimeout(function () {
-                self.removeData(tag);
-                fn.call(self[0]);
-            }, waitTime);
-            self.data(tag, timer);
-        });
-    }
-})(jQuery);
 
-$(window).resized(function() {
-	if ($(window).innerWidth() <= 1199) {
-		$('#4').append($('#2').html());
-        $('#c4').remove();
-    }
-    
-});
--->
 <script>
 console.log("Width: " + $(window).innerWidth());
 console.log("Boxes: " + "{{boxes|length}}");
 
-if ($(window).innerWidth() < 1199) {
-		$('#4').append($('#2').html());
-        $('#c4').remove();
-        $('#5').append($('#3').html());
-        $('#c5').remove();
-        
-    }
+var h3x = {{ horizontal3x|json_encode|raw }};
+console.log(JSON.stringify(h3x));
+
+var clearx = [];
+$.each( h3x, function(index) {
+     if (index % 3 == 0) {
+        clearx.push(index);
+     }
+});  
+
+console.log(JSON.stringify(clearx)); 
+
+$.each( h3x, function( index, value ) {
+     if (index < 3) {
+     $('#'+h3x[index]).append($('#'+h3x[index+1]));
+     }
+     if (index == 3 ) {
+     $('#'+h3x[index+1]).append($('#'+h3x[index+2]));
+     }
+     if (index > 3 && index < 7) {
+     $('#'+h3x[index]).append($('#'+h3x[index+1]));
+     }
+     if (index == 7 ) {
+     $('#'+h3x[index+1]).append($('#'+h3x[index+2]));
+     }
+     if (index > 7 && index < 11) {
+     $('#'+h3x[index]).append($('#'+h3x[index+1]));
+     }
+
+});
+
+/*$('#12').append($('#4')) 0:1
+$('#4').append($('#7')) 1:2
+$('#7').append($('#8')) 2:3
+
+$('#11').append($('#6')) 4:5
+$('#6').append($('#9'))
+$('#9').append($('#1'))
+
+$('#3').append($('#5'))
+$('#5').append($('#10'))
+$('#10').append($('#2'))*/
 
 </script>
+
+
 <!--$(window).bind("resize",function(){
 	var width = $(window).innerWidth();
 	switch(true) {
