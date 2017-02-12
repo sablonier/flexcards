@@ -9,46 +9,52 @@
 //console.log("Width: " + $(window).innerWidth());
 //console.log("Boxes: " + "{{boxes|length}}");
 
-var h4x = {{ horizontal|json_encode|raw }};
+var vertical = {{ vertical|json_encode|raw }};
+var h4x = {{ horizontal4x|json_encode|raw }};
 var h3x = {{ horizontal3x|json_encode|raw }};
 var h2x = {{ horizontal2x|json_encode|raw }};
-//console.log(JSON.stringify(h3x)); 
 
-// Get divider
-function getColumns(records, input) {
-    var columns = [];
-    for (i = 0; i < records.length; i++) {
-        if (i % input == 0) { columns.push(i); } 
+function splitColumns(records, rows) {
+    
+    var arrays = [];
+    
+    while (records.length > 0)
+    arrays.push(records.splice(0, rows));
+    console.log('Original: '+JSON.stringify(arrays));
+    
+    // Case we get not the max. of rows -> want matrix i.e. (3,3,2,2) and not (3,3,3,1)
+    if (arrays[arrays.length-1].length == 1 && arrays[0].length > 1) {
+        for (i = 0; i < arrays[arrays.length-1].length; i++) {
+            arrays[arrays.length-2].push(arrays[arrays.length-1][i]);
+        }
+        arrays.splice(3,1);
+        arrays.push(arrays[arrays.length-1].splice(2, 2));
+        console.log('Letztes Array hat nur 1 Wert: '+ JSON.stringify(arrays));
     }
-    return columns;            
-}
+        
+    console.log('Modifiziert: ' + JSON.stringify(arrays));
+        
+    return arrays;
+} 
 
-// Append records to columns
-function appendToColumn(records, start, end) {
-     for (i = start; i <= end; i++) {
-         if (i >= start && i < end) {
-             $('#'+records[i]).append($('#'+records[i+1]));
-         }
-         else {
-             $('#'+records[i+1]).append($('#'+records[i+2]));
-         }
-     }
-     return;
-}
-
-function sortLayout(layout, cols) {
-    var clear = getColumns(layout, cols);
-    
-    appendToColumn(layout, clear[0], clear[1]);
-    appendToColumn(layout, clear[1]+1, clear[2]+1);
-    appendToColumn(layout, clear[2]+2, clear[3]+2);
-
-    console.log(JSON.stringify(clear)); 
-    
+function sortLayout(layout, rows, cols) {
+    var cols = splitColumns(layout, rows);
+    for ( j = 0;j < rows; j++) {
+        for (i = 0; i < cols.length; i++) {
+            $('#'+cols[i][j]).append($('#'+cols[i][j+1]));
+        }
+    }
     return;
 }
 
-sortLayout(h3x, 3);
+// Doing the layout and recalc the rows (records, rows, cols)
+//sortLayout(h4x, 3);
+//sortLayout(h2x, 6);
+
+var rows4x = Math.ceil(h4x.length/4, 0);
+sortLayout(h4x, rows4x, 4);
+
+
 
 </script>
 
