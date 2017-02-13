@@ -47,15 +47,15 @@
 
         {% else %}
         <div class="card">
-			<div class="card-block">
+		    <div class="card-block">
 
                 <h4 class="card-title">{{ __('general.phrase.no-content-found') }}</h4>
 
                 <div class="card-text">
                     {{ __("Unfortunately, no content could be found. Try another page, or go to the <a href=\"%paths_root%\">homepage</a>.", {'%paths_root%': path('homepage')} ) }}
                 </div>
-			</div>
-		</div>
+             </div>
+        </div>
         {% endfor %}
     </div>
 </div>
