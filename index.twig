@@ -4,7 +4,7 @@
 	  
 {% include 'partials/_navbar.twig' %}
 
-    {% setcontent cards = 'entries/latest/12' %}
+    {% setcontent cards = 'entries/latest/3' %}
     
     {% set ids = [] %}
     
@@ -12,9 +12,6 @@
         {% set ids = ids|merge([key]) %}
     {% endfor %}
 	
-
-
-
     <div class="container-fluid">
 		    <div class="row">
 			    <div id="column-0" class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
