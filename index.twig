@@ -4,7 +4,7 @@
 	  
 {% include 'partials/_navbar.twig' %}
 
-    {% setcontent cards = 'entries/latest/9' %}
+    {% setcontent cards = 'entries/latest/12' %}
     
     {% set ids = [] %}
     
@@ -12,13 +12,13 @@
         {% set ids = ids|merge([key]) %}
     {% endfor %}
 	
-	<div class="container-fluid">
 
-</div>
+
+
     <div class="container-fluid">
-		<div class="column">
-			    {% for card in cards %}
-			    <div class="col-12 col-md-6 col-lg-4 col-xl-3" >
+		    <div class="row">
+			    <div id="column-0" class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+			    {% for card in cards|slice(0,3) %}
 			        <div class="card" id="{{card.id}}">
 						<p></p>
 				        <div class="card-block">
@@ -29,9 +29,51 @@
 					        <a href="{{card.link}}" class="btn btn-primary">Read more</a>
 				        </div>
 			        </div>
-			     </div>
 			    {% endfor %}
-        </div>
+			    </div>
+			    <div id="column-1" class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+			    {% for card in cards|slice(3,3) %}
+			        <div class="card" id="{{card.id}}">
+						<p></p>
+				        <div class="card-block">
+						    <div>Id: {{card.id}}</div>
+					        <h4 class="card-title">{{ card.title }}</h4>
+					        <img class="card-img" src="{{ thumbnail(card.image) }}">
+					        <p class="card-text">{{ card.teaser }}</p>
+					        <a href="{{card.link}}" class="btn btn-primary">Read more</a>
+				        </div>
+			        </div>
+			    {% endfor %}
+			    </div>
+			    <div id="column-2" class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+			    {% for card in cards|slice(6,3) %}
+			        <div class="card" id="{{card.id}}">
+						<p></p>
+				        <div class="card-block">
+						    <div>Id: {{card.id}}</div>
+					        <h4 class="card-title">{{ card.title }}</h4>
+					        <img class="card-img" src="{{ thumbnail(card.image) }}">
+					        <p class="card-text">{{ card.teaser }}</p>
+					        <a href="{{card.link}}" class="btn btn-primary">Read more</a>
+				        </div>
+			        </div>
+			    {% endfor %}
+			    </div>
+			    <div id="column-3" class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+			    {% for card in cards|slice(9,3) %}
+			        <div class="card" id="{{card.id}}">
+						<p></p>
+				        <div class="card-block">
+						    <div>Id: {{card.id}}</div>
+					        <h4 class="card-title">{{ card.title }}</h4>
+					        <img class="card-img" src="{{ thumbnail(card.image) }}">
+					        <p class="card-text">{{ card.teaser }}</p>
+					        <a href="{{card.link}}" class="btn btn-primary">Read more</a>
+				        </div>
+			        </div>
+			    {% endfor %}
+			    </div>
+			</div>
     </div>
 
 {% include 'partials/_footer.twig' %}

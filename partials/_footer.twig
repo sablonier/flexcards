@@ -6,8 +6,9 @@
     
 
 <script>
-console.log("Width: " + $(window).innerWidth());
-console.log("Boxes: " + "{{cards|length}}");
+
+//console.log("Width: " + $(window).innerWidth());
+//console.log("Boxes: " + "{{cards|length}}");
 
 var ids = {{ ids|json_encode|raw }};
 
@@ -31,7 +32,7 @@ function getColumns(cols) {
         var tempcols = [[]];
     } 
     
-    console.log(JSON.stringify(tempcols));
+    //console.log(JSON.stringify(tempcols));
     
     for (i = 0; i < ids.length; i+=1) {
         if (i % cols == 0) {
@@ -43,130 +44,69 @@ function getColumns(cols) {
         }
     }
     
-    console.log(JSON.stringify(tempcols));
+    //console.log(JSON.stringify(tempcols));
     return tempcols;
 }
 
 function sortLayout(cols) {
     
     var tempcols = getColumns(cols);
-    for (i = 0; i < tempcols[0].length-1; i+=1) {
-        for (j = 0; j < tempcols.length; j+=1) {
-            console.log('Temp Cols hat Länge '+tempcols.length);
-            $('#'+tempcols[j][i]).append($('#'+tempcols[j][i+1]));
+    
+    for (i = 0; i < tempcols.length; i+=1) {
+    
+        $('#column-'+i).prepend($('#'+tempcols[i][0]));
+        //console.log('#column-'+i + ' prepends #'+tempcols[i][0]);
+        for (j = 0; j < tempcols[0].length; j+=1) {
+            $('#column-'+i+' #'+tempcols[i][j]).append($('#'+tempcols[i][j+1]));
+            //console.log('#column-' + i + ' #'+tempcols[i][j] + ' appends #'+tempcols[i][j+1]);
         }
     }
+    
 }
 
 var resizeTimer, width;
 var mobile = tablet = desksmall = deskwide = desklarge = false;
 
-$(window).resize(function() {
-    // clear the timeout
-    clearTimeout(resizeTimer);
 
-    // execute breakpointChange() once the viewport 
-    // has stopped changing in size for 400ms
-    resizeTimer = setTimeout(breakpointChange(), 400);
+$(window).on("load resize",function(e) {
+    clearTimeout(resizeTimer);
+    // timer set to null for stress
+    resizeTimer = setTimeout(breakpointChange(), 0);
 });
 
 function breakpointChange() {
-    // use vanillajs window.innerWidth 
-    // instead of jQuery $(window).width() as suggested by simon
     width = window.innerWidth;
 
     if (!mobile && width < 577) {
         tablet = desksmall = deskwide = desklarge = false;
         mobile = true;
-        console.log('is mobile');
+        sortLayout(1);
     }
 
     if (!tablet && width > 578 && width < 768) {
         mobile = desksmall = deskwide = desklarge = false;
         tablet = true;
-        console.log('is tablet');
+        sortLayout(1);
     }
 
     if (!desksmall && width > 769 && width < 992) {
-        mobile = tablet = desikwide = desklarge = false;
+        mobile = tablet = deskwide = desklarge = false;
         desksmall = true;
-        console.log('is desktop small');
+        sortLayout(2);
     }
     
     if (!deskwide && width > 992 && width < 1199) {
         mobile = tablet = desksmall = desklarge = false;
         deskwide = true;
-        console.log('is desktop wide');
         sortLayout(3);
     }
     
     if (!desklarge && width > 1200) {
         mobile = tablet = desksmall = deskwide = false;
         desklarge = true;
-        console.log('is desktop xlarge');
         sortLayout(4);
-        window.reload();
     }
 }
-$(window).resize();
-
-//sortLayout(4);
-
-/*$(window).on("load",function(e) {
-	var width = $(window).innerWidth();
-	switch(true) {
-	    case(width > 1199):
-		sortLayout(4);
-		console.log('Layout set 4 cols');
-		break;
-		case(width < 1200):
-		sortLayout(3);
-		console.log('Layout set 3 cols');
-		break;
-		case(width > 1023):
-		sortLayout(3);
-		console.log('Layout set 3 cols');
-		break;
-		case(width < 1024):
-		sortLayout(2);
-		console.log('Layout set 2 cols');
-		break;
-		case(width > 767):
-		sortLayout(2);
-		console.log('Layout set 2 cols');
-		break;
-		case(width < 768):
-		sortLayout(1);
-		console.log('Layout set 1 cols');
-		break;
-		default:
-		sortLayout(4);
-		}
-});*/
-
-
-
-/*var doit;
-function resizedw(){
-    var width = $(window).innerWidth();
-    switch(true) {
-		case(width < 1200):
-		sortLayout(3);
-		break;
-		case(width < 768):
-		sortLayout(2);
-		break;
-		default:
-		sortLayout(1);
-		}
-};
-
-window.onresize = function() {
-    clearTimeout(doit);
-    doit = setTimeout(function() {
-        resizedw();
-    }, 500);
-};*/
 
 </script>
 
