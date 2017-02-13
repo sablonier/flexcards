@@ -4,7 +4,7 @@
 	  
 {% include 'partials/_navbar.twig' %}
 
-    {% setcontent cards = 'entries/latest/6' %}
+    {% setcontent cards = 'entries/latest/9' %}
     
     {% set ids = [] %}
     
@@ -20,12 +20,13 @@
 			    {% for card in cards %}
 			    <div class="col-12 col-md-6 col-lg-4 col-xl-3" >
 			        <div class="card" id="{{card.id}}">
+						<p></p>
 				        <div class="card-block">
 						    <div>Id: {{card.id}}</div>
 					        <h4 class="card-title">{{ card.title }}</h4>
 					        <img class="card-img" src="{{ thumbnail(card.image) }}">
 					        <p class="card-text">{{ card.teaser }}</p>
-					        {{ link(card.link, "Read more") }}
+					        <a href="{{card.link}}" class="btn btn-primary">Read more</a>
 				        </div>
 			        </div>
 			     </div>
