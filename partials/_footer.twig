@@ -14,45 +14,24 @@ var h4x = {{ horizontal4x|json_encode|raw }};
 var h3x = {{ horizontal3x|json_encode|raw }};
 var h2x = {{ horizontal2x|json_encode|raw }};
 
-function splitColumns(records, rows) {
-    
-    var arrays = [];
-    
-    while (records.length > 0)
-    arrays.push(records.splice(0, rows));
-    console.log('Original: '+JSON.stringify(arrays));
-    
-    // Case we get not the max. of rows -> want matrix i.e. (3,3,2,2) and not (3,3,3,1)
-    if (arrays[arrays.length-1].length == 1 && arrays[0].length > 1) {
-        for (i = 0; i < arrays[arrays.length-1].length; i++) {
-            arrays[arrays.length-2].push(arrays[arrays.length-1][i]);
-        }
-        arrays.splice(3,1);
-        arrays.push(arrays[arrays.length-1].splice(2, 2));
-        console.log('Letztes Array hat nur 1 Wert: '+ JSON.stringify(arrays));
-    }
-        
-    console.log('Modifiziert: ' + JSON.stringify(arrays));
-        
-    return arrays;
-} 
+var col = [[],[],[],[]];
 
-function sortLayout(layout, rows, cols) {
-    var cols = splitColumns(layout, rows);
-    for ( j = 0;j < rows; j++) {
-        for (i = 0; i < cols.length; i++) {
-            $('#'+cols[i][j]).append($('#'+cols[i][j+1]));
+for (i = 0; i < vertical.length; i+=1) {
+    if (i % 4 == 0) {
+        for (j = 0; j < 4; j += 1) {
+            if (vertical[i+j] != null) {col[j].push(vertical[i+j])};
         }
     }
-    return;
 }
 
-// Doing the layout and recalc the rows (records, rows, cols)
-//sortLayout(h4x, 3);
-//sortLayout(h2x, 6);
+{# for i in cols %}
+      {% for j in 0..rows %}
+        {% set flipper4x = flipper4x|merge([ (i-4+j*4)-1 ]) %}
+      {% endfor %}
+    {% endfor #}
 
-var rows4x = Math.ceil(h4x.length/4, 0);
-sortLayout(h4x, rows4x, 4);
+console.log(JSON.stringify(col));
+
 
 
 
