@@ -1,0 +1,62 @@
+{% include 'partials/_header.twig' %}
+
+  <body>
+	  
+{% include 'partials/_navbar.twig' %}
+<div class="container-fluid">
+        {# This template is used for 'listings': Generic pages that list a number of
+           records from a certain contenttype. These records are available as an array
+           called 'records'. In the for-loop below, we iterate over the records that
+           are on this page. It can be used for overview pages like 'all entries', or
+           'all records tagged with kittens'. #}
+
+        {# If used for listing a taxonomy, we add a heading.: #}
+        {% if taxonomytype is defined %}
+            <h2>
+                {{ __('general.phrase.overview-for') }}
+                {% if taxonomy.options[slug] is defined %}
+                    {{ taxonomy.options[slug] }}
+                {% else %}
+                    {{ slug }}
+                {% endif %}
+            </h2>
+            {# Taxonomies are fetched unordered by design except if 'has_sortorder'
+               is set to true. This way we keep 'grouping' intact in the listing. #}
+            {% if not taxonomy.has_sortorder %}
+                {# If we specified an order in config.yml, sort them here, accordingly: #}
+                {% set records = records|order(app.config.get('general/listing_sort')) %}
+            {% endif %}
+        {% endif %}
+	<div class="card-columns p-2">
+        {% for record in records %}
+        <div class="card">
+			<div class="card-block">
+                <h4 class="card-title"><a href="{{ record.link }}">{{ record.title }}</a></h4>
+
+                {# display something introduction-like.. #}
+                {% if record.introduction %}
+					<div class="card-text">{{ record.introduction }}</div>
+                {% elseif record.teaser %}
+                    <div class="card-text">{{ record.teaser }}</div>
+                {% else %}
+                    <div class="card-text">{{ record.excerpt(200, false, search|default('')) }}</div>
+                {% endif %}
+
+			</div>
+		</div>
+
+        {% else %}
+        <div class="card">
+			<div class="card-block">
+
+                <h4 class="card-title">{{ __('general.phrase.no-content-found') }}</h4>
+
+                <div class="card-text">
+                    {{ __("Unfortunately, no content could be found. Try another page, or go to the <a href=\"%paths_root%\">homepage</a>.", {'%paths_root%': path('homepage')} ) }}
+                </div>
+			</div>
+		</div>
+        {% endfor %}
+    </div>
+</div>
+{% include 'partials/_footer.twig' %}
