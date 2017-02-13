@@ -6,34 +6,47 @@
     
 
 <script>
-//console.log("Width: " + $(window).innerWidth());
-//console.log("Boxes: " + "{{boxes|length}}");
+console.log("Width: " + $(window).innerWidth());
+console.log("Boxes: " + "{{cards|length}}");
 
-var vertical = {{ vertical|json_encode|raw }};
-var h4x = {{ horizontal4x|json_encode|raw }};
-var h3x = {{ horizontal3x|json_encode|raw }};
-var h2x = {{ horizontal2x|json_encode|raw }};
+var ids = {{ ids|json_encode|raw }};
 
 var col = [[],[],[],[]];
 
-for (i = 0; i < vertical.length; i+=1) {
+for (i = 0; i < ids.length; i+=1) {
     if (i % 4 == 0) {
         for (j = 0; j < 4; j += 1) {
-            if (vertical[i+j] != null) {col[j].push(vertical[i+j])};
+            if (ids[i+j] != null) {col[j].push(ids[i+j])};
         }
     }
 }
 
-{# for i in cols %}
-      {% for j in 0..rows %}
-        {% set flipper4x = flipper4x|merge([ (i-4+j*4)-1 ]) %}
-      {% endfor %}
-    {% endfor #}
+function sortLayout(cols) {
+    for (i = 0; i < cols-1; i+=1) {
+        $('#'+col[0][i]).append($('#'+col[0][i+1]));
+        $('#'+col[1][i]).append($('#'+col[1][i+1]));
+        $('#'+col[2][i]).append($('#'+col[2][i+1]));
+        $('#'+col[3][i]).append($('#'+col[3][i+1]));
+    }
+}
+
+$(window).resize( function() {
+	var width = $(window).innerWidth();
+	switch(true) {
+		case(width > 1200):
+		sortLayout(4);
+		break;
+		case(width > 1200):
+		sortLayout(4);
+		break;
+		default:
+		sortLayout(4);
+		}
+});
+
+sortLayout(4)
 
 console.log(JSON.stringify(col));
-
-
-
 
 </script>
 

@@ -4,96 +4,32 @@
 	  
 {% include 'partials/_navbar.twig' %}
 
-    {% set cols = [1,2,3,4] %}
+    {% setcontent cards = 'entries/latest/6' %}
     
-    {% set vertical = [] %}
-    {% set horizontal4x = [] %}
-    {% set horizontal3x = [] %}
-    {% set horizontal2x = [] %}
+    {% set ids = [] %}
     
-    {# The latest entries, you can change the query to whatever you want  #}
-    {% setcontent boxes = 'entries/latest/10' %}
-    
-    {% set rows = 0 %}
-    {% if boxes|length % cols|length == 0 %}
-      {% set rows = boxes|length // cols|length %}
-    {% else %}
-      {% set rows = boxes|length // cols|length+1 %}
-    {% endif %}
-    
-    {# Get the query ordering #}
-	{% for box in boxes %}
-	  {% set vertical = vertical|merge([box.id]) %}
-	{% endfor %}
-    
-    {# 4 columns #}
-    {% set flipper4x = [] %}
-    {% for i in cols %}
-      {% for j in 0..rows %}
-        {% set flipper4x = flipper4x|merge([ (i-4+j*4)-1 ]) %}
-      {% endfor %}
-    {% endfor %}
-    
-    {# 3 columns #}
-    {% set flipper3x = [] %}
-    {% for i in cols|slice[0:3] %}
-      {% for j in 0..((boxes|length//4)+1) %}
-        {% set flipper3x = flipper3x|merge([ i-4+(j*3)+3 ]) %}
-      {% endfor %}
-    {% endfor %}
-    
-    {# 2 columns #}
-    {% set flipper2x = [] %}
-    {% for i in cols|slice[0:2] %}
-      {% for j in 0..(boxes|length//2) %}
-        {% set flipper2x = flipper2x|merge([ i+2*j-1 ]) %}
-      {% endfor %}
-    {% endfor %}
-    
-    {% for key in flipper4x|keys %}
-      {% if vertical[flipper4x[key]] is not empty %}
-          {% set horizontal4x = horizontal4x|merge({0: vertical[flipper4x[key]]}) %}
-      {% endif %}
-    {% endfor %}
-    
-    {% for key in flipper3x|keys %}
-      {% if vertical[flipper3x[key]] is not empty %}
-      {% set horizontal3x = horizontal3x|merge({0: vertical[flipper3x[key]]}) %}
-      {% endif %}
-    {% endfor %}
-    
-    {% for key in flipper2x|keys %}
-      {% if vertical[flipper2x[key]] is not empty %}
-      {% set horizontal2x = horizontal2x|merge({0: vertical[flipper2x[key]]}) %}
-      {% endif %}
+    {% for key in cards|keys %}
+        {% set ids = ids|merge([key]) %}
     {% endfor %}
 	
 	<div class="container-fluid">
-    
-        <div class="row">
-			{% set rowstart = 0 %}
-			{% set sortorder = 0 %}
-			{% for col in cols|keys %}
-            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-				{% for key in horizontal4x|keys|slice(rowstart, rows) %}
-			    {% setcontent record = 'entry/%this%'|replace({'%this%': horizontal4x[key]}) %}
-			    <div id="{{horizontal4x[key]}}">
-			    <div class="card" data-sort="{{horizontal4x[key]}}">
-				    <div class="card-block">
-						<div>Id: {{horizontal4x[key]}}</div>
-					    <h4 class="card-title">{{ record.title }}</h4>
-					    <img class="card-img" src="{{ thumbnail(record.image) }}">
-					    <p class="card-text">{{ record.teaser }}</p>
-					    {{ link(record.link, "Read more") }}
-				    </div>
-			    </div>
-			    <p></p>
-			    </div>
+
+</div>
+    <div class="container-fluid">
+		<div class="row">
+			    {% for card in cards %}
+			    <div class="col-12 col-md-6 col-lg-4 col-xl-3" >
+			        <div class="card" id="{{card.id}}">
+				        <div class="card-block">
+						    <div>Id: {{card.id}}</div>
+					        <h4 class="card-title">{{ card.title }}</h4>
+					        <img class="card-img" src="{{ thumbnail(card.image) }}">
+					        <p class="card-text">{{ card.teaser }}</p>
+					        {{ link(card.link, "Read more") }}
+				        </div>
+			        </div>
+			     </div>
 			    {% endfor %}
-			    {% set rowstart = rowstart+rows %}
-            </div>
-            {% endfor %}
-            
         </div>
     </div>
 

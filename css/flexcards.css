@@ -46,7 +46,8 @@ button, input, optgroup, select, textarea {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-color: #fff;
+  /*background-color: #fff;*/
+  background-color: #f3f1e1;
   border: 0px solid rgba(0, 0, 0, 0.125);
   border-radius: 0px;
 }
@@ -57,6 +58,7 @@ button, input, optgroup, select, textarea {
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
   padding: 1.25rem;
+  background-color: #fff;
 }
 
 .card-title {
