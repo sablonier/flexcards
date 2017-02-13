@@ -5,11 +5,35 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    version="1.1"
    id="svg2"
    viewBox="0 0 106.29921 106.29921"
    height="30mm"
-   width="30mm">
+   width="30mm"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="flexcard.svg">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="794"
+     inkscape:window-height="480"
+     id="namedview9"
+     showgrid="false"
+     inkscape:zoom="2.2201481"
+     inkscape:cx="140.30595"
+     inkscape:cy="53.149605"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="flowRoot3336" />
   <defs
      id="defs4" />
   <metadata
@@ -20,7 +44,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -40,8 +64,9 @@
          style="fill:#000000" />
       <path
          id="path3345"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Garuda;-inkscape-font-specification:Garuda;fill:#ffffff"
-         d="m 13.421563,44.573984 0,-28.64 19.319999,0 0,3.36 -15.52,0 0,8.84 13.36,0 0,3.36 -13.36,0 0,13.08 -3.799999,0 z" />
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Garuda;-inkscape-font-specification:Garuda;fill:#ffffff;stroke:#ffffff;stroke-width:1.90914333;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 14.017287,43.97826 0,-25.681341 17.324144,0 0,3.012895 -13.916704,0 0,7.926782 11.979843,0 0,3.012895 -11.979843,0 0,11.728769 -3.40744,0 z"
+         inkscape:connector-curvature="0" />
     </g>
   </g>
 </svg>
