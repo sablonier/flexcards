@@ -1,2 +1,4 @@
 # flexcards
-Bootstrap 4 template for Bolt CMS (>= 3.2), working with cards as a dynamic flexbox layout.
+Bolt CMS theme (>= 3.2), working with Bootstrap 4 Cards for a dynamic flexible grid layout.
+
+
