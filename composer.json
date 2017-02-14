@@ -1,0 +1,24 @@
+{
+    "name": "sablonier/flexcards",
+    "description": "Bootstrap 4 Card Grid Layout",
+    "type": "bolt-theme",
+    "keywords": ["bootstrap", "grid", "blog", "modern"],
+    "require": {
+        "bolt/bolt": "^3.2"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yves Sablonier",
+            "email": "git@sablonier.ch"
+        }
+    ],
+    "extra": {
+        "bolt-icon": "icon.png",
+        "bolt-screenshots": [
+            "screenshots/teaser.png",
+            "screenshots/screenshot1.png",
+            "screenshots/screenshot2.png"
+        ]
+    }
+}
