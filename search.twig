@@ -17,16 +17,25 @@
         </h2>
 
 		<div class="card-columns p-2">
-			{% for record in records %}
+			{% for card in records %}
 			<div class="card">
 				<div class="card-block">
-					<h4 class="card-title"><a href="{{ record.link }}">{{ record.title }}</a></h4>
-					{% if record.image!="" %}
-					<a href="{{ image(record.image) }}">
-					   <img class="card-img" src="{{ thumbnail(record.image) }}">
+			    <p>
+                    <small class="text-muted"><strong>{{ card.datepublish|localedatetime("%A %B %e") }}</strong> by {{ card.user.username }}<br>
+                    {% if card.taxonomy.tags is defined %}
+                         {% for tag in card.taxonomy.tags %}
+                         <span style="background: #eeeede">{{ tag }}</span>{% if not loop.last %} {% endif %}
+                         {% endfor %}
+                    {% endif %}
+                    </small>
+                </p>
+					<h4 class="card-title"><a href="{{ card.link }}">{{ card.title }}</a></h4>
+					{% if card.image!="" %}
+					<a href="{{ image(card.image) }}">
+					   <img class="card-img" src="{{ thumbnail(card.image) }}">
 					</a>
 					{% endif %}
-					<p class="card-text">{{ record.excerpt(300, false, search|default('')) }}</p>
+					<p class="card-text">{{ card.excerpt(300, false, search|default('')) }}</p>
 				</div>
 			</div>
 		    {% else %}
