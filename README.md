@@ -17,7 +17,7 @@ In case you will give older Bolt CMS install a try or your server doesn't allow 
 ## Bolt/Bootstrap 4/jQuery/.twig resources for your own development
 All the scripts and css are included in the theme and have no other dependencies. Here some links to get more information about using this resources for your own work:
 
- * [Bolt CMS ^v3.2] https://docs.bolt.cm/3.2/getting-started/introduction
+ * [Bolt CMS template work](https://docs.bolt.cm/3.2/getting-started/introduction)
  * [bootstrap >=4](https://v4-alpha.getbootstrap.com/) as framework
  * [twig >=2](http://twig.sensiolabs.org/doc/2.x/) I used this docs for working with Bolt CMS templates/themes
  * [jQuery >=3](https://jquery.com/download/) for the slim version
