@@ -1,7 +1,7 @@
 //console.log("Width: " + $(window).innerWidth());
 //console.log("Boxes: " + "{{cards|length}}");
 
-//var ids = {{ ids|json_encode|raw }};
+var ids = $( ".card" ).map(function() {if (this.id) { return this.id;}}).get();
 
 var tempcols = [];
 
