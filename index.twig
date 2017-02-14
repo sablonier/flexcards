@@ -4,27 +4,29 @@
 	  
 {% include 'partials/_navbar.twig' %}
 
-    {% setcontent cards = 'entries/latest/12' %}
+    {% setcontent cards = 'entries/latest/13' %}
+    
+    {% set rows = ((cards|length)*0.25)|round(0, 'ceil') %}
 	
     <div class="container-fluid">
 		    <div class="row">
 			    <div id="column-0" class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-			    {% for card in cards|slice(0,3) %}
+			    {% for card in cards|slice(0,rows) %}
 			        {% include 'partials/_card.twig' %}
 			    {% endfor %}
 			    </div>
 			    <div id="column-1" class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-			    {% for card in cards|slice(3,3) %}
+			    {% for card in cards|slice(rows*2,rows) %}
 			        {% include 'partials/_card.twig' %}
 			    {% endfor %}
 			    </div>
 			    <div id="column-2" class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-			    {% for card in cards|slice(6,3) %}
+			    {% for card in cards|slice(rows*3,rows) %}
 			        {% include 'partials/_card.twig' %}
 			    {% endfor %}
 			    </div>
 			    <div id="column-3" class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-			    {% for card in cards|slice(9,3) %}
+			    {% for card in cards|slice(rows*4,rows) %}
 			        {% include 'partials/_card.twig' %}
 			    {% endfor %}
 			    </div>
