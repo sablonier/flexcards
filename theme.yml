@@ -2,22 +2,6 @@
 
 # Variables that are in this file, can be used in your twig template like {{ theme.foo }}
 
-layout:
-    aside: right # left, right, none
-    aside_width: 4 # out of 12
-    main_width: 8 # out of 12
-    variant: centered # wide or centered
-
-# Setting the header image. The default images in this theme all came from
-# Visualhunt: https://visualhunt.com/
-headerimage:
-    - 01.jpg
-    - 02.jpg
-    - 03.jpg
-    - 04.jpg
-    - 05.jpg
-    - 06.jpg
-    - 07.jpg
 
 # Template filenames. If you 're creating a theme for distribution, you can specify
 # the filenames of the templates here. The templates you will set in this config
@@ -40,23 +24,23 @@ notfound: notfound.twig
 # Extra 'templatefields' can be specified for use in the records / contenttypes
 # that make use of a specific template. This allows editors to add additional
 # fields to a certain page, but not to others.
-templatefields:
-    extrafields.twig:
-        section_1:
-            type: text
-            label: Section 1
-        section_2:
-            type: html
-            label: Section 2
-        image:
-            type: image
+#templatefields:
+#    extrafields.twig:
+#        section_1:
+#            type: text
+#            label: Section 1
+#        section_2:
+#            type: html
+#            label: Section 2
+#        image:
+#            type: image
 
 # Templates can be named for display in the template selector, to allow editors
 # to pick from easier to understand names.
-templateselect:
-    templates:
-        - name: 'Template with extra fields'
-          filename: 'extrafields.twig'
+#templateselect:
+#    templates:
+#        - name: 'Template with extra fields'
+#          filename: 'extrafields.twig'
 
 # Aliases can be set to restrict images to a specific set of available
 # resolutions or to decouple image sizes from template files.
