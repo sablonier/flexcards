@@ -1,9 +1,13 @@
 # 'flexcards' theme for Bolt CMS
-## Introduction: Experimental bootstrap 4 testing
-Flexcards is a Bolt CMS theme (>= 3.2) working with Bootstrap 4 'cards' and jQuery for a simple, dynamic and flexible grid layout. Basic theme shipped with Bolt CMS comes with 'Foundation' framework support and a heavy nested file structure/macros. Flexcards skips foundation css/js completely. For extending flexcards you will need to work with .twig and Bootstrap 4. Please be aware that this work here is completely experimental. Of course, as of this very very alpha version every further development support from Bolt CMS theme developers is very welcome. Please fork, or file issues at least :)
+
+## Introduction: experimental bootstrap 4 testing
+Flexcards is a Bolt CMS theme (>= 3.2) working with Bootstrap 4 'cards' and jQuery for a simple, dynamic and flexible grid layout. Basic theme shipped with Bolt CMS comes with 'Foundation' framework support and a heavy nested file structure/macros. Flexcards skips foundation css/js completely. 
+
+For extending flexcards you will need to work with .twig and Bootstrap 4 (see links below). Please be aware that flexcards development is experimental. Of course, as of this very very alpha version every further development support from Bolt CMS theme developers is very welcome. Please fork, or file issues at least.
 
 :no_bell: 
-```Before you start using this experimental work you should probably read about what browser versions are supported with Bootstrap 4. Have a look here:``` [Browsers supported](http://v4-alpha.getbootstrap.com/getting-started/browsers-devices/)
+```Before you start using this experimental work for production you should probably read about what browser versions are supported with Bootstrap 4. Have a look here:``` 
+[Browsers supported](http://v4-alpha.getbootstrap.com/getting-started/browsers-devices/)
 
 ## Installation
 
@@ -19,6 +23,9 @@ You will need to install the famous Bolt CMS on your server, or update your curr
 ### Manual install
 In case you will give an older Bolt CMS install a try (or restrictions on your server doesn't allow back-end installation) you can download flexcards from github here and install it via (s)ftp on your server. Just unzip the folder into your `themes` folder and set flexcards as theme in `config.yml`.
 
+### Setup
+There is a `theme.yml` for ongoing development in the theme folder but this is just a clone from the base template shipped with Bolt CMS. There are no global settings for flexcards design, you will need to modify `flexcard.css` to get your own styles.
+
 ## Bolt/Bootstrap 4/jQuery/.twig resources for your own development
 All the scripts and css are included in the theme and have no other dependencies. Here some links to get more information about using this resources for your own work:
 
@@ -27,5 +34,3 @@ All the scripts and css are included in the theme and have no other dependencies
  * [twig >=2](http://twig.sensiolabs.org/doc/2.x/) I used this docs for working with Bolt CMS templates/themes
  * [jQuery >=3](https://jquery.com/download/) for the slim version
  * [theter](http://tether.io/) in case you want to use bootstrap tooltips
- 
-
