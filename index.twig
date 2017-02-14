@@ -11,6 +11,9 @@
     {% for key in cards|keys %}
         {% set ids = ids|merge([key]) %}
     {% endfor %}
+<script>
+    var ids = {{ ids|json_encode|raw }};
+</script>
 	
     <div class="container-fluid">
 		    <div class="row">
