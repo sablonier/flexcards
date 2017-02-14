@@ -14,11 +14,11 @@
         }
     ],
     "extra": {
-        "bolt-icon": "icon.png",
+        "bolt-icon": "brand/icon.png",
         "bolt-screenshots": [
-            "screenshots/teaser.png",
-            "screenshots/screenshot1.png",
-            "screenshots/screenshot2.png"
+            "screenshots/screen_full.png",
+            "screenshots/screen_tablet.png",
+            "screenshots/screen_mobile.png"
         ]
     }
 }
