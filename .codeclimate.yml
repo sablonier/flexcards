@@ -4,7 +4,7 @@ engines:
     enabled: true
     checks:
       fallback-colors:
-        enabled:false
+        enabled: false
   duplication:
     enabled: true
     config:
