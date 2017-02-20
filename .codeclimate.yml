@@ -47,8 +47,3 @@ ratings:
   - "**.js"
   - "**.php"
 
-exclude_paths:
-  - "screenshots/"
-  - "fonts/"
-  - "css/bootstrap*"
-  - "js/bootstrap*"
