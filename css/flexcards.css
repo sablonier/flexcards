@@ -389,7 +389,7 @@ button, input, optgroup, select, textarea {
   }
 }
 
-@media (min-width: 992px) and (max-width: 1199px) {
+@media (min-width: 992px) and (max-width: 1200px) {
   .card-columns {
     -webkit-column-count: 3;
        -moz-column-count: 3;
@@ -397,7 +397,7 @@ button, input, optgroup, select, textarea {
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1201px) {
   .card-columns {
     -webkit-column-count: 4;
        -moz-column-count: 4;

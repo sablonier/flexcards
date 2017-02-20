@@ -80,19 +80,19 @@ function breakpointChange() {
         sortLayout(1);
     }
 
-    if (!desksmall && width > 769 && width < 992) {
+    if (!desksmall && width >= 769 && width < 992) {
         mobile = tablet = deskwide = desklarge = false;
         desksmall = true;
         sortLayout(2);
     }
     
-    if (!deskwide && width > 992 && width < 1199) {
+    if (!deskwide && width >= 992 && width < 1200) {
         mobile = tablet = desksmall = desklarge = false;
         deskwide = true;
         sortLayout(3);
     }
     
-    if (!desklarge && width > 1200) {
+    if (!desklarge && width >= 1200) {
         mobile = tablet = desksmall = deskwide = false;
         desklarge = true;
         sortLayout(4);
