@@ -15,9 +15,9 @@
             <h2>
                 {{ __('general.phrase.overview-for') }}
                 {% if taxonomy.options[slug] is defined %}
-                    {{ taxonomy.options[slug] }}
+                    <mark>{{ taxonomy.options[slug] }}</mark>
                 {% else %}
-                    {{ slug }}
+                    <mark>{{ slug }}</mark>
                 {% endif %}
             </h2>
             {# Taxonomies are fetched unordered by design except if 'has_sortorder'
@@ -31,6 +31,19 @@
         {% for record in records %}
         <div class="card">
 			<div class="card-block">
+			    <p>
+                <small class="text-muted"><strong>{{ record.datepublish|localedatetime("%A %B %e") }}</strong> by {{ record.user.username }}<br>
+                {% if record.taxonomy.tags is defined %}
+                 {% for tag in record.taxonomy.tags %}
+                     {% if slug == tag or taxonomy.options[slug] == tag %}
+                         <a href="/tags/{{ tag }}"><span style="background: #eeeede; margin-right: 2px; padding: 2px;"><mark>{{ tag }}</mark></span></a>
+                     {% else %}
+                         <a href="/tags/{{ tag }}"><span style="background: #eeeede; margin-right: 2px; padding: 2px;">{{ tag }}</span></a>
+                     {% endif %}
+                 {% endfor %}
+                {% endif %}
+                </small>
+                </p>
                 <h4 class="card-title"><a href="{{ record.link }}">{{ record.title }}</a></h4>
 
                 {# display something introduction-like.. #}
