@@ -17,4 +17,6 @@ ratings:
   - "**.css"
   - "**.js"
   - "**.php"
-exclude_paths: []
+exclude_paths:
+  - "css/bootstrap*.*"
+  - "js/bootstrap*.*"
