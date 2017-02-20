@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'HKGroteskBold';
     src: url('fonts/HKGroteskBold.eot');
-    src: url('fonts/HKGroteskBold.eot') format('embedded-opentype'),
+    src: url('fonts/HKGroteskBold.eot?#iefix') format('embedded-opentype'),
          url('fonts/HKGroteskBold.woff2') format('woff2'),
          url('fonts/HKGroteskBold.woff') format('woff'),
          url('fonts/HKGroteskBold.ttf') format('truetype'),
@@ -11,7 +11,7 @@
 @font-face {
     font-family: 'HKGroteskBoldItalic';
     src: url('fonts/HKGroteskBoldItalic.eot');
-    src: url('fonts/HKGroteskBoldItalic.eot') format('embedded-opentype'),
+    src: url('fonts/HKGroteskBoldItalic.eot?#iefix') format('embedded-opentype'),
          url('fonts/HKGroteskBoldItalic.woff2') format('woff2'),
          url('fonts/HKGroteskBoldItalic.woff') format('woff'),
          url('fonts/HKGroteskBoldItalic.ttf') format('truetype'),
@@ -21,7 +21,7 @@
 @font-face {
     font-family: 'HKGroteskItalic';
     src: url('fonts/HKGroteskItalic.eot');
-    src: url('fonts/HKGroteskItalic.eot') format('embedded-opentype'),
+    src: url('fonts/HKGroteskItalic.eot?#iefix') format('embedded-opentype'),
          url('fonts/HKGroteskItalic.woff2') format('woff2'),
          url('fonts/HKGroteskItalic.woff') format('woff'),
          url('fonts/HKGroteskItalic.ttf') format('truetype'),
@@ -31,7 +31,7 @@
 @font-face {
     font-family: 'HKGroteskLight';
     src: url('fonts/HKGroteskLight.eot');
-    src: url('fonts/HKGroteskLight.eot') format('embedded-opentype'),
+    src: url('fonts/HKGroteskLight.eot?#iefix') format('embedded-opentype'),
          url('fonts/HKGroteskLight.woff2') format('woff2'),
          url('fonts/HKGroteskLight.woff') format('woff'),
          url('fonts/HKGroteskLight.ttf') format('truetype'),
@@ -41,7 +41,7 @@
 @font-face {
     font-family: 'HKGroteskLightItalic';
     src: url('fonts/HKGroteskLightItalic.eot');
-    src: url('fonts/HKGroteskLightItalic.eot') format('embedded-opentype'),
+    src: url('fonts/HKGroteskLightItalic.eot?#iefix') format('embedded-opentype'),
          url('fonts/HKGroteskLightItalic.woff2') format('woff2'),
          url('fonts/HKGroteskLightItalic.woff') format('woff'),
          url('fonts/HKGroteskLightItalic.ttf') format('truetype'),
@@ -51,7 +51,7 @@
 @font-face {
     font-family: 'HKGroteskMedium';
     src: url('fonts/HKGroteskMedium.eot');
-    src: url('fonts/HKGroteskMedium.eot') format('embedded-opentype'),
+    src: url('fonts/HKGroteskMedium.eot?#iefix') format('embedded-opentype'),
          url('fonts/HKGroteskMedium.woff2') format('woff2'),
          url('fonts/HKGroteskMedium.woff') format('woff'),
          url('fonts/HKGroteskMedium.ttf') format('truetype'),
@@ -61,7 +61,7 @@
 @font-face {
     font-family: 'HKGroteskMediumItalic';
     src: url('fonts/HKGroteskMediumItalic.eot');
-    src: url('fonts/HKGroteskMediumItalic.eot') format('embedded-opentype'),
+    src: url('fonts/HKGroteskMediumItalic.eot?#iefix') format('embedded-opentype'),
          url('fonts/HKGroteskMediumItalic.woff2') format('woff2'),
          url('fonts/HKGroteskMediumItalic.woff') format('woff'),
          url('fonts/HKGroteskMediumItalic.ttf') format('truetype'),
@@ -71,7 +71,7 @@
 @font-face {
     font-family: 'HKGroteskRegular';
     src: url('fonts/HKGroteskRegular.eot');
-    src: url('fonts/HKGroteskRegular.eot') format('embedded-opentype'),
+    src: url('fonts/HKGroteskRegular.eot?#iefix') format('embedded-opentype'),
          url('fonts/HKGroteskRegular.woff2') format('woff2'),
          url('fonts/HKGroteskRegular.woff') format('woff'),
          url('fonts/HKGroteskRegular.ttf') format('truetype'),
@@ -81,7 +81,7 @@
 @font-face {
     font-family: 'HKGroteskSemiBold';
     src: url('fonts/HKGroteskSemiBold.eot');
-    src: url('fonts/HKGroteskSemiBold.eot') format('embedded-opentype'),
+    src: url('fonts/HKGroteskSemiBold.eot?#iefix') format('embedded-opentype'),
          url('fonts/HKGroteskSemiBold.woff2') format('woff2'),
          url('fonts/HKGroteskSemiBold.woff') format('woff'),
          url('fonts/HKGroteskSemiBold.ttf') format('truetype'),
@@ -91,7 +91,7 @@
 @font-face {
     font-family: 'HKGroteskSemiBoldItalic';
     src: url('fonts/HKGroteskSemiBoldItalic.eot');
-    src: url('fonts/HKGroteskSemiBoldItalic.eot') format('embedded-opentype'),
+    src: url('fonts/HKGroteskSemiBoldItalic.eot?#iefix') format('embedded-opentype'),
          url('fonts/HKGroteskSemiBoldItalic.woff2') format('woff2'),
          url('fonts/HKGroteskSemiBoldItalic.woff') format('woff'),
          url('fonts/HKGroteskSemiBoldItalic.ttf') format('truetype'),
