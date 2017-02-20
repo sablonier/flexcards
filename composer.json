@@ -16,9 +16,10 @@
     "extra": {
         "bolt-icon": "brand/icon.png",
         "bolt-screenshots": [
-            "screenshots/screen_full.png",
-            "screenshots/screen_tablet.png",
-            "screenshots/screen_mobile.png"
+            "screenshots/flexcards_teaser.png",
+            "screenshots/flexcards_desktop_wide.png",
+            "screenshots/flexcards_tablet_portrait.png",
+            "screenshots/flexcards_mobile_portrait.png"
         ]
     }
 }
