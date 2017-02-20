@@ -8,21 +8,50 @@
 
 <div class="container-fluid">
     <div class="row">
+        
+        {# first column with related stuff if available #}
+        {# -------------------------------------------- #}
         <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3">
-          <div class="card">
-            <div class="card-block">
-                 {% set relatedrecords = record.related() %}
-                 <h4 class="card-title">Related content</h4>
-                 {% if relatedrecords is not empty %}
-                 <ul>
-                    {% for related in relatedrecords %}
-                    <li><a href="{{ related.link }}">{{ related.title }}</a></li>
-                    {%  endfor %}
-                 </ul>
-                 {% endif %}
+        
+            {# link to related page #}
+            {# -------------------- #}
+            {% set relatedrecords = record.related() %}
+            {% if relatedrecords is not empty %}
+            <div class="card">
+              <div class="card-block">
+              {% for related in relatedrecords %}
+                <h4 class="card-title"><a href="{{ related.link }}">{{ related.title }}</a></h4>
+              {%  endfor %}
+              </div>
             </div>
-          </div>
+            <p></p>
+            {% endif %}
+            
+            {# show other records with same tags #}
+            {# --------------------------------- #}
+            {% if record.taxonomy.tags is defined %}
+            <div class="card">
+              <div class="card-block">
+              <h3>Related by tags</h3>
+              {% set alreadyhere = [] %}
+              {% for tag in record.taxonomy.tags %}
+                 {% setcontent tagrelatedrecords = 'entries' where { id: '!'~record.id~'' } %}
+                     {% for related in tagrelatedrecords %}
+                         {% if (tag) in related.taxonomy.tags and (related.id) not in alreadyhere %}
+                         <h4><a href="{{ related.link }}">{{ related.title }}</a></h4>
+                         {% set alreadyhere = alreadyhere|merge([related.id]) %}
+                         {% endif %}
+                     {% endfor %}
+              {% endfor %}         
+              </div>
+            </div>
+            <p></p>
+            {% endif %}
+            
         </div>
+        
+        {# second wide column with record content #}
+        {# -------------------------------------- #}
         <div class="col-sm-12 col-md-9 col-lg-6 col-xl-6">
           <div class="card">
             <div class="card-block">
@@ -45,6 +74,9 @@
              </div>
            </div>
         </div>
+        
+        {# third column with blocks #}
+        {# ------------------------ #}
         <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3">
             {% setcontent cards = 'blocks/latest/2' %}
             {% for card in cards %}
