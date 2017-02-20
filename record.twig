@@ -3,12 +3,13 @@
 <body>
 
 {% set ids = [] %}
-	  
+   
 {% include 'partials/_navbar.twig' %}
 
 <div class="container-fluid">
     <div class="row">
-        <div class="card col-sm-12 col-md-3 col-lg-3 col-xl-3">
+        <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3">
+          <div class="card">
             <div class="card-block">
                  {% set relatedrecords = record.related() %}
                  <h4 class="card-title">Related content</h4>
@@ -20,8 +21,10 @@
                  </ul>
                  {% endif %}
             </div>
+          </div>
         </div>
-        <div class="card col-sm-12 col-md-9 col-lg-6 col-xl-6">
+        <div class="col-sm-12 col-md-9 col-lg-6 col-xl-6">
+          <div class="card">
             <div class="card-block">
                  <p>
                 <small class="text-muted"><strong>{{ card.datepublish|localedatetime("%A %B %e") }}</strong> by {{ record.user.username }}<br>
@@ -40,11 +43,13 @@
                 {% endif %}
                 <p class="card-text">{{ record.body }}</p>
              </div>
+           </div>
         </div>
         <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3">
-            <div class="card-block">
-                 (( Blocks ))
-            </div>
+            {% setcontent cards = 'blocks/latest/2' %}
+            {% for card in cards %}
+               {% include 'partials/_card_simple.twig' %}
+            {% endfor %}
         </div>
     </div>
 </div>

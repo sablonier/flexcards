@@ -12,22 +12,22 @@
 		    <div class="row">
 			    <div id="column-0" class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
 			    {% for card in cards|slice(0,rows) %}
-			        {% include 'partials/_card.twig' %}
+			        {% include 'partials/_card_full.twig' %}
 			    {% endfor %}
 			    </div>
 			    <div id="column-1" class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
 			    {% for card in cards|slice(rows*2,rows) %}
-			        {% include 'partials/_card.twig' %}
+			        {% include 'partials/_card_full.twig' %}
 			    {% endfor %}
 			    </div>
 			    <div id="column-2" class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
 			    {% for card in cards|slice(rows*3,rows) %}
-			        {% include 'partials/_card.twig' %}
+			        {% include 'partials/_card_full.twig' %}
 			    {% endfor %}
 			    </div>
 			    <div id="column-3" class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
 			    {% for card in cards|slice(rows*4,rows) %}
-			        {% include 'partials/_card.twig' %}
+			        {% include 'partials/_card_full.twig' %}
 			    {% endfor %}
 			    </div>
 			</div>

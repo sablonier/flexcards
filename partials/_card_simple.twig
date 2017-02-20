@@ -1,0 +1,31 @@
+<div class="card" id="{{card.id}}">
+        <div class="card-block">
+            
+            {# title #}
+            <h4 class="card-title">
+                <a href="{{ card.link }}">{{ card.title }}</a>
+            </h4>
+            
+            {# image #}
+            {% if card.image %}
+			    <img class="card-img" src="{{ thumbnail(card.image) }}">
+			{% endif %}
+			
+			{# content or teaser #}
+			{% if card.content or card.teaser %}
+			    <p class="card-text">
+			        {{ card.content }}{{ card.teaser }}
+			    </p>
+			{% endif %}
+			
+			{# link #}
+			{% if card.contentlink or card.link %}
+			    <a href="{{card.link}}{{card.contentlink}}" class="btn btn-primary">
+			    Read more
+			    </a>
+			{% endif %}
+			
+		</div>
+		{# simple spacer #}
+		<p></p>
+</div>
