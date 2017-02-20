@@ -1,0 +1,7 @@
+## other configuration excluded from example...
+exclude_paths:
+- "brand/"
+- "fonts/"
+- "screenshots/"
+- "js/bootstrap*"
+- "css/bootstrap*"
