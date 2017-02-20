@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/sablonier/flexcards/badges/gpa.svg)](https://codeclimate.com/github/sablonier/flexcards)
+
 # 'flexcards' theme for Bolt CMS
 
 ## Introduction: experimental bootstrap 4 testing
