@@ -44,16 +44,11 @@ engines:
 ratings:
   paths:
   - "**.css"
-  - "**.inc"
   - "**.js"
-  - "**.jsx"
-  - "**.module"
   - "**.php"
-  - "**.py"
-  - "**.rb"
 
 exclude_paths:
-- "screenshots/"
-- "fonts/"
-- "css/bootstrap*"
-- "js/bootstrap*"
+  - "screenshots/"
+  - "fonts/"
+  - "css/bootstrap*"
+  - "js/bootstrap*"
