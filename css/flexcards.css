@@ -42,7 +42,11 @@ button, input, optgroup, select, textarea {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
+     -moz-box-orient: vertical;
+      -ms-box-orient: vertical;
   -webkit-box-direction: normal;
+     -moz-box-direction: normal;
+      -ms-box-direction: normal;
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
@@ -54,6 +58,8 @@ button, input, optgroup, select, textarea {
 
 .card-block {
   -webkit-box-flex: 1;
+     -moz-box-flex: 1;
+      -ms-box-flex: 1;
   -webkit-flex: 1 1 auto;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
