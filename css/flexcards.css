@@ -324,6 +324,8 @@ button, input, optgroup, select, textarea {
   }
   .card-group .card {
     -webkit-box-flex: 1;
+        -ms-box-flex: 1;
+       -moz-box-flex: 1;
     -webkit-flex: 1 0 0;
         -ms-flex: 1 0 0;
             flex: 1 0 0;
@@ -365,9 +367,11 @@ button, input, optgroup, select, textarea {
   .card-columns {
     -webkit-column-count: 4;
        -moz-column-count: 4;
+        -ms-column-count: 4;
             column-count: 4;
     -webkit-column-gap: 1.25rem;
        -moz-column-gap: 1.25rem;
+        -ms-column-gap: 1.25rem;
             column-gap: 1.25rem;
   }
   .card-columns .card {
@@ -381,6 +385,7 @@ button, input, optgroup, select, textarea {
   .card-columns {
     -webkit-column-count: 1;
        -moz-column-count: 1;
+        -ms-column-count: 1;
             column-count: 1;
   }
 }
@@ -389,6 +394,7 @@ button, input, optgroup, select, textarea {
   .card-columns {
     -webkit-column-count: 2;
        -moz-column-count: 2;
+        -ms-column-count: 2;
             column-count: 2;
   }
 }
@@ -397,6 +403,7 @@ button, input, optgroup, select, textarea {
   .card-columns {
     -webkit-column-count: 2;
        -moz-column-count: 2;
+        -ms-column-count: 2;
             column-count: 2;
   }
 }
@@ -405,6 +412,7 @@ button, input, optgroup, select, textarea {
   .card-columns {
     -webkit-column-count: 3;
        -moz-column-count: 3;
+        -ms-column-count: 3;
             column-count: 3;
   }
 }
@@ -413,6 +421,7 @@ button, input, optgroup, select, textarea {
   .card-columns {
     -webkit-column-count: 4;
        -moz-column-count: 4;
+        -ms-column-count: 4;
             column-count: 4;
   }
 }
