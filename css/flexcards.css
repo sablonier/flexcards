@@ -48,7 +48,7 @@ button, input, optgroup, select, textarea {
           flex-direction: column;
   /*background-color: #fff;*/
   background-color: #f3f1e1;
-  border: 0px solid rgba(0, 0, 0, 0.125);
+  border: 0 solid rgba(0, 0, 0, 0.125);
   border-radius: 0px;
 }
 
@@ -100,7 +100,7 @@ button, input, optgroup, select, textarea {
 }
 
 .card-header:first-child {
-  border-radius: calc(0px - 0px) calc(0px - 0px) 0 0;
+  border-radius: calc(0 - 0) calc(0 - 0) 0 0;
 }
 
 .card-footer {
@@ -110,7 +110,7 @@ button, input, optgroup, select, textarea {
 }
 
 .card-footer:last-child {
-  border-radius: 0 0 calc(0px - 0px) calc(0px - 0px);
+  border-radius: 0 0 calc(0 - 0) calc(0 - 0);
 }
 
 .card-header-tabs {
@@ -240,7 +240,7 @@ button, input, optgroup, select, textarea {
 }
 
 .card-img {
-  border-radius: calc(0px - 0px);
+  border-radius: calc(0 - 0);
   width: 100%;
 }
 
@@ -254,13 +254,13 @@ button, input, optgroup, select, textarea {
 }
 
 .card-img-top {
-  border-top-right-radius: calc(0px - 0px);
-  border-top-left-radius: calc(0px - 0px);
+  border-top-right-radius: calc(0 - 0);
+  border-top-left-radius: calc(0 - 0);
 }
 
 .card-img-bottom {
-  border-bottom-right-radius: calc(0px - 0px);
-  border-bottom-left-radius: calc(0px - 0px);
+  border-bottom-right-radius: calc(0 - 0);
+  border-bottom-left-radius: calc(0 - 0);
 }
 
 @media (min-width: 576px) {
@@ -389,7 +389,7 @@ button, input, optgroup, select, textarea {
   }
 }
 
-@media (min-width: 992px) and (max-width: 1200px) {
+@media (min-width: 992px) and (max-width: 1200) {
   .card-columns {
     -webkit-column-count: 3;
        -moz-column-count: 3;
