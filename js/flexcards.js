@@ -3,20 +3,18 @@
 
 var ids = $( ".card" ).map(function() {if (this.id) { return this.id;}}).get();
 
-var tempcols = [];
-
 function getColumns(cols) {
     switch(true) {
-    case cols == 4:
+    case cols === 4:
         var tempcols = [[],[],[],[]];
         break;
-    case cols == 3:
+    case cols === 3:
         var tempcols = [[],[],[]];
         break;
-    case cols == 2:
+    case cols === 2:
         var tempcols = [[],[]];
         break;
-    case cols == 1:
+    case cols === 1:
         var tempcols = [[]];
         break;
     default:
@@ -26,9 +24,9 @@ function getColumns(cols) {
     //console.log(JSON.stringify(tempcols));
     
     for (i = 0; i < ids.length; i+=1) {
-        if (i % cols == 0) {
+        if (i % cols === 0) {
             for (j = 0; j < cols; j += 1) {
-                if (ids[i+j] != null) {
+                if (ids[i+j] !== null) {
                     tempcols[j].push(ids[i+j]);
                 }
             }
