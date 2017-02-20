@@ -2,6 +2,7 @@
 engines:
   csslint:
     enabled: true
+    # ... CONFIG CONTENT ...
     checks:
       fallback-colors:
         enabled: false
