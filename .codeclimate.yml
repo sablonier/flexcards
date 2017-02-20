@@ -51,4 +51,9 @@ ratings:
   - "**.php"
   - "**.py"
   - "**.rb"
-exclude_paths: []
+
+exclude_paths:
+- "screenshots/"
+- "fonts/"
+- "css/bootstrap*"
+- "js/bootstrap*"
