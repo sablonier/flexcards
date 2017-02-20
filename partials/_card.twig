@@ -6,7 +6,7 @@
                 <small class="text-muted"><strong>{{ card.datepublish|localedatetime("%A %B %e") }}</strong> by {{ card.user.username }}<br>
                 {% if card.taxonomy.tags is defined %}
                  {% for tag in card.taxonomy.tags %}
-                     <span style="background: #eeeede">{{ tag }}</span>{% if not loop.last %} {% endif %}
+                     <a href="/tags/{{ tag }}"><span style="background: #eeeede; margin-right: 2px; padding: 2px;">{{ tag }}</a></span>
                  {% endfor %}
                 {% endif %}
                 </small>
