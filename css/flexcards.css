@@ -270,7 +270,11 @@ button, input, optgroup, select, textarea {
     display: -ms-flexbox;
     display: flex;
     -webkit-box-orient: horizontal;
+       -moz-box-orient: horizontal;
+        -ms-box-orient: horizontal;
     -webkit-box-direction: normal;
+       -moz-box-direction: normal;
+        -ms-box-direction: normal;
     -webkit-flex-flow: row wrap;
         -ms-flex-flow: row wrap;
             flex-flow: row wrap;
@@ -281,11 +285,15 @@ button, input, optgroup, select, textarea {
     display: -ms-flexbox;
     display: flex;
     -webkit-box-flex: 1;
-    -webkit-flex: 1 0 0%;
-        -ms-flex: 1 0 0%;
-            flex: 1 0 0%;
+    -webkit-flex: 1 0 0;
+        -ms-flex: 1 0 0;
+            flex: 1 0 0;
     -webkit-box-orient: vertical;
+       -moz-box-orient: vertical;
+        -ms-box-orient: vertical;
     -webkit-box-direction: normal;
+       -moz-box-direction: normal;
+        -ms-box-direction: normal;
     -webkit-flex-direction: column;
         -ms-flex-direction: column;
             flex-direction: column;
@@ -305,16 +313,20 @@ button, input, optgroup, select, textarea {
     display: -ms-flexbox;
     display: flex;
     -webkit-box-orient: horizontal;
+       -moz-box-orient: horizontal;
+        -ms-box-orient: horizontal;
     -webkit-box-direction: normal;
+       -moz-box-direction: normal;
+        -ms-box-direction: normal;
     -webkit-flex-flow: row wrap;
         -ms-flex-flow: row wrap;
             flex-flow: row wrap;
   }
   .card-group .card {
     -webkit-box-flex: 1;
-    -webkit-flex: 1 0 0%;
-        -ms-flex: 1 0 0%;
-            flex: 1 0 0%;
+    -webkit-flex: 1 0 0;
+        -ms-flex: 1 0 0;
+            flex: 1 0 0;
   }
   .card-group .card + .card {
     margin-left: 0;

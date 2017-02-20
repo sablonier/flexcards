@@ -2,6 +2,9 @@
 engines:
   csslint:
     enabled: true
+    checks:
+      fallback-colors:
+        enabled:false
   duplication:
     enabled: true
     config:
