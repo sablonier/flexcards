@@ -18,7 +18,7 @@
                 <small class="text-muted"><strong>{{ card.datepublish|localedatetime("%A %B %e") }}</strong> by {{ record.user.username }}<br>
                 {% if record.taxonomy.tags is defined %}
                     {% for tag in record.taxonomy.tags %}
-                         <a href="/tags/{{ tag }}"><span style="background: #eeeede; margin-right: 2px; padding: 2px;">{{ tag }}</span></a>
+                         <a href="{{ paths.root }}tags/{{ tag }}"><span style="background: #eeeede; margin-right: 2px; padding: 2px;">{{ tag }}</span></a>
                     {% endfor %}
                 {% endif %}
                 </small>
