@@ -1,4 +1,4 @@
-[![Code Climate](https://codeclimate.com/github/sablonier/flexcards/badges/gpa.svg)](https://codeclimate.com/github/sablonier/flexcards)
+[![Code Climate](https://codeclimate.com/github/sablonier/flexcards/badges/gpa.svg)](https://codeclimate.com/github/sablonier/flexcards) ![Current state](https://img.shields.io/badge/bolt--theme-alpha-red.svg)
 
 # 'flexcards' theme for Bolt CMS
 
