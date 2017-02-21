@@ -1,0 +1,76 @@
+{% include 'partials/_header.twig' %}
+
+<body>
+
+{% set ids = [] %}
+   
+{% include 'partials/_navbar.twig' %}
+
+<div class="container-fluid">
+    <div class="row">
+        
+        {# first wide column with page content  #}
+        {# ------------------------------------ #}
+        
+        <div class="col-sm-12 col-md-9 col-lg-6 col-xl-6">
+          <div class="card">
+            <div class="card-block">
+                <h4 class="card-title">{{ record.title }}</h4>
+                {% if record.image!="" %}
+                <a href="{{ image(record.image) }}">
+                    <img class="card-img" src="{{ thumbnail(record.image) }}" width="100%">
+                </a>
+                {% endif %}
+                <p class="card-text">{{ record.body }}</p>
+             </div>
+           </div>
+        </div>
+        
+        {# second column with entries related to page   #}
+        {# -------------------------------------------- #}
+        <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3">
+        
+            {# show related entries #}
+            {# -------------------- #}
+            {% set relatedrecords = record.related() %}
+            {% if relatedrecords is not empty %}
+            {% for card in relatedrecords %}
+               {% include 'partials/_card_simple.twig' %}
+            {% endfor %}
+            {% endif %}
+            
+            {# show other records with same tags #}
+            {# --------------------------------- #}
+            {% if record.taxonomy.tags is defined %}
+            <div class="card">
+              <div class="card-block">
+              <h3>Related by tags</h3>
+              {% set alreadyhere = [] %}
+              {% for tag in record.taxonomy.tags %}
+                 {% setcontent tagrelatedrecords = 'entries' where { id: '!'~record.id~'' } %}
+                     {% for related in tagrelatedrecords %}
+                         {% if (tag) in related.taxonomy.tags and (related.id) not in alreadyhere %}
+                         <h4><a href="{{ related.link }}">{{ related.title }}</a></h4>
+                         {% set alreadyhere = alreadyhere|merge([related.id]) %}
+                         {% endif %}
+                     {% endfor %}
+              {% endfor %}         
+              </div>
+            </div>
+            <p></p>
+            {% endif %}
+            
+        </div>
+        
+        {# third column with blocks #}
+        {# ------------------------ #}
+        <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3">
+            {% setcontent cards = 'blocks/latest/2' %}
+            {% for card in cards %}
+               {% include 'partials/_card_simple.twig' %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% include 'partials/_footer.twig' %}

@@ -4,29 +4,32 @@
 	  
 {% include 'partials/_navbar.twig' %}
 
-    {% setcontent cards = 'entries/latest/13' %}
+    {% setcontent cards = 'entries/latest/5' %}
+    {#{% setcontent cards = '(pages,entries)' orderby '-datepublish' limit 5 %}#}
     
-    {% set rows = ((cards|length)*0.25)|round(0, 'ceil') %}
+    {% set rows = (cards|length)//4 %}
+    {% set d = (cards|length)-(rows*4) %}
+    {% set magic = [ [0,rows+(d/d)], [rows+(d//d), rows+(d//2)|round(0,'floor')], [2*rows+(d//1.5|round(0,'ceil'))+(d//d), rows+(d//3|round(0,'floor'))], [(3*rows)+d, rows] ] %}
 	
     <div class="container-fluid">
 		    <div class="row">
 			    <div id="column-0" class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-			    {% for card in cards|slice(0,rows) %}
+			    {% for card in cards|slice(0,magic[0][1]) %}
 			        {% include 'partials/_card_full.twig' %}
 			    {% endfor %}
 			    </div>
 			    <div id="column-1" class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-			    {% for card in cards|slice(rows*2,rows) %}
+			    {% for card in cards|slice(magic[1][0],magic[1][1]) %}
 			        {% include 'partials/_card_full.twig' %}
 			    {% endfor %}
 			    </div>
 			    <div id="column-2" class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-			    {% for card in cards|slice(rows*3,rows) %}
+			    {% for card in cards|slice(magic[2][0],magic[2][1]) %}
 			        {% include 'partials/_card_full.twig' %}
 			    {% endfor %}
 			    </div>
 			    <div id="column-3" class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-			    {% for card in cards|slice(rows*4,rows) %}
+			    {% for card in cards|slice(magic[3][0],magic[3][1]) %}
 			        {% include 'partials/_card_full.twig' %}
 			    {% endfor %}
 			    </div>
