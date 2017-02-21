@@ -9,7 +9,32 @@
 <div class="container-fluid">
     <div class="row">
         
-        {# first column with related stuff if available #}
+        {# first wide column with record content  #}
+        {# -------------------------------------- #}
+        <div class="col-sm-12 col-md-9 col-lg-6 col-xl-6">
+          <div class="card">
+            <div class="card-block">
+                 <p>
+                <small class="text-muted"><strong>{{ card.datepublish|localedatetime("%A %B %e") }}</strong> by {{ record.user.username }}<br>
+                {% if record.taxonomy.tags is defined %}
+                    {% for tag in record.taxonomy.tags %}
+                         <a href="/tags/{{ tag }}"><span style="background: #eeeede; margin-right: 2px; padding: 2px;">{{ tag }}</span></a>
+                    {% endfor %}
+                {% endif %}
+                </small>
+                </p>
+                <h4 class="card-title">{{ record.title }}</h4>
+                {% if record.image!="" %}
+                <a href="{{ image(record.image) }}">
+                    <img class="card-img" src="{{ thumbnail(record.image) }}" width="100%">
+                </a>
+                {% endif %}
+                <p class="card-text">{{ record.body }}</p>
+             </div>
+           </div>
+        </div>
+        
+        {# second column with related stuff if available #}
         {# -------------------------------------------- #}
         <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3">
         
@@ -48,31 +73,6 @@
             <p></p>
             {% endif %}
             
-        </div>
-        
-        {# second wide column with record content #}
-        {# -------------------------------------- #}
-        <div class="col-sm-12 col-md-9 col-lg-6 col-xl-6">
-          <div class="card">
-            <div class="card-block">
-                 <p>
-                <small class="text-muted"><strong>{{ card.datepublish|localedatetime("%A %B %e") }}</strong> by {{ record.user.username }}<br>
-                {% if record.taxonomy.tags is defined %}
-                    {% for tag in record.taxonomy.tags %}
-                         <a href="/tags/{{ tag }}"><span style="background: #eeeede; margin-right: 2px; padding: 2px;">{{ tag }}</span></a>
-                    {% endfor %}
-                {% endif %}
-                </small>
-                </p>
-                <h4 class="card-title">{{ record.title }}</h4>
-                {% if record.image!="" %}
-                <a href="{{ image(record.image) }}">
-                    <img class="card-img" src="{{ thumbnail(record.image) }}" width="100%">
-                </a>
-                {% endif %}
-                <p class="card-text">{{ record.body }}</p>
-             </div>
-           </div>
         </div>
         
         {# third column with blocks #}
