@@ -2,14 +2,17 @@
 
 # 'flexcards' theme for Bolt CMS
 
-## Introduction: experimental bootstrap 4 testing
-Flexcards is a Bolt CMS theme (>= 3.2) working with Bootstrap 4 'cards' and jQuery for a simple, dynamic and flexible grid layout. Basic theme shipped with Bolt CMS comes with 'Foundation' framework support and a heavy nested file structure/macros. Flexcards skips foundation css/js completely. 
-
-For extending flexcards you will need to work with .twig and Bootstrap 4 (see links below). Please be aware that flexcards development is experimental. Of course, as of this very very alpha version every further development support from Bolt CMS theme developers is very welcome. Please fork, or file issues at least.
+## Using bootstrap 4 for the frontend
+Flexcards is a Bolt CMS theme (>= 3.2) working with Bootstrap 4 'cards' and jQuery for a simple, dynamic and flexible grid layout. Basic theme shipped with Bolt CMS (base-2016) comes with foundation framework support. Flexcards skips foundation css/js completely, for extending flexcards you will need to work with .twig and Bootstrap 4 (see links below). Please be aware that flexcards development is experimental.
 
 :no_bell: 
 ```Before you start using this experimental work for production you should probably read about what browser versions are supported with Bootstrap 4. Have a look here:``` 
 [Browsers supported](http://v4-alpha.getbootstrap.com/getting-started/browsers-devices/)
+
+## What flexcard does
+I was trying to use bootstrap 4 for a gallery-like frontpage for blog entries, ordered in read direction also on larger screens with at least 3 or 4 columns. I made some tests with new bootstrap compononents but ran into (common?) ordering and grid issues. I didn't want to overload with one of those masonry scripts, so I started with an own simple jquery script for fixed-width-items in responsive columns, for use with bolt cms only.
+
+![What flexcard does](https://github.com/sablonier/flexcards/blob/master/screenshots/readme_flex_example.png)
 
 ## Installation
 
