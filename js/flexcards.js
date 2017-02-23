@@ -1,8 +1,16 @@
 //console.log("Width: " + $(window).innerWidth());
 //console.log("Boxes: " + "{{cards|length}}");
 
-var ids = $( ".card" ).map(function() {if (this.id) { return this.id;}}).get();
+// getting the card id's
+var ids = [];
+var cards = document.getElementsByClassName("card");
+for (var i = 0; i < cards.length; i++) {
+    if (cards[i].id != "") {
+    ids.push(cards[i].id);
+    }
+}
 
+// get the columns 
 function getColumns(cols) {
     switch(true) {
     case cols === 4:
@@ -67,11 +75,6 @@ window.onresize = function(e) {
     // delay set to 0 for browser stress
     resizeTimer = setTimeout(breakpointChange(), 0);
 }
-
-
-$(window).on("load resize",function(e) {
-
-});
 
 function breakpointChange() {
     width = window.innerWidth;
