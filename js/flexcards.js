@@ -1,6 +1,14 @@
 //console.log("Width: " + $(window).innerWidth());
 //console.log("Boxes: " + "{{cards|length}}");
 
+var attr;
+
+var cards = document.getElementsByClassName("card");
+var ids = getCardIDs();
+
+displayCards("hidden");
+
+// array helper, moving by index
 function moveTo(array, old_index, new_index) {
     if (new_index >= array.length) {
         var k = new_index - array.length;
@@ -12,19 +20,15 @@ function moveTo(array, old_index, new_index) {
     return array;
 };
 
-var attr;
-
-var cards = document.getElementsByClassName("card");
-var ids = getCardIDs();
-
-displayCards("hidden");
-
+// array helper, sorting by subarray
 function sortArray(index, arr) {
 	arr.sort(function(a,b){return a[index] > b[index]});
 }
 
+// get card id, position and sort
 function getCardIDs() {
 	var ids = [];
+	var fixes = getFixedPositions();
 	
     for (var i = 0; i < cards.length; i++) {
         if (cards[i].id != "") {
@@ -32,10 +36,7 @@ function getCardIDs() {
         } 
     }
     
-    var fixes = getFixedPositions();
-    console.log(fixes);
     sortArray(1, fixes);
-    console.log(fixes);
     for (var i = 0; i < fixes.length; i++) {
 		if (fixes[i][1] <= ids.length) {
             ids = moveTo(ids, ids.indexOf(fixes[i][0]), fixes[i][1]-1);
@@ -45,6 +46,7 @@ function getCardIDs() {
 
 }
 
+// get fixed positions
 function getFixedPositions() {
 	var fixes = [];
     for (var i = 0; i < cards.length; i++) {
@@ -55,8 +57,7 @@ function getFixedPositions() {
     return fixes;
 }
 
-
-
+// switch visibility
 function displayCards(attr) {
     for (var i = 0; i < cards.length; i++) {
         if (cards[i].id != "") {
@@ -66,7 +67,7 @@ function displayCards(attr) {
     return;
 }
 
-// get the columns 
+// getting the new columns
 function getColumns(cols) {
     switch(true) {
     case cols === 4:
@@ -101,6 +102,7 @@ function getColumns(cols) {
     return tempcols;
 }
 
+// pushing cards to the new columns
 function sortLayout(cols) {
     
     var tempcols = getColumns(cols);
@@ -131,13 +133,14 @@ window.onload = function(e) {
     displayCards("visible");
 }
 
-// on window resize
+// on window resize, could have a delay to 'zen' resize firing
 window.onresize = function(e) { 
     clearTimeout(resizeTimer);
-    // delay set to 0 for browser stress
-    resizeTimer = setTimeout(breakpointChange(), 1000);
+    // delay set to 0 for resize stress test
+    resizeTimer = setTimeout(breakpointChange(), 0);
 }
 
+// check size and give sorting
 function breakpointChange() {
     width = window.innerWidth;
 
