@@ -1,13 +1,29 @@
 //console.log("Width: " + $(window).innerWidth());
 //console.log("Boxes: " + "{{cards|length}}");
 
-// getting the card id's
-var ids = [];
+var attr;
+
 var cards = document.getElementsByClassName("card");
-for (var i = 0; i < cards.length; i++) {
-    if (cards[i].id != "") {
-    ids.push(cards[i].id);
+
+displayCards("hidden");
+
+function getCardIDs() {
+	var ids = [];
+    for (var i = 0; i < cards.length; i++) {
+        if (cards[i].id != "") {
+            ids.push(cards[i].id);
+        } 
     }
+    return ids;
+}
+
+function displayCards(attr) {
+    for (var i = 0; i < cards.length; i++) {
+        if (cards[i].id != "") {
+            document.getElementById(cards[i].id).style.visibility = attr;
+        }
+    }
+    return;
 }
 
 // get the columns 
@@ -30,6 +46,8 @@ function getColumns(cols) {
     } 
     
     //console.log(JSON.stringify(tempcols));
+    
+    var ids = getCardIDs();
     
     for (i = 0; i < ids.length; i+=1) {
         if (i % cols === 0) {
@@ -67,6 +85,7 @@ var mobile = tablet = desksmall = deskwide = desklarge = false;
 // on (re)load, no timer needed
 window.onload = function(e) { 
     breakpointChange();
+    displayCards("visible");
 }
 
 // on window resize
