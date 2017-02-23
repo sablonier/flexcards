@@ -56,10 +56,9 @@ function sortLayout(cols) {
 var resizeTimer, width;
 var mobile = tablet = desksmall = deskwide = desklarge = false;
 
-// on (re)load
+// on (re)load, no timer needed
 window.onload = function(e) { 
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(breakpointChange(), 0);
+    breakpointChange();
 }
 
 // on window resize
