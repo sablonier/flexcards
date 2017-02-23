@@ -1,6 +1,17 @@
 //console.log("Width: " + $(window).innerWidth());
 //console.log("Boxes: " + "{{cards|length}}");
 
+function moveTo(array, old_index, new_index) {
+    if (new_index >= array.length) {
+        var k = new_index - array.length;
+        while ((k--) + 1) {
+            array.push(undefined);
+        }
+    }
+    array.splice(new_index, 0, array.splice(old_index, 1)[0]);
+    return array;
+};
+
 var attr;
 
 var cards = document.getElementsByClassName("card");
@@ -8,15 +19,43 @@ var ids = getCardIDs();
 
 displayCards("hidden");
 
+function sortArray(index, arr) {
+	arr.sort(function(a,b){return a[index] > b[index]});
+}
+
 function getCardIDs() {
 	var ids = [];
+	
     for (var i = 0; i < cards.length; i++) {
         if (cards[i].id != "") {
             ids.push(cards[i].id);
         } 
     }
+    
+    var fixes = getFixedPositions();
+    console.log(fixes);
+    sortArray(1, fixes);
+    console.log(fixes);
+    for (var i = 0; i < fixes.length; i++) {
+		if (fixes[i][1] <= ids.length) {
+            ids = moveTo(ids, ids.indexOf(fixes[i][0]), fixes[i][1]-1);
+	    }
+    }
     return ids;
+
 }
+
+function getFixedPositions() {
+	var fixes = [];
+    for (var i = 0; i < cards.length; i++) {
+        if (cards[i].getAttribute("fixedposition") !== "0" && cards[i].getAttribute("fixedposition") !== null) {
+            fixes.push([cards[i].id, cards[i].getAttribute("fixedposition")]);
+        } 
+    }
+    return fixes;
+}
+
+
 
 function displayCards(attr) {
     for (var i = 0; i < cards.length; i++) {
