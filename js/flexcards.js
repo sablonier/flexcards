@@ -56,11 +56,22 @@ function sortLayout(cols) {
 var resizeTimer, width;
 var mobile = tablet = desksmall = deskwide = desklarge = false;
 
+// on (re)load
+window.onload = function(e) { 
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(breakpointChange(), 0);
+}
+
+// on window resize
+window.onresize = function(e) { 
+    clearTimeout(resizeTimer);
+    // delay set to 0 for browser stress
+    resizeTimer = setTimeout(breakpointChange(), 0);
+}
+
 
 $(window).on("load resize",function(e) {
-    clearTimeout(resizeTimer);
-    // timer set to null for stress
-    resizeTimer = setTimeout(breakpointChange(), 0);
+
 });
 
 function breakpointChange() {
