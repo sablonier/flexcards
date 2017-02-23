@@ -4,6 +4,7 @@
 var attr;
 
 var cards = document.getElementsByClassName("card");
+var ids = getCardIDs();
 
 displayCards("hidden");
 
@@ -47,8 +48,6 @@ function getColumns(cols) {
     
     //console.log(JSON.stringify(tempcols));
     
-    var ids = getCardIDs();
-    
     for (i = 0; i < ids.length; i+=1) {
         if (i % cols === 0) {
             for (j = 0; j < cols; j += 1) {
@@ -66,17 +65,22 @@ function getColumns(cols) {
 function sortLayout(cols) {
     
     var tempcols = getColumns(cols);
+    var chicken, egg;
     
     for (i = 0; i < tempcols.length; i+=1) {
-    
-        $('#column-'+i).prepend($('#'+tempcols[i][0]));
-        //console.log('#column-'+i + ' prepends #'+tempcols[i][0]);
+        
+        var parent = document.getElementById('column-'+i);
+        var child = document.getElementById(''+tempcols[i][0]);
+        parent.insertBefore(child, parent.firstChild);
+
         for (j = 0; j < tempcols[0].length; j+=1) {
-            $('#column-'+i+' #'+tempcols[i][j]).append($('#'+tempcols[i][j+1]));
-            //console.log('#column-' + i + ' #'+tempcols[i][j] + ' appends #'+tempcols[i][j+1]);
+            chicken = document.getElementById(''+tempcols[i][j]);
+            egg = document.getElementById(''+tempcols[i][j+1]);
+            if (egg != null) {
+                chicken.appendChild(egg);
+            }
         }
     }
-    
 }
 
 var resizeTimer, width;
@@ -92,7 +96,7 @@ window.onload = function(e) {
 window.onresize = function(e) { 
     clearTimeout(resizeTimer);
     // delay set to 0 for browser stress
-    resizeTimer = setTimeout(breakpointChange(), 0);
+    resizeTimer = setTimeout(breakpointChange(), 1000);
 }
 
 function breakpointChange() {
