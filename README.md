@@ -33,7 +33,7 @@ In case you will give an older Bolt CMS install a try (or restrictions on your s
 #### theme.yml and flexcards.css
 You will only find common global configuration in theme.yml as it is shipped with Bolt CMS basic theme. You will need to modify `flexcard.css to get your own design.
 
-#### Sticking cards (cards) at fixed positions
+#### Sticking cards at fixed positions
 In case you want to provide fixed positions for the cards, you will need to provide an additional field in your content. You can edit 'Contenttypes' for this. Here is an example of adding a position field to 'entries' content in contenttypes.yml:
 
 ```diff
