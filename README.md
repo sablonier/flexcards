@@ -42,6 +42,7 @@ You will only find common global configuration in theme.yml as it is shipped wit
 
 #### Sticking cards at fixed positions 
 ![Stick cards to position](https://github.com/sablonier/flexcards/blob/master/screenshots/readme_fixed_positions.png)
+![Example position field](https://github.com/sablonier/flexcards/blob/master/screenshots/readme_fixed_positions_field.png)
 
 You can provide positions for the cards for your authors. You will need to add an additional field in your contenttype used for the cards. Here is an example of adding a `position` field to 'entries' content in `app/config/contenttypes.yml` (or via dashboard Configuration->ContentTypes). This example will show a new editable field position on top of entries, after updating your database (Configurarion->Check Database):
 
