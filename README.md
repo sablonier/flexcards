@@ -28,7 +28,7 @@ You will need to install the famous Bolt CMS on your server, or update your curr
 ### Install manually
 In case you will give an older Bolt CMS install a try (or restrictions on your server doesn't allow back-end installation) you can download flexcards from github and install it via (s)ftp on your server. Just unzip the folder into your `themes` folder and set 'flexcards' as theme in `config.yml`.
 
-### Configurations
+### Configuration
 
 #### theme.yml and flexcards.css
 You will only find common global configuration in theme.yml as it is shipped with Bolt CMS basic theme. You will need to modify `flexcard.css to get your own design.
@@ -36,7 +36,7 @@ You will only find common global configuration in theme.yml as it is shipped wit
 #### Sticking cards at fixed positions 
 ![Stick cards to position](https://github.com/sablonier/flexcards/blob/master/screenshots/readme_fixed_positions.png)
 
-You can provide positions for the cards for your authors. You will need to add an additional field in your contenttype used for the cards. Here is an example of adding a ```position field``` to 'entries' content in ```contenttypes.yml``` (or via dashboard Configuration->ContentTypes):
+You can provide positions for the cards for your authors. You will need to add an additional field in your contenttype used for the cards. Here is an example of adding a ```positio``` field to 'entries' content in ```app/config/contenttypes.yml``` (or via dashboard Configuration->ContentTypes). This example will show positions on top of content editing in entries:
 
 ```diff
 entries:
