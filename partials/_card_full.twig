@@ -14,11 +14,11 @@
             <h4 class="card-title">
                 <a href="{{ card.link }}">{{ card.title }}</a>
             </h4>
-			<img class="card-img" src="{{ thumbnail(card.image) }}">
+			<img class="card-img" src="{{ card.image|thumbnail(600,400,'c') }}">
 			<p class="card-text">
 			    {{ card.teaser }}
 			</p>
-			<a href="{{card.link}}" class="btn btn-primary">
+			<a href="{{card.link}}" class="btn btn-read-more">
 			    Read more
 			</a>
 		</div>

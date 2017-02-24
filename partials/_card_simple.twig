@@ -8,7 +8,7 @@
             
             {# image #}
             {% if card.image %}
-			    <img class="card-img" src="{{ thumbnail(card.image) }}">
+			    <img class="card-img" src="{{ card.image|thumbnail(600,400,'c') }}">
 			{% endif %}
 			
 			{# content or teaser #}

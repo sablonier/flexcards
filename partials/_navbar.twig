@@ -17,8 +17,10 @@
       <!-- Search -->  
         <form class="form-inline my-2 my-lg-0" method="get" action="{{ path('search') }}" id="searchform-inline" enctype="text/plain">
         <div class="input-group">
-          <input class="form-control mr-sm-2" type="search" value="{% if search is defined %}{{ search|escape }}{% endif %}" placeholder="{{ __('general.phrase.search-ellipsis') }}" name="search">
-          <button class="btn btn-secondary my-2 my-sm-0" type="submit">{{ __('general.phrase.search') }}</button>
+            <input type="search" class="form-control" value="{% if search is defined %}{{ search|escape }}{% endif %}" placeholder="{{ __('general.phrase.search-ellipsis') }}" name="search">
+            <span class="input-group-btn">
+            <button class="btn btn-primary" type="button">{{ __('general.phrase.search') }}</button>
+            </span>
         </div>
         </form>
       </div>

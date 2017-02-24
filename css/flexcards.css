@@ -1,7 +1,7 @@
 /* Import font files (css/ttf) */
 @import "../fonts/hk-grotesk.css";
 
-/* Bootstrap default override */
+/* Main bootstrap override and flexcard css */
 
 body {
   font-family: 'HKGroteskRegular', sans-serif;
@@ -50,8 +50,59 @@ button, input, optgroup, select, textarea {
     padding: 2px;
 }
 
+/* Bootstrap primary button override, 'read more' button */
 
-/* Bootstrap card override and custom stuff */
+.btn-primary {
+  color: #fff;
+  background-color: #999;
+  border-radius: 0;
+  border: 0;
+}
+
+.btn-read-more {
+  color: #333;
+  background: transparent;
+  border-radius: 0;
+  border-top: 2px solid #999;
+  padding: 0;
+  padding-top: 5px;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #333;
+  border: 0;
+}
+
+.btn-read-more:hover {
+  color: #000;
+  background: transparent;
+  border-radius: 0;
+  border-top: 2px solid #000;
+  padding: 0;
+  padding-top: 5px;
+}
+
+.btn-primary:focus, .btn-primary.focus {
+  -webkit-box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+          box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+  background-color: #0275d8;
+  border-color: #0275d8;
+}
+
+.btn-primary:active, .btn-primary.active,
+.show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #025aa5;
+  background-image: none;
+  border-color: #01549b;
+}
+
+
+/* Bootstrap card override */
 
 .card {
   position: relative;
@@ -124,7 +175,7 @@ button, input, optgroup, select, textarea {
 }
 
 .card-header:first-child {
-  border-radius: calc(0 - 0) calc(0 - 0) 0 0;
+  border-radius:   0 0;
 }
 
 .card-footer {
@@ -134,7 +185,7 @@ button, input, optgroup, select, textarea {
 }
 
 .card-footer:last-child {
-  border-radius: 0 0 calc(0 - 0) calc(0 - 0);
+  border-radius: 0 0  ;
 }
 
 .card-header-tabs {
@@ -264,7 +315,7 @@ button, input, optgroup, select, textarea {
 }
 
 .card-img {
-  border-radius: calc(0 - 0);
+  border-radius: 0;
   width: 100%;
 }
 
@@ -278,14 +329,16 @@ button, input, optgroup, select, textarea {
 }
 
 .card-img-top {
-  border-top-right-radius: calc(0 - 0);
-  border-top-left-radius: calc(0 - 0);
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
 }
 
 .card-img-bottom {
-  border-bottom-right-radius: calc(0 - 0);
-  border-bottom-left-radius: calc(0 - 0);
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
+
+/* Breakpoints */
 
 @media (min-width: 576px) {
   .card-deck {
@@ -387,79 +440,7 @@ button, input, optgroup, select, textarea {
   }
 }
 
-.btn {
-  display: inline-block;
-  font-weight: normal;
-  line-height: 1.25;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  border: 0;
-  padding: 0.2rem 0rem;
-  font-size: 1rem;
-  border-radius: 0;
-  -webkit-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-}
 
-.btn:focus, .btn:hover {
-  text-decoration: none;
-}
-
-.btn:focus, .btn.focus {
-  outline: 0;
-  -webkit-box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.25);
-          box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.25);
-}
-
-.btn.disabled, .btn:disabled {
-  cursor: not-allowed;
-  opacity: .65;
-}
-
-.btn:active, .btn.active {
-  background-image: none;
-}
-
-a.btn.disabled,
-fieldset[disabled] a.btn {
-  pointer-events: none;
-}
-
-.btn-primary {
-  color: #333;
-  background-color: #fff;
-  border-top: 4px solid #ccc;
-}
-
-.btn-primary:hover {
-  color: #000;
-  background-color: #fff;
-  border-top: 4px solid #01549b;
-}
-
-.btn-primary:focus, .btn-primary.focus {
-  -webkit-box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
-          box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
-}
-
-.btn-primary.disabled, .btn-primary:disabled {
-  background-color: #0275d8;
-  border-color: #0275d8;
-}
-
-.btn-primary:active, .btn-primary.active,
-.show > .btn-primary.dropdown-toggle {
-  color: #fff;
-  background-color: #025aa5;
-  background-image: none;
-  border-color: #01549b;
-}
 
 @media (min-width: 576px) {
   .card-columns {
