@@ -22,14 +22,36 @@ I was trying to use bootstrap 4 for a gallery-like frontpage for blog entries, o
 
 You can also give older Bolt versions a try but please do not file any issues based on older versions. 'Flexcards' development is based on Bolt CMS v3.2.6 (stable release) at the moment.
 
-### Via 'Extensions' inline
+### Via 'Extend' on dashboard
 You will need to install the famous Bolt CMS on your server, or update your current Bolt install to latest stable release. Flexcards is available in the [Bolt extensions store](https://market.bolt.cm/) (or market place?) from where it should be available directly in your bolt admin panel. Navigate to your extensions in Bolt and search for 'bootstrap' or 'flexcard'. Installation is self-explaining, in case you are running into problems [read here](https://docs.bolt.cm/3.2/extensions/introduction#installing-new-extensions).
 
-### Manual install
-In case you will give an older Bolt CMS install a try (or restrictions on your server doesn't allow back-end installation) you can download flexcards from github here and install it via (s)ftp on your server. Just unzip the folder into your `themes` folder and set flexcards as theme in `config.yml`.
+### Install manually
+In case you will give an older Bolt CMS install a try (or restrictions on your server doesn't allow back-end installation) you can download flexcards from github and install it via (s)ftp on your server. Just unzip the folder into your `themes` folder and set 'flexcards' as theme in `config.yml`.
 
 ### Setup
-There is a `theme.yml` for ongoing development in the theme folder but this is just a clone from the base template shipped with Bolt CMS. There are no global settings for flexcards design, you will need to modify `flexcard.css` to get your own styles.
+
+#### theme.yml and flexcards.css
+You will only find common global configuration in theme.yml as it is shipped with Bolt CMS basic theme. You will need to modify `flexcard.css to get your own design.
+
+#### Sticking cards (cards) at fixed positions
+In case you want to provide fixed positions for the cards, you will need to provide an additional field in your content. You can edit 'Contenttypes' for this. Here is an example of adding a position field to 'entries' content in contenttypes.yml:
+
+```diff
+entries:
+    name: Entries
+    singular_name: Entry
+    fields:
++       position:
++           label: Grid position
++           type: integer
++           group: content
+        title:
+            type: text
+            class: large
+            group: content
+            ...
+```
+
 
 ## Bolt/Bootstrap 4/jQuery/.twig resources for your own development
 All the scripts and css are included in the theme and have no other dependencies. Here some links to get more information about using this resources for your own work:
