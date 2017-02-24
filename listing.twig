@@ -17,7 +17,7 @@
                 {% if taxonomy.options[slug] is defined %}
                     <mark>{{ taxonomy.options[slug] }}</mark>
                 {% else %}
-                    <mark>{{ slug }}</mark>
+                    <span class="mark-light">{{ slug }}</span>
                 {% endif %}
             </h2>
             {# Taxonomies are fetched unordered by design except if 'has_sortorder'
@@ -36,9 +36,9 @@
                 {% if record.taxonomy.tags is defined %}
                  {% for tag in record.taxonomy.tags %}
                      {% if slug == tag or taxonomy.options[slug] == tag %}
-                         <a href="/tags/{{ tag }}"><span style="background: #eeeede; margin-right: 2px; padding: 2px;"><mark>{{ tag }}</mark></span></a>
+                         <a href="{{ paths.root }}tags/{{ tag }}"><span class="mark-light">{{ tag }}</span></a>
                      {% else %}
-                         <a href="/tags/{{ tag }}"><span style="background: #eeeede; margin-right: 2px; padding: 2px;">{{ tag }}</span></a>
+                         <a href="{{ paths.root }}tags/{{ tag }}"><span class="tags">{{ tag }}</span></a>
                      {% endif %}
                  {% endfor %}
                 {% endif %}

@@ -22,7 +22,18 @@ i {
 }
 
 mark {
-  background-color: #ffff00;
+  background-color: #b8d6d0;
+}
+
+.mark-heavy {
+  background-color: #FFFF00;
+}
+
+.mark-light {
+  background: #eeeede;
+  border-bottom: 4px solid #FFFF00;
+  margin-right: 2px; 
+  padding: 2px;
 }
 
 .bg-faded {
@@ -32,6 +43,13 @@ mark {
 button, input, optgroup, select, textarea {
     font-family: 'HKGroteskRegular', sans-serif;
 }
+
+.tags {
+    background: #eeeede; 
+    margin-right: 2px; 
+    padding: 2px;
+}
+
 
 /* Bootstrap card override and custom stuff */
 
@@ -367,6 +385,80 @@ button, input, optgroup, select, textarea {
   .card-group .card:not(:first-child):not(:last-child) .card-img-bottom {
     border-radius: 0;
   }
+}
+
+.btn {
+  display: inline-block;
+  font-weight: normal;
+  line-height: 1.25;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  border: 0;
+  padding: 0.2rem 0rem;
+  font-size: 1rem;
+  border-radius: 0;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn:focus, .btn:hover {
+  text-decoration: none;
+}
+
+.btn:focus, .btn.focus {
+  outline: 0;
+  -webkit-box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.25);
+          box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.25);
+}
+
+.btn.disabled, .btn:disabled {
+  cursor: not-allowed;
+  opacity: .65;
+}
+
+.btn:active, .btn.active {
+  background-image: none;
+}
+
+a.btn.disabled,
+fieldset[disabled] a.btn {
+  pointer-events: none;
+}
+
+.btn-primary {
+  color: #333;
+  background-color: #fff;
+  border-top: 4px solid #ccc;
+}
+
+.btn-primary:hover {
+  color: #000;
+  background-color: #fff;
+  border-top: 4px solid #01549b;
+}
+
+.btn-primary:focus, .btn-primary.focus {
+  -webkit-box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+          box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+  background-color: #0275d8;
+  border-color: #0275d8;
+}
+
+.btn-primary:active, .btn-primary.active,
+.show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #025aa5;
+  background-image: none;
+  border-color: #01549b;
 }
 
 @media (min-width: 576px) {
