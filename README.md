@@ -3,16 +3,16 @@
 # 'flexcards' theme for Bolt CMS
 
 ## Using bootstrap 4 for the frontend
-Flexcards is a Bolt CMS theme (>= 3.2) working with Bootstrap 4 'cards' and jQuery for a simple, dynamic and flexible grid layout. Basic theme shipped with Bolt CMS (base-2016) comes with foundation framework support. Flexcards skips foundation css/js completely, for extending flexcards you will need to work with .twig and Bootstrap 4 (see links below). Please be aware that flexcards development is experimental.
+Flexcards is a Bolt CMS theme (>= 3.2) working with Bootstrap 4 'card' component for a simple, dynamic and flexible grid layout. Current base theme shipped with Bolt CMS (base-2016) comes with foundation framework support, bootstrap is only used for the backend. For extending flexcards you will need to work with .twig and Bootstrap 4 (see links below). Please be aware that flexcards development is experimental.
 
 :no_bell: 
 ```Before you start using this experimental work for production you should probably read about what browser versions are supported with Bootstrap 4. Have a look here:``` 
 [Browsers supported](http://v4-alpha.getbootstrap.com/getting-started/browsers-devices/)
 
-## What flexcard does
-I was trying to use bootstrap 4 for a gallery-like frontpage for blog entries, ordered in read direction also on larger screens with at least 3 or 4 columns. I made some tests with new bootstrap compononents but ran into (common?) ordering and grid issues. I didn't want to overload with one of those masonry scripts, so I started with an own simple jquery script for fixed-width-items in responsive columns, for use with bolt cms only.
+## Features
+Flexcards is using bootstrap 4 for a gallery-like frontpage for blog entries or any other content, ordered in read direction also for larger screens. Basically it provides a *4 column grid system with responsive breakpoints* and reorder of the content. You can easily extend flexcards to provide *fixed positions* for a card (see section 'Configuration' below). *Flexcards does not use jQuery or masonry scripts*. The elements have fixed width (more comparable to what brick.js does).
 
-![What flexcard does](https://github.com/sablonier/flexcards/blob/master/screenshots/readme_flex_example.png)
+![Ordering of content in read direction](https://github.com/sablonier/flexcards/blob/master/screenshots/readme_flex_example.png)
 
 ## Installation
 
@@ -28,13 +28,15 @@ You will need to install the famous Bolt CMS on your server, or update your curr
 ### Install manually
 In case you will give an older Bolt CMS install a try (or restrictions on your server doesn't allow back-end installation) you can download flexcards from github and install it via (s)ftp on your server. Just unzip the folder into your `themes` folder and set 'flexcards' as theme in `config.yml`.
 
-### Setup
+### Configurations
 
 #### theme.yml and flexcards.css
 You will only find common global configuration in theme.yml as it is shipped with Bolt CMS basic theme. You will need to modify `flexcard.css to get your own design.
 
-#### Sticking cards at fixed positions
-In case you want to provide fixed positions for the cards, you will need to provide an additional field in your content. You can edit 'Contenttypes' for this. Here is an example of adding a position field to 'entries' content in contenttypes.yml:
+#### Sticking cards at fixed positions 
+![Stick cards to position](https://github.com/sablonier/flexcards/blob/master/screenshots/readme_fixed_positions.png)
+
+You can provide positions for the cards for your authors. You will need to add an additional field in your contenttype used for the cards. Here is an example of adding a ```position field``` to 'entries' content in ```contenttypes.yml``` (or via dashboard Configuration->ContentTypes):
 
 ```diff
 entries:
@@ -51,10 +53,11 @@ entries:
             group: content
             ...
 ```
+The number of position follows reading order left>right>top>down.
 
 
 ## Bolt/Bootstrap 4/jQuery/.twig resources for your own development
-All the scripts and css are included in the theme and have no other dependencies. Here some links to get more information about using this resources for your own work:
+All the standard scripts and css are included in the theme (no CDN links). For more information about using this resources for your own work:
 
  * [Bolt CMS template work](https://docs.bolt.cm/3.2/getting-started/introduction)
  * [bootstrap >=4](https://v4-alpha.getbootstrap.com/) as framework
