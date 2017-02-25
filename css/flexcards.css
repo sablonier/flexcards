@@ -59,6 +59,13 @@ button, input, optgroup, select, textarea {
   border: 0;
 }
 
+.btn-primary:hover {
+  color: #fff;
+  background-color: #333;
+  border: 0;
+}
+
+
 .btn-read-more {
   color: #333;
   background: transparent;
@@ -66,12 +73,6 @@ button, input, optgroup, select, textarea {
   border-top: 2px solid #999;
   padding: 0;
   padding-top: 5px;
-}
-
-.btn-primary:hover {
-  color: #fff;
-  background-color: #333;
-  border: 0;
 }
 
 .btn-read-more:hover {
