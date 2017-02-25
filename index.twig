@@ -8,7 +8,7 @@
     
     {# fetching content #}
     {# ---------------- #}
-    {% setcontent cards = 'entries/latest/16' %}
+    {% setcontent cards = 'entries/latest/16' allowpaging %}
     
     {# example for mixed content #}
     {#{% setcontent cards = '(pages,entries)' orderby '-datepublish' limit 10 %}#}
@@ -39,5 +39,31 @@
 
         </div>
     </div>
+    
+    <div id="sticker" class="btn-group">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <img src="{{ paths.theme }}icons/pager_neg.svg" width="29" height="29">
+        </button>
+        <div class="dropdown-menu dropdown-menu-right">
+            <div class="centered"><a class="btn" href="#">^ top ^</a></div>
+            {{ pager('entries') }}
+        </div>
+    </div>
+
+
+
+</div>
+    
+    <script>
+    window.onscroll = function() {
+        var sticky = document.getElementById('sticker');
+        if( document.body.scrollTop+document.documentElement.scrollTop > 240) {
+            sticky.className = "stick";
+        }
+        else {
+            sticky.className = "";
+        }
+    };
+    </script>
 
 {% include 'partials/_footer.twig' %}

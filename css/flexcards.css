@@ -1,6 +1,48 @@
 /* Import font files (css/ttf) */
 @import "../fonts/hk-grotesk.css";
 
+/* Bolt CMS Pager */
+
+.pagination {
+}
+
+.pagination ul {
+    float: left;
+    clear: both;
+    display: block;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border: 0;
+}
+
+.pagination ul li {
+    float: left;
+    list-style-type: none;
+    border-right: 1px solid #DDD;
+    padding: 4px 16px;
+}
+
+.pagination ul li:last-child {
+    border-right: none;
+}
+
+.pagination ul li.active {
+    font-weight: bold;
+    background-color: #CCF;
+}
+
+.pagination ul li a {
+    text-decoration: none;
+}
+
+/* Sticky navigation */
+.stick {
+    position: fixed;
+    right: 0;
+    left: auto;
+    bottom: 20%;
+}
+
 /* Main bootstrap override and flexcard css */
 
 body {
