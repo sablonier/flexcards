@@ -1,6 +1,8 @@
 # Optional config file for the theme.
 
-# Variables that are in this file, can be used in your twig template like {{ theme.foo }}
+# Pager
+pagerdesktop: true
+pagermobile: true
 
 
 # Template filenames. If you 're creating a theme for distribution, you can specify

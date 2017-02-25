@@ -34,19 +34,21 @@
                     {% include 'partials/_card_full.twig' %}
                     {% endfor %}
                 
-                {# pager #}
+                {# pager desktop #}
                 {% if loop.last %}
-                    {% include 'partials/_pager.twig' %}
-                    </div>
+                    {% if theme.pagerdesktop %}
+                        {% include 'partials/_pager.twig' %}
+                    {% endif %}
                 {% endif %}
-                
-                </div>
+                    </div>
                 {% endfor %}
         </div>
     </div>
     
     {# pager mobile #}
-    {% include 'partials/_pager_mobile.twig' %}
+    {% if theme.pagermobile %}
+        {% include 'partials/_pager_mobile.twig' %}
+    {% endif %}
 
 </div>
 
