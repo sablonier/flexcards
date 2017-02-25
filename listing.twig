@@ -1,9 +1,12 @@
 {% include 'partials/_header.twig' %}
 
-  <body>
+    <body>
 	  
 {% include 'partials/_navbar.twig' %}
-<div class="container-fluid">
+
+    <div class="container-fluid">
+        <div class="row col-12">
+
         {# This template is used for 'listings': Generic pages that list a number of
            records from a certain contenttype. These records are available as an array
            called 'records'. In the for-loop below, we iterate over the records that
@@ -27,49 +30,49 @@
                 {% set records = records|order(app.config.get('general/listing_sort')) %}
             {% endif %}
         {% endif %}
-	<div class="card-columns p-2">
-        {% for record in records %}
-        <div class="card">
-			<div class="card-block">
-			    <p>
-                <small class="text-muted"><strong>{{ record.datepublish|localedatetime("%A %B %e") }}</strong> by {{ record.user.username }}<br>
-                {% if record.taxonomy.tags is defined %}
-                 {% for tag in record.taxonomy.tags %}
-                     {% if slug == tag or taxonomy.options[slug] == tag %}
-                         <a href="{{ paths.root }}tags/{{ tag }}"><span class="mark-light">{{ tag }}</span></a>
-                     {% else %}
-                         <a href="{{ paths.root }}tags/{{ tag }}"><span class="tags">{{ tag }}</span></a>
-                     {% endif %}
-                 {% endfor %}
-                {% endif %}
-                </small>
-                </p>
-                <h4 class="card-title"><a href="{{ record.link }}">{{ record.title }}</a></h4>
-
-                {# display something introduction-like.. #}
-                {% if record.introduction %}
-					<div class="card-text">{{ record.introduction }}</div>
-                {% elseif record.teaser %}
-                    <div class="card-text">{{ record.teaser }}</div>
-                {% else %}
-                    <div class="card-text">{{ record.excerpt(200, false, search|default('')) }}</div>
-                {% endif %}
-
-			</div>
-		</div>
-
-        {% else %}
-        <div class="card">
-		    <div class="card-block">
-
-                <h4 class="card-title">{{ __('general.phrase.no-content-found') }}</h4>
-
-                <div class="card-text">
-                    {{ __("Unfortunately, no content could be found. Try another page, or go to the <a href=\"%paths_root%\">homepage</a>.", {'%paths_root%': path('homepage')} ) }}
-                </div>
-             </div>
         </div>
-        {% endfor %}
     </div>
+    <p></p>
+    
+    {% set cards = records %}
+		
+	{# getting the magic with rows and columns            #}
+    {# i.e. 10 entries should give = 3/3/2/2, not 3/3/3/1 #}
+    {# -------------------------------------------------- #}
+    {% set rows = (cards|length)//4 %}
+    {% set d = (cards|length)-(rows*4) %}
+    {% set magic = [ [0,rows+(d//d)], [rows+(d//d), rows+(d//2)|round(0,'floor')], [2*rows+(d//1.5|round(0,'ceil'))+(d//d), rows+(d//3|round(0,'floor'))], [(3*rows)+d, rows] ] %}
+
+    {# container #}
+    {# --------- #}
+    <div class="container-fluid">
+        <div class="row">
+        
+                {# get the 4 columns #}
+                {% for key in magic|keys %}
+                    <div id="column-{{key}}" class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+			        
+                    {# push rows in columns #}
+                    {% for card in cards|slice(magic[key][0],magic[key][1]) %}
+                    {% include 'partials/_card_list.twig' %}
+                    {% endfor %}
+                
+                {# pager desktop #}
+                {% if loop.last %}
+                    {% if theme.pagerdesktop %}
+                        {% include 'partials/_pager.twig' %}
+                    {% endif %}
+                {% endif %}
+                    </div>
+                {% endfor %}
+        </div>
+    </div>
+    
+    {# pager mobile #}
+    {% if theme.pagermobile %}
+        {% include 'partials/_pager_mobile.twig' %}
+    {% endif %}
+
+
 </div>
 {% include 'partials/_footer.twig' %}

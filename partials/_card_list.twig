@@ -1,0 +1,35 @@
+<div class="card" id="{{card.id}}" fixedposition="{{ card.position }}">
+        <div class="card-block">
+        <!--<div>Id: {{card.id}}</div>-->
+            <p>
+                <small class="text-muted"><strong>{{ card.datepublish|localedatetime("%A %B %e") }}</strong> by {{ card.user.username }}<br>
+                {% if card.taxonomy.tags is defined %}
+                 {% for tag in card.taxonomy.tags %}
+                     {% if slug == tag or taxonomy.options[slug] == tag %}
+                         <a href="{{ paths.root }}tags/{{ tag }}"><span class="mark-light">{{ tag }}</span></a>
+                     {% else %}
+                         <a href="{{ paths.root }}tags/{{ tag }}"><span class="tags">{{ tag }}</span></a>
+                     {% endif %}
+                 {% endfor %}
+                {% endif %}
+                </small>
+                </p>
+            <h4 class="card-title"><a href="{{ card.link }}">{{ card.title }}</a></h4>
+            <img class="card-img" src="{{ card.image|thumbnail(600,400,'c') }}"><p></p>
+            {# display something introduction-like.. #}
+            {% if card.introduction %}
+				<p class="card-text">
+                     {{ card.introduction }}
+                </p>
+            {% elseif card.teaser %}
+                <p class="card-text">
+                    {{ card.teaser }}
+                </p>
+            {% else %}
+                <p class="card-text">
+                    {{ card.excerpt(200, false, search|default('')) }}
+                </p>
+            {% endif %}
+        </div>
+    <p></p>
+</div>
