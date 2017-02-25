@@ -1,5 +1,8 @@
 # Optional config file for the theme.
 
+# Logo
+logo: 'brand/flexcard.svg'
+
 # Pager
 pagerdesktop: true
 pagermobile: true
