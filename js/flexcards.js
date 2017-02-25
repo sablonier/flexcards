@@ -174,3 +174,14 @@ function breakpointChange() {
         sortLayout(4);
     }
 }
+
+// sticky navigation and pager
+window.onscroll = function() {
+    var sticky = document.getElementById('sticker');
+    if( document.body.scrollTop+document.documentElement.scrollTop > 400) {
+        sticky.className = "stick";
+    }
+    else {
+        sticky.className = "stickhidden";
+    }
+};

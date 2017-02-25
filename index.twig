@@ -40,28 +40,8 @@
         </div>
     </div>
     
-    <div id="sticker" class="btn-group">
-        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <img src="{{ paths.theme }}icons/pager_neg.svg" width="29" height="29">
-        </button>
-        <div class="dropdown-menu dropdown-menu-right">
-            <div><a class="btn btn-block" href="#">^ top ^</a></div>
-            {{ pager('entries') }}
-        </div>
-    </div>
+    {% include 'partials/_pager_mobile.twig' %}
 
 </div>
-    
-    <script>
-    window.onscroll = function() {
-        var sticky = document.getElementById('sticker');
-        if( document.body.scrollTop+document.documentElement.scrollTop > 400) {
-            sticky.className = "stick";
-        }
-        else {
-            sticky.className = "stickhidden";
-        }
-    };
-    </script>
 
 {% include 'partials/_footer.twig' %}
