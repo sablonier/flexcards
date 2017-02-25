@@ -43,6 +43,10 @@
     bottom: 20%;
 }
 
+.stickhidden {
+    display: hidden;
+}
+
 /* Main bootstrap override and flexcard css */
 
 body {

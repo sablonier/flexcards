@@ -45,23 +45,21 @@
         <img src="{{ paths.theme }}icons/pager_neg.svg" width="29" height="29">
         </button>
         <div class="dropdown-menu dropdown-menu-right">
-            <div class="centered"><a class="btn" href="#">^ top ^</a></div>
+            <div><a class="btn btn-block" href="#">^ top ^</a></div>
             {{ pager('entries') }}
         </div>
     </div>
-
-
 
 </div>
     
     <script>
     window.onscroll = function() {
         var sticky = document.getElementById('sticker');
-        if( document.body.scrollTop+document.documentElement.scrollTop > 240) {
+        if( document.body.scrollTop+document.documentElement.scrollTop > 400) {
             sticky.className = "stick";
         }
         else {
-            sticky.className = "";
+            sticky.className = "stickhidden";
         }
     };
     </script>
