@@ -1,4 +1,4 @@
-<div class="card" id="{{card.id}}" fixedposition="{{ card.position }}">
+<div class="card">
         <div class="card-block">
             
             {# title #}
@@ -21,11 +21,9 @@
 			{# link #}
 			{% if card.contentlink or card.link %}
 			    <a href="{{card.link}}{{card.contentlink}}" class="btn btn-primary">
-			    Read more
+			    Learn more
 			    </a>
 			{% endif %}
 			
 		</div>
-		{# simple spacer #}
-		<p></p>
 </div>
