@@ -15,27 +15,31 @@ Flexcards is made for the famous Bolt CMS (> 3.0), working with Bootstrap 4 'car
 Before you start using this experimental work for production you should probably read about *what browser versions are supported with Bootstrap 4*. Have a look here: [Browsers supported](http://v4-alpha.getbootstrap.com/getting-started/browsers-devices/)
 
 ## <a name="features"></a>Features
-Flexcards is using Bootstrap 4 Card component (flexbox) for a gallery-like frontpage for blog entries or any other content, ordered by read direction. It provides a responsive **4 column grid** based on the 12 column grid of bootstrap. You can extend flexcards to provide **fixed positions** for a card (see section [Configuration](#configuration)). *Flexcards javascripts do not use ~~jQuery~~ or ~~masonry~~ scripts*, and it shipped only with slim version of jQuery (because bootstrap 4 makes use of it).
+Flexcards is using Bootstrap 4 Card component for a gallery-like (or 'pinterest-like' you might throw in) solution for blog entries or any other content, ordered in read direction for all devices, using paging if needed. 
+
+It provides a responsive **4 columns grid** based on 12 columns grid of bootstrap. You can extend flexcards to provide **fixed positions** for a card (see section [Configuration](#configuration)). 
 
 ![Ordering of content in read direction](screenshots/readme_flex_example.png)
+
+>Note: Flexcards javascript does not make use of ~~jQuery~~ or ~~masonry~~ scripts, and flexcards is shipped with **slim version of jQuery** and theter.js (because bootstrap 4 needs it). And no, the theme does not cover parallax, lazy loading and other 'lost content' design. 
 
 ## <a name="installation"></a>Installation
 
 #### Requirements
-* New or updated installation of [Bolt CMS >= v3.2 recommended)](http://www.bolt.cm)
+* New or updated installation of [Bolt CMS >= v3.2.0](http://www.bolt.cm)
 
-You can also give older Bolt versions a try but, please do not file any issues based on older versions. Current 'Flexcards' development is based on Bolt CMS v3.2.6.
+You can also give older Bolt versions ^3.0 a try but, please do not file any issues based on older versions. Current 'Flexcards' development is based on Bolt CMS v3.2.6.
 
-#### Via 'Extend' on Bolt CMS dashboard
+#### Install via 'Extend' on Dashboard
 You will need to install the famous Bolt CMS on your server, or update your current Bolt install to latest stable release. Flexcards is available in the [Bolt extensions store](https://market.bolt.cm/) and it is available directly in your bolt dashboard. As administrator of the site navigate to 'Extend' and search for 'flexcards'. Installation is self-explaining, in case you are running into problems [read here](https://docs.bolt.cm/3.2/extensions/introduction#installing-new-extensions).
 
 #### Install manually
-In case you will give an older Bolt CMS install a try or unknown restrictions on your server do not allow bolt dashboard installations) you can download flexcards from github and install it directly on your server. Just unzip the flexcards folder into your `themes` folder and set 'flexcards' as theme in `config.yml`.
+In case you will give an older Bolt CMS install a try or unknown restrictions on your server do not allow bolt dashboard installations) you can download flexcards from github and install it directly on your server. Just unzip the flexcards folder into your `themes` folder and set 'flexcards' as theme in your `config.yml`.
 
 ## <a name="configuration"></a>Configuration
 
-#### Defaults in `flexcards/theme.yml`
-```yaml
+#### Basic configuration in `flexcards/theme.yml`
+```diff
 # Content for frontpage
 # ---------------------
 # Defines the content lookup for the cards on frontpage.
@@ -101,8 +105,8 @@ This will show up when you edit 'entries' now (after updating the database):
 ## Resources
 All the standard scripts and css are included in the theme (no CDN links). For more information about using this resources for your own work:
 
- * [Bolt CMS template work](https://docs.bolt.cm/3.2/getting-started/introduction)
- * [bootstrap >=4](https://v4-alpha.getbootstrap.com/) as framework
- * [twig >=2](http://twig.sensiolabs.org/doc/2.x/) I used this docs for working with Bolt CMS templates/themes
- * [jQuery >=3](https://jquery.com/download/) for the slim version
+ * [Bolt CMS templating](https://docs.bolt.cm/3.2/getting-started/introduction)
+ * [bootstrap 4](https://v4-alpha.getbootstrap.com/) as framework
+ * [twig 1 & 2](http://twig.sensiolabs.org/doc/2.x/) docs used for advanced templating with Bolt CMS
+ * [jQuery 3](https://jquery.com/download/) watch out for no-jquery solutions or use the the slim version at least
  * [theter](http://tether.io/) in case you want to use bootstrap tooltips
