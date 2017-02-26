@@ -7,6 +7,9 @@
 # Logo
 logo: 'brand/flexcard.svg'
 
+# Footer
+footerhtml: "<p>This website is <a href='http://bolt.cm' target='_blank' title='Sophisticated, lightweight & simple CMS'>Built with <strong>Bolt</strong></a>.Theme <a href='https://github.com/sablonier/flexcards' target='_blank' title='fork on github'>flexcards</a> built with Bootstrap 4 (alpha 6). (c) 2017 Yves Sablonier, Zurich (MIT License)</p>"
+
 # Pager
 pagerdesktop: true
 pagermobile: true
