@@ -4,10 +4,10 @@
     
     {# fetching content #}
     {# ---------------- #}
-    {% setcontent cards = 'entries/latest/10' allowpaging %}
+    {% setcontent cards = '('~theme.contenttypes~')' orderby theme.orderby limit theme.limit allowpaging %}
     
     {# example for mixed content #}
-    {#{% setcontent cards = '(pages,entries)' orderby '-datepublish' limit 10 %}#}
+    {#{% setcontent cards = '('~theme.contenttypes~')' orderby theme.orderby limit theme.limit %}#}
     
     {# getting the magic with rows and columns            #}
     {# i.e. 10 entries should give = 3/3/2/2, not 3/3/3/1 #}

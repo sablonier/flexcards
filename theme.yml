@@ -1,4 +1,8 @@
-# Optional config file for the theme.
+# Optional config file for flexcards
+
+#####################
+# Flexcards section #
+#####################
 
 # Logo
 logo: 'brand/flexcard.svg'
@@ -7,12 +11,20 @@ logo: 'brand/flexcard.svg'
 pagerdesktop: true
 pagermobile: true
 
-# Show date/author on listing pages for this contenttypes
-showmeta: [ 'Entries', Showcases ]
+# Cards for frontpage
+contenttypes: entries
+orderby: -datepublish
+limit: 10
 
-# How many results on listing pages
+# Show date/author on listing pages
+showmeta: [ Entries, Showcases ]
+
+# How many cards on listing pages
 listing_records: 10
 
+########################
+# Bolt default section #
+########################
 
 # Template filenames. If you 're creating a theme for distribution, you can specify
 # the filenames of the templates here. The templates you will set in this config
