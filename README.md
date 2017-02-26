@@ -79,6 +79,20 @@ footerhtml: "<p>Your footer html goes here.</p>"
 showmeta: [ Entries, Showcases ]
 # Define count of cards on listing pages separately, affects paging
 listing_records: 10 
+
+# Block column in record.twig
+# ---------------------------
+# Define the blocks that appears in the right column at fixed position.
+# Default is appearance in the right column in all contenttypes using
+# record.twig as template. Create blocks with unique aliases like shown
+# below and edit this lines:
+blockcolumn:
+   block1: block/about
+   block2: block/services
+   #block3: block/custom3
+   #block4: block/custom4
+   #block5: block/custom5
+   # ...
 ```
 
 #### Extending: Cards at fixed positions 
