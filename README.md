@@ -4,7 +4,7 @@
 ---
 
 #### Using Bootstrap 4
-Flexcards is made for the famous Bolt CMS (> 3.0), working with Bootstrap 4 'card' component for a simple, dynamic and flexible grid layout. For developing and extending flexcards you will need to work with .twig-Templating and Bootstrap 4 (see links below).
+Flexcards is made for the famous Bolt CMS (> 3.0), working with Bootstrap 4 'card' component for a simple, dynamic and flexible grid layout. For developing and extending flexcards you will need to work with .twig-Templating and Bootstrap 4 (see [Resources](#resources) below).
 
 - [Theme features](#features)
 - [Installation](#installation)
@@ -12,12 +12,12 @@ Flexcards is made for the famous Bolt CMS (> 3.0), working with Bootstrap 4 'car
 - [Resources](#resources)
 
 :no_bell: 
-Before you start using this experimental work for production you should probably read about what browser versions are supported with Bootstrap 4. Have a look here: [Browsers supported](http://v4-alpha.getbootstrap.com/getting-started/browsers-devices/)
+Before you start using this experimental work for production you should probably read about *what browser versions are supported with Bootstrap 4*. Have a look here: [Browsers supported](http://v4-alpha.getbootstrap.com/getting-started/browsers-devices/)
 
 ## <a name="features"></a>Features
 Flexcards is using Bootstrap 4 Card component (flexbox) for a gallery-like frontpage for blog entries or any other content, ordered by read direction. It provides a responsive **4 column grid** based on the 12 column grid of bootstrap. You can extend flexcards to provide **fixed positions** for a card (see section [Configuration](#configuration)). *Flexcards javascripts do not use ~~jQuery~~ or ~~masonry~~ scripts*, and it shipped only with slim version of jQuery (because bootstrap 4 makes use of it).
 
-![Ordering of content in read direction](https://github.com/sablonier/flexcards/blob/master/screenshots/readme_flex_example.png)
+![Ordering of content in read direction](screenshots/readme_flex_example.png)
 
 ## <a name="installation"></a>Installation
 
@@ -72,11 +72,12 @@ showmeta: [ Entries, Showcases ]
 listing_records: 10 
 ```
 
-#### Extending: Sticking cards at fixed positions 
-![Stick cards to position](https://github.com/sablonier/flexcards/blob/master/screenshots/readme_fixed_positions.png)
-![Example position field](https://github.com/sablonier/flexcards/blob/master/screenshots/readme_fixed_positions_field.png)
+#### Extending: Cards at fixed positions 
+![Stick cards to position](screenshots/readme_fixed_positions.png)
 
-You can provide positions and sticking for the cards. But you will need to add an additional field in your contenttype used for the cards. Here is an example of adding a `position` field to 'entries' content in `app/config/contenttypes.yml` (or via dashboard Configuration->ContentTypes). This example will show a new editable field position on top of entries, after updating your database (Configurarion->Check Database). The positions follow **right-to-left, top-to-bottom**.
+You can provide custom positions and 'sticking' for the cards without changing Bolt query strings. Card position follows **right-to-left, top-to-bottom**. For extending with fixed positions will need to add an additional field in your contenttype used for the cards. 
+
+Here is an example of adding a `position` field to 'entries' content in `app/config/contenttypes.yml` (or via dashboard Configuration->ContentTypes). This example will show a new editable field position on top of entries, after updating your database (Configurarion->Check Database).
 
 ```diff
 entries:
@@ -93,6 +94,8 @@ entries:
             group: content
             ...
 ```
+This will show up when you edit 'entries' now (after updating the database):
+![Example position field](screenshots/readme_fixed_positions_field.png)
 
 
 ## Resources
