@@ -1,51 +1,82 @@
 {% include 'partials/_header.twig' %}
 
     <body>
-    
-    {% set ids = [] %}
 	  
 {% include 'partials/_navbar.twig' %}
-	  
-	<div class="container-fluid">
-	
-        <h2>
-            {% if search is not empty %}
-                {{ __('general.phrase.search-results-for-variable', { '%search%': search }) }}
-            {% else %}
-                {{ __('general.phrase.search') }}
-            {% endif %}
-        </h2>
 
-		<div class="card-columns p-2">
-			{% for card in records %}
-			<div class="card">
-				<div class="card-block">
-			    <p>
-                    <small class="text-muted"><strong>{{ card.datepublish|localedatetime("%A %B %e") }}</strong> by {{ card.user.username }}<br>
-                    {% if card.taxonomy.tags is defined %}
-                         {% for tag in card.taxonomy.tags %}
-                         <span style="background: #eeeede">{{ tag }}</span>{% if not loop.last %} {% endif %}
-                         {% endfor %}
-                    {% endif %}
-                    </small>
-                </p>
-					<h4 class="card-title"><a href="{{ card.link }}">{{ card.title }}</a></h4>
-					{% if card.image!="" %}
-					<a href="{{ image(card.image) }}">
-					   <img class="card-img" src="{{ thumbnail(card.image) }}">
-					</a>
-					{% endif %}
-					<p class="card-text">{{ card.excerpt(300, false, search|default('')) }}</p>
-				</div>
-			</div>
-		    {% else %}
-		    <div class="card">
-				<div class="card-block">
-                    <p class="card-text">{{ __('general.phrase.no-result-for-search-term', { '%SEARCHTERM%': search|escape }) }}</p>
-				</div>
-			</div>
-            {% endfor %}
-		</div>
+    <div class="container-fluid">
+        <div class="row col-12">
+
+        {# This template is used for 'listings': Generic pages that list a number of
+           records from a certain contenttype. These records are available as an array
+           called 'records'. In the for-loop below, we iterate over the records that
+           are on this page. It can be used for overview pages like 'all entries', or
+           'all records tagged with kittens'. #}
+
+        {# If used for listing a taxonomy, we add a heading.: #}
+        {% if taxonomytype is defined %}
+            <h2>
+                {{ __('general.phrase.overview-for') }}
+                {% if taxonomy.options[slug] is defined %}
+                    <mark>{{ taxonomy.options[slug] }}</mark>
+                {% else %}
+                    <span class="mark-light">{{ slug }}</span>
+                {% endif %}
+            </h2>
+            {# Taxonomies are fetched unordered by design except if 'has_sortorder'
+               is set to true. This way we keep 'grouping' intact in the listing. #}
+            {% if not taxonomy.has_sortorder %}
+                {# If we specified an order in config.yml, sort them here, accordingly: #}
+                {% set records = records|order(app.config.get('general/listing_sort')) %}
+            {% endif %}
+        {% endif %}
+        </div>
+    </div>
+    <p></p>
+    
+    {% set cards = records %}
 		
+	{# getting the magic with rows and columns            #}
+    {# i.e. 10 entries should give = 3/3/2/2, not 3/3/3/1 #}
+    {# -------------------------------------------------- #}
+    {% if cards|length > 4 %}
+        {% set rows = (cards|length)//4 %}
+        {% set d = (cards|length)-(rows*4) %}
+        {% set magic = [ [0,rows+(d//d)], [rows+(d//d), rows+(d//2)|round(0,'floor')], [2*rows+(d//1.5|round(0,'ceil'))+(d//d), rows+(d//3|round(0,'floor'))], [(3*rows)+d, rows] ] %}
+    {% else %}
+        {% set magic = [ [0,1], [1,1], [2,1], [3,1] ] %}
+    {% endif %}
+    
+    {# container #}
+    {# --------- #}
+    <div class="container-fluid">
+        <div class="row">
         
+                {# get the 4 columns #}
+                {% for key in magic|keys %}
+                    <div id="column-{{key}}" class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+			        
+                    {# push rows in columns #}
+                    {% for card in cards|slice(magic[key][0],magic[key][1]) %}
+                    {% include 'partials/_card_search.twig' %}
+                    {% endfor %}
+                
+                {# pager desktop #}
+                {% if loop.last %}
+                    {% if theme.pagerdesktop %}
+                        {% include 'partials/_sub_pager_desktop.twig' %}
+                    {% endif %}
+                {% endif %}
+                    </div>
+                {% endfor %}
+        </div>
+    </div>
+    
+    {# pager mobile #}
+    {% if theme.pagermobile %}
+        {% include 'partials/_sub_pager_mobile.twig' %}
+    {% endif %}
+
+
+</div>
 {% include 'partials/_footer.twig' %}
