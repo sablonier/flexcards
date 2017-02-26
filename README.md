@@ -15,8 +15,12 @@ Flexcards is made for the famous Bolt CMS (> 3.0), working with Bootstrap 4 'car
 Before you start using this experimental work for production you should probably read about *what browser versions are supported with Bootstrap 4*. Have a look here: [Browsers supported](http://v4-alpha.getbootstrap.com/getting-started/browsers-devices/)
 
 ## <a name="features"></a>Features
-Flexcards is using Bootstrap 4 Card component for a gallery-like (or 'pinterest-like' you might throw in) solution for blog entries or any other content, ordered in read direction for all devices, using paging if needed. 
+Flexcards is using Bootstrap 4 Card component for a gallery-like (or 'pinterest-like' you might throw in) solution for blog entries or any other content, ordered in read direction for all devices, using paging if needed. The cards can contain any contenttypes, by default it it relies on 'entries' and 'pages' contenttypes.
 
+####Default structure
+![Default structure](screenshots/readme_flex_structure.png)
+
+#### Layout with ordered cards
 It provides a responsive **4 columns grid** based on 12 columns grid of bootstrap. You can extend flexcards to provide **fixed positions** for a card (see section [Configuration](#configuration)). 
 
 ![Ordering of content in read direction](screenshots/readme_flex_example.png)
@@ -27,6 +31,7 @@ It provides a responsive **4 columns grid** based on 12 columns grid of bootstra
 
 #### Requirements
 * New or updated installation of [Bolt CMS >= v3.2.0](http://www.bolt.cm)
+* All assets are included with distribution
 
 You can also give older Bolt versions ^3.0 a try but, please do not file any issues based on older versions. Current 'Flexcards' development is based on Bolt CMS v3.2.6.
 
