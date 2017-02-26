@@ -4,25 +4,70 @@
 # Flexcards section #
 #####################
 
-# Logo
-logo: 'brand/flexcard.svg'
-
-# Footer
-footerhtml: "<p>This website is <a href='http://bolt.cm' target='_blank' title='Sophisticated, lightweight & simple CMS'>Built with <strong>Bolt</strong></a>.Theme <a href='https://github.com/sablonier/flexcards' target='_blank' title='fork on github'>flexcards</a> built with Bootstrap 4 (alpha 6). (c) 2017 Yves Sablonier, Zurich (MIT License)</p>"
-
-# Pager
-pagerdesktop: true
-pagermobile: true
-
-# Cards for frontpage
+# Content for frontpage
+# ---------------------
+# Defines the content lookup for the cards on frontpage.
+# By default flexcards takes 10 latest records of contenttype 'entries'
 contenttypes: entries
 orderby: -datepublish
 limit: 10
 
-# Show date/author on listing pages
-showmeta: [ Entries, Showcases ]
+# Logo
+# ----
+# default is 'brand/flexcard.svg'
+# set to 'false' to skip logo at all
+logo: 'brand/flexcard.svg'
 
-# How many cards on listing pages
+# Footer
+# ------
+# You can bring up your own html here, but
+# in case you want to extend your footer with additional content like
+# menus or widgets you better have a look to partials/_footer.twig
+footerhtml: "<p>This website is <a href='http://bolt.cm' target='_blank' title='Sophisticated, lightweight & simple CMS'>Built with <strong>Bolt</strong></a>.Theme <a href='https://github.com/sablonier/flexcards' target='_blank' title='fork on github'>flexcards</a> built with Bootstrap 4 (alpha 6). (c) 2017 Yves Sablonier, Zurich (MIT License)</p>"
+
+# Content for frontpage
+# ---------------------
+# Defines the content lookup for the cards on frontpage.
+# By default flexcards takes 10 latest records of contenttype 'entries'
+contenttypes: entries
+orderby: -datepublish
+limit: 10
+
+# Logo
+# ----
+# default is 'brand/flexcard.svg'
+# set to 'false' to skip logo at all
+logo: 'brand/flexcard.svg'
+
+# Footer
+# ------
+# You can bring up your own html here, but
+# in case you want to extend your footer with additional content like
+# menus or widgets you better have a look to partials/_footer.twig
+footerhtml: "<p>This website is <a href='http://bolt.cm' target='_blank' title='Sophisticated, lightweight & simple CMS'>Built with <strong>Bolt</strong></a>.Theme <a href='https://github.com/sablonier/flexcards' target='_blank' title='fork on github'>flexcards</a> built with Bootstrap 4 (alpha 6). (c) 2017 Yves Sablonier, Zurich (MIT License)</p>"
+
+# Pager
+# -----
+# These are experimental responsive pagers (pagination) for Bolt CMS.
+# You can activate this stuff separately, or disable it at all
+# with setting it to 'false' and implementing your custom paging system.
+pagerdesktop: true
+pagermobile: true
+
+# Listing pages
+# -------------
+# Define which contenttypes should show up with date and authors
+# on listing pages
+showmeta: [ Entries, Showcases ]
+# Define count of cards on listing pages separately, affects paging
+listing_records: 10
+
+# Listing pages
+# -------------
+# Define which contenttypes should show up with date and authors
+# on listing pages
+showmeta: [ Entries, Showcases ]
+# Define count of cards on listing pages separately, affects paging
 listing_records: 10
 
 ########################

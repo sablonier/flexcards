@@ -1,50 +1,82 @@
 [![Code Climate](https://codeclimate.com/github/sablonier/flexcards/badges/gpa.svg)](https://codeclimate.com/github/sablonier/flexcards) ![Current state](https://img.shields.io/badge/bolt--theme-alpha-red.svg)
 
-# 'flexcards' theme for Bolt CMS
+'Flexcards' theme for Bolt CMS
+---
 
-[Features](#features)
+#### Using Bootstrap 4
+Flexcards is made for the famous Bolt CMS (> 3.0), working with Bootstrap 4 'card' component for a simple, dynamic and flexible grid layout. For developing and extending flexcards you will need to work with .twig-Templating and Bootstrap 4 (see links below).
 
-[Installation](#installation)
-
-[Configuration](#configuration)
-
-
-## Using bootstrap 4 for the frontend
-Flexcards is a Bolt CMS theme (>= 3.2) working with Bootstrap 4 'card' component for a simple, dynamic and flexible grid layout. Current base theme shipped with Bolt CMS (base-2016) comes with foundation framework support, bootstrap is only used for the backend. For extending flexcards you will need to work with .twig and Bootstrap 4 (see links below). Please be aware that flexcards development is experimental.
+- [Theme features](#features)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Resources](#resources)
 
 :no_bell: 
-```Before you start using this experimental work for production you should probably read about what browser versions are supported with Bootstrap 4. Have a look here:``` 
-[Browsers supported](http://v4-alpha.getbootstrap.com/getting-started/browsers-devices/)
+Before you start using this experimental work for production you should probably read about what browser versions are supported with Bootstrap 4. Have a look here: [Browsers supported](http://v4-alpha.getbootstrap.com/getting-started/browsers-devices/)
 
 ## <a name="features"></a>Features
-Flexcards is using bootstrap 4 for a gallery-like frontpage for blog entries or any other content, ordered in read direction also for larger screens. Basically it provides a *4 column grid system with responsive breakpoints* and reorder of the content. You can easily extend flexcards to provide *fixed positions* for a card (see section 'Configuration' below). *Flexcards does not use jQuery or masonry scripts*. The elements have fixed width (more comparable to what brick.js does).
+Flexcards is using Bootstrap 4 Card component (flexbox) for a gallery-like frontpage for blog entries or any other content, ordered by read direction. It provides a responsive **4 column grid** based on the 12 column grid of bootstrap. You can extend flexcards to provide **fixed positions** for a card (see section [Configuration](#configuration)). *Flexcards javascripts do not use ~~jQuery~~ or ~~masonry~~ scripts*, and it shipped only with slim version of jQuery (because bootstrap 4 makes use of it).
 
 ![Ordering of content in read direction](https://github.com/sablonier/flexcards/blob/master/screenshots/readme_flex_example.png)
 
 ## <a name="installation"></a>Installation
 
-### Requirements
-* New or updated installation of [Bolt CMS (>3.2)](http://www.bolt.cm)
-* PHP 5.5.9 or higher (see also [Bolt Requirements](https://docs.bolt.cm/3.2/getting-started/requirements))
+#### Requirements
+* New or updated installation of [Bolt CMS >= v3.2 recommended)](http://www.bolt.cm)
 
-You can also give older Bolt versions a try but please do not file any issues based on older versions. 'Flexcards' development is based on Bolt CMS v3.2.6 (stable release) at the moment.
+You can also give older Bolt versions a try but, please do not file any issues based on older versions. Current 'Flexcards' development is based on Bolt CMS v3.2.6.
 
-### Via 'Extend' on dashboard
-You will need to install the famous Bolt CMS on your server, or update your current Bolt install to latest stable release. Flexcards is available in the [Bolt extensions store](https://market.bolt.cm/) (or market place?) from where it should be available directly in your bolt admin panel. Navigate to your extensions in Bolt and search for 'bootstrap' or 'flexcard'. Installation is self-explaining, in case you are running into problems [read here](https://docs.bolt.cm/3.2/extensions/introduction#installing-new-extensions).
+#### Via 'Extend' on Bolt CMS dashboard
+You will need to install the famous Bolt CMS on your server, or update your current Bolt install to latest stable release. Flexcards is available in the [Bolt extensions store](https://market.bolt.cm/) and it is available directly in your bolt dashboard. As administrator of the site navigate to 'Extend' and search for 'flexcards'. Installation is self-explaining, in case you are running into problems [read here](https://docs.bolt.cm/3.2/extensions/introduction#installing-new-extensions).
 
-### Install manually
-In case you will give an older Bolt CMS install a try (or restrictions on your server doesn't allow back-end installation) you can download flexcards from github and install it via (s)ftp on your server. Just unzip the folder into your `themes` folder and set 'flexcards' as theme in `config.yml`.
+#### Install manually
+In case you will give an older Bolt CMS install a try or unknown restrictions on your server do not allow bolt dashboard installations) you can download flexcards from github and install it directly on your server. Just unzip the flexcards folder into your `themes` folder and set 'flexcards' as theme in `config.yml`.
 
 ## <a name="configuration"></a>Configuration
 
-#### theme.yml and flexcards.css
-You will only find common global configuration in theme.yml as it is shipped with Bolt CMS basic theme. You will need to modify `flexcard.css to get your own design.
+#### Defaults in `flexcards/theme.yml`
+```yaml
+# Content for frontpage
+# ---------------------
+# Defines the content lookup for the cards on frontpage.
+# By default flexcards takes 10 latest records of contenttype 'entries'
+contenttypes: entries
+orderby: -datepublish
+limit: 10
+	
+# Logo
+# ----
+# default is 'brand/flexcard.svg'
+# set to 'false' to skip logo at all
+logo: 'brand/flexcard.svg'
+	
+# Footer
+# ------
+# You can bring up your own html here, but
+# in case you want to extend your footer with additional content like
+# menus or widgets you better have a look to partials/_footer.twig
+footerhtml: "<p>Your footer html goes here.</p>"
+	
+# Pager
+# -----
+# These are experimental responsive pagers (pagination) for Bolt CMS.
+# You can activate this stuff separately, or disable it at all
+# with setting it to 'false' and implementing your custom paging system.
+	
+# Listing pages
+# -------------
+# Define which contenttypes should show up with date and authors
+# on listing pages
+showmeta: [ Entries, Showcases ]
+# Define count of cards on listing pages separately, affects paging
+listing_records: 10 
+```
 
-#### Sticking cards at fixed positions 
+#### Extending: Sticking cards at fixed positions 
 ![Stick cards to position](https://github.com/sablonier/flexcards/blob/master/screenshots/readme_fixed_positions.png)
 ![Example position field](https://github.com/sablonier/flexcards/blob/master/screenshots/readme_fixed_positions_field.png)
 
-You can provide positions for the cards for your authors. You will need to add an additional field in your contenttype used for the cards. Here is an example of adding a `position` field to 'entries' content in `app/config/contenttypes.yml` (or via dashboard Configuration->ContentTypes). This example will show a new editable field position on top of entries, after updating your database (Configurarion->Check Database):
+You can provide positions and sticking for the cards. But you will need to add an additional field in your contenttype used for the cards. Here is an example of adding a `position` field to 'entries' content in `app/config/contenttypes.yml` (or via dashboard Configuration->ContentTypes). This example will show a new editable field position on top of entries, after updating your database (Configurarion->Check Database). The positions follow **right-to-left, top-to-bottom**.
 
 ```diff
 entries:
@@ -61,10 +93,9 @@ entries:
             group: content
             ...
 ```
-The number of position follows reading order left>right>top>down.
 
 
-## Bolt/Bootstrap 4/jQuery/.twig resources for your own development
+## Resources
 All the standard scripts and css are included in the theme (no CDN links). For more information about using this resources for your own work:
 
  * [Bolt CMS template work](https://docs.bolt.cm/3.2/getting-started/introduction)
