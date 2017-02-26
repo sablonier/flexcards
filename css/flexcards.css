@@ -87,6 +87,28 @@ button, input, optgroup, select, textarea {
     padding: 2px;
 }
 
+/* classes for card grid and gutter */
+.col-sm-12, .col-md-6, .col-lg-4, .col-xl-3 {
+    padding-left: 10px;
+    padding-right: 10px;
+}    
+
+.card-block {
+    margin-bottom: 20px;
+}
+
+.row {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.navbar {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
 /* Bootstrap primary button override, 'read more' button */
 
 .btn-primary {
