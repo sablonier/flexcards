@@ -1,0 +1,23 @@
+<div class="card">
+        <div class="card-block">   
+            {% if card.contenttype.name in theme.showmeta %}
+            <p>
+                <small class="text-muted"><strong>{{ card.datepublish|localedatetime("%A %B %e") }}</strong> by {{ card.user.username }}<br>
+                {% if card.taxonomy.tags is defined %}
+                 {% for tag in card.taxonomy.tags %}
+                     {% if slug == tag or taxonomy.options[slug] == tag %}
+                         <a href="{{ paths.root }}tags/{{ tag }}"><span class="mark-light">{{ tag }}</span></a>
+                     {% else %}
+                         <a href="{{ paths.root }}tags/{{ tag }}"><span class="tags">{{ tag }}</span></a>
+                     {% endif %}
+                 {% endfor %}
+                {% endif %}
+                </small>
+            </p>
+            {% endif %}
+            
+            <h4 class="card-title"><a href="{{ card.link }}">{{ card.title }}</a></h4>
+            <p class="card-text">{{ card.excerpt(160, false, search|default('')) }}</p>
+        </div>
+    <p></p>
+</div>
