@@ -63,7 +63,7 @@
                 
                 {# pager desktop #}
                 {% if loop.last %}
-                    {% if theme.pagerdesktop and cards|length >= theme.listing_records %}
+                    {% if theme.pagerdesktop %}
                         {% include 'partials/_pager.twig' %}
                     {% endif %}
                 {% endif %}
@@ -73,7 +73,7 @@
     </div>
     
     {# pager mobile #}
-    {% if theme.pagermobile and cards|length >= theme.listing_records %}
+    {% if theme.pagermobile %}
         {% include 'partials/_pager_mobile.twig' %}
     {% endif %}
 

@@ -177,13 +177,15 @@ function breakpointChange() {
     }
 }
 
-// sticky navigation and pager
+// sticky pager 
 window.onscroll = function() {
     var sticky = document.getElementById('sticker');
-    if( document.body.scrollTop+document.documentElement.scrollTop > 400) {
-        sticky.className = "stick";
-    }
-    else {
-        sticky.className = "stickhidden";
+    if (sticky !== null) {
+        if( document.body.scrollTop+document.documentElement.scrollTop > 400) {
+            sticky.className = "stick";
+        }
+        else {
+            sticky.className = "stickhidden";
+        }
     }
 };
