@@ -1,6 +1,8 @@
 <div class="card" id="{{card.id}}" fixedposition="{{ card.position }}">
         <div class="card-block">
         <!--<div>Id: {{card.id}}</div>-->
+        
+            {% if card.contenttype.name in theme.showmeta %}
             <p>
                 <small class="text-muted"><strong>{{ card.datepublish|localedatetime("%A %B %e") }}</strong> by {{ card.user.username }}<br>
                 {% if card.taxonomy.tags is defined %}
@@ -13,7 +15,9 @@
                  {% endfor %}
                 {% endif %}
                 </small>
-                </p>
+            </p>
+            {% endif %}
+            
             <h4 class="card-title"><a href="{{ card.link }}">{{ card.title }}</a></h4>
             <img class="card-img" src="{{ card.image|thumbnail(600,400,'c') }}"><p></p>
             {# display something introduction-like.. #}

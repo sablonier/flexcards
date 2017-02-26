@@ -7,6 +7,12 @@ logo: 'brand/flexcard.svg'
 pagerdesktop: true
 pagermobile: true
 
+# Show date/author on listing pages for this contenttypes
+showmeta: [ 'Entries', Showcases ]
+
+# How many results on listing pages
+listing_records: 10
+
 
 # Template filenames. If you 're creating a theme for distribution, you can specify
 # the filenames of the templates here. The templates you will set in this config

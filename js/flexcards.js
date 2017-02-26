@@ -112,12 +112,14 @@ function sortLayout(cols) {
         
         var parent = document.getElementById('column-'+i);
         var child = document.getElementById(''+tempcols[i][0]);
-        parent.insertBefore(child, parent.firstChild);
+        if (child !== null) {
+            parent.insertBefore(child, parent.firstChild);
+        }
 
         for (j = 0; j < tempcols[0].length; j+=1) {
             chicken = document.getElementById(''+tempcols[i][j]);
             egg = document.getElementById(''+tempcols[i][j+1]);
-            if (egg != null) {
+            if (egg !== null) {
                 chicken.appendChild(egg);
             }
         }

@@ -39,10 +39,14 @@
 	{# getting the magic with rows and columns            #}
     {# i.e. 10 entries should give = 3/3/2/2, not 3/3/3/1 #}
     {# -------------------------------------------------- #}
-    {% set rows = (cards|length)//4 %}
-    {% set d = (cards|length)-(rows*4) %}
-    {% set magic = [ [0,rows+(d//d)], [rows+(d//d), rows+(d//2)|round(0,'floor')], [2*rows+(d//1.5|round(0,'ceil'))+(d//d), rows+(d//3|round(0,'floor'))], [(3*rows)+d, rows] ] %}
-
+    {% if cards|length > 4 %}
+        {% set rows = (cards|length)//4 %}
+        {% set d = (cards|length)-(rows*4) %}
+        {% set magic = [ [0,rows+(d//d)], [rows+(d//d), rows+(d//2)|round(0,'floor')], [2*rows+(d//1.5|round(0,'ceil'))+(d//d), rows+(d//3|round(0,'floor'))], [(3*rows)+d, rows] ] %}
+    {% else %}
+        {% set magic = [ [0,1], [1,1], [2,1], [3,1] ] %}
+    {% endif %}
+    
     {# container #}
     {# --------- #}
     <div class="container-fluid">
@@ -59,7 +63,7 @@
                 
                 {# pager desktop #}
                 {% if loop.last %}
-                    {% if theme.pagerdesktop %}
+                    {% if theme.pagerdesktop and cards|length >= theme.listing_records %}
                         {% include 'partials/_pager.twig' %}
                     {% endif %}
                 {% endif %}
@@ -69,7 +73,7 @@
     </div>
     
     {# pager mobile #}
-    {% if theme.pagermobile %}
+    {% if theme.pagermobile and cards|length >= theme.listing_records %}
         {% include 'partials/_pager_mobile.twig' %}
     {% endif %}
 

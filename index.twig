@@ -4,7 +4,7 @@
     
     {# fetching content #}
     {# ---------------- #}
-    {% setcontent cards = 'entries/latest/16' allowpaging %}
+    {% setcontent cards = 'entries/latest/10' allowpaging %}
     
     {# example for mixed content #}
     {#{% setcontent cards = '(pages,entries)' orderby '-datepublish' limit 10 %}#}
@@ -32,7 +32,7 @@
                 
                 {# pager desktop #}
                 {% if loop.last %}
-                    {% if theme.pagerdesktop %}
+                    {% if theme.pagerdesktop and cards|length >= theme.listing_records %}
                         {% include 'partials/_pager.twig' %}
                     {% endif %}
                 {% endif %}
@@ -42,7 +42,7 @@
     </div>
     
     {# pager mobile #}
-    {% if theme.pagermobile %}
+    {% if theme.pagermobile and cards|length >= theme.listing_records %}
         {% include 'partials/_pager_mobile.twig' %}
     {% endif %}
 
