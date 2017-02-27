@@ -1,43 +1,32 @@
-/* Import font files (css/ttf) */
-@import "../fonts/hk-grotesk.css";
-
-
-/* Sticky navigation */
-
-@media (max-width: 768px) {
-
-  .stick {
-    position: fixed;
-    right: 0;
-    left: auto;
-    bottom: 130px;
-    z-index: 9999;
-  }
-
-  .stickhidden {
-    visibility: hidden;
-  }
-  
-  #pagerdesktop {
-    visibility: hidden;
-  }
+/* Import font files */
+@font-face {
+    font-family: 'HKGroteskRegular';
+    src: url('../fonts/fonts/HKGroteskRegular.eot');
+    src: url('../fonts/fonts/HKGroteskRegular.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/fonts/HKGroteskRegular.woff2') format('woff2'),
+         url('../fonts/fonts/HKGroteskRegular.woff') format('woff'),
+         url('../fonts/fonts/HKGroteskRegular.ttf') format('truetype'),
+         url('../fonts/fonts/HKGroteskRegular.svg#HKGroteskRegular') format('svg');
 }
 
-@media (min-width: 769px) {
-
-  #sticker {
-    visibility: hidden;
+@font-face {
+    font-family: 'HKGroteskBold';
+    src: url('../fonts/fonts/HKGroteskBold.eot');
+    src: url('../fonts/fonts/HKGroteskBold.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/fonts/HKGroteskBold.woff2') format('woff2'),
+         url('../fonts/fonts/HKGroteskBold.woff') format('woff'),
+         url('../fonts/fonts/HKGroteskBold.ttf') format('truetype'),
+         url('../fonts/fonts/HKGroteskBold.svg#HKGroteskBold') format('svg');
 }
 
-  .stickhidden {
-    visibility: hidden;
-  }
-  
-  #pagerdesktop {
-    background: transparent;
-    padding: 0;
-    margin: 0;
-  }
+@font-face {
+    font-family: 'HKGroteskItalic';
+    src: url('../fonts/fonts/HKGroteskItalic.eot');
+    src: url('../fonts/fonts/HKGroteskItalic.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/fonts/HKGroteskItalic.woff2') format('woff2'),
+         url('../fonts/fonts/HKGroteskItalic.woff') format('woff'),
+         url('../fonts/fonts/HKGroteskItalic.ttf') format('truetype'),
+         url('../fonts/fonts/HKGroteskItalic.svg#HKGroteskItalic') format('svg');
 }
 
 /* Main bootstrap override and flexcard css */
@@ -71,7 +60,7 @@ mark {
 .mark-light {
   background: #eeeede;
   border-bottom: 4px solid #FFFF00;
-  margin-right: 2px; 
+  margin-right: 2px;
   padding: 2px;
 }
 
@@ -84,8 +73,8 @@ button, input, optgroup, select, textarea {
 }
 
 .tags {
-    background: #eeeede; 
-    margin-right: 2px; 
+    background: #eeeede;
+    margin-right: 2px;
     padding: 2px;
 }
 
@@ -93,7 +82,7 @@ button, input, optgroup, select, textarea {
 .col-sm-12, .col-md-6, .col-lg-4, .col-xl-3 {
     padding-left: 10px;
     padding-right: 10px;
-}    
+}
 
 .card-block {
     margin-bottom: 20px;
@@ -126,6 +115,23 @@ button, input, optgroup, select, textarea {
   border: 0;
 }
 
+.btn-primary:focus, .btn-primary.focus {
+  -webkit-box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+          box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+  background-color: #0275d8;
+  border-color: #0275d8;
+}
+
+.btn-primary:active, .btn-primary.active,
+.show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #025aa5;
+  background-image: none;
+  border-color: #01549b;
+}
 
 .btn-read-more {
   color: #333;
@@ -145,22 +151,42 @@ button, input, optgroup, select, textarea {
   padding-top: 5px;
 }
 
-.btn-primary:focus, .btn-primary.focus {
-  -webkit-box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
-          box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+/* Sticky navigation */
+
+@media (max-width: 768px) {
+
+  .stick {
+    position: fixed;
+    right: 0;
+    left: auto;
+    bottom: 130px;
+    z-index: 9999;
+  }
+
+  .stickhidden {
+    visibility: hidden;
+  }
+
+  #pagerdesktop {
+    visibility: hidden;
+  }
 }
 
-.btn-primary.disabled, .btn-primary:disabled {
-  background-color: #0275d8;
-  border-color: #0275d8;
+@media (min-width: 769px) {
+
+  #sticker {
+    visibility: hidden;
 }
 
-.btn-primary:active, .btn-primary.active,
-.show > .btn-primary.dropdown-toggle {
-  color: #fff;
-  background-color: #025aa5;
-  background-image: none;
-  border-color: #01549b;
+  .stickhidden {
+    visibility: hidden;
+  }
+
+  #pagerdesktop {
+    background: transparent;
+    padding: 0;
+    margin: 0;
+  }
 }
 
 
