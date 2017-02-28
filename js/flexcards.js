@@ -177,7 +177,11 @@ function breakpointChange() {
     }
 }
 
-// sticky pager 
+// sticky pager, scroll indicator
+
+var doc = document.body.clientHeight;
+var h = window.innerHeight;
+
 window.onscroll = function() {
     var sticky = document.getElementById('sticker');
     if (sticky !== null) {
@@ -188,4 +192,29 @@ window.onscroll = function() {
             sticky.className = "stickhidden";
         }
     }
+    
+    // get indicator
+
+    var y = window.scrollY;
+    var max = Math.round(doc/h);
+    var step = Math.round(y/h);
+    var indicator = document.getElementById('indicator');
+    
+    document.getElementById("indicator").innerHTML = "";
+    
+    for (i = 0; i < max; i++) {
+		document.getElementById("indicator").innerHTML += "<div id='ind"+i+"' style='height: 4px; border: 1px solid #000'></div>";
+	}
+	
+	document.getElementById("ind"+step+"").style.border = "1px solid #00FF00";
+		
+    
+    if (indicator.className !== "btn btn-primary indicator fade-in") {
+        indicator.className = "btn btn-primary indicator fade-in";
+        setTimeout(function(){ indicator.className = "btn btn-primary indicator fade-out"; }, 4000);
+	}
 };
+
+
+
+    

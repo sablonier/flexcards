@@ -155,12 +155,32 @@ button, input, optgroup, select, textarea {
 
 @media (max-width: 768px) {
 
+  .indicator {
+    position: fixed;
+    right: 0;
+    left: auto;
+    bottom: auto;
+    top: 0;
+    z-index: 9010;
+    visibility: visible;
+    opacity: 0;
+    transition: 2s opacity;
+  }
+  
+  .fade-in {
+    opacity: 1;
+  }
+  
+  .fade-out {
+    opacity: 0;
+  }
+
   .stick {
     position: fixed;
     right: 0;
     left: auto;
     bottom: 130px;
-    z-index: 9999;
+    z-index: 9020;
   }
 
   .stickhidden {
