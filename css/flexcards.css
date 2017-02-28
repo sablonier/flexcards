@@ -151,7 +151,7 @@ button, input, optgroup, select, textarea {
   padding-top: 5px;
 }
 
-/* Sticky navigation */
+/* Pagination */
 
 @media (max-width: 768px) {
 
@@ -203,7 +203,10 @@ button, input, optgroup, select, textarea {
     padding: 0;
     margin: 0;
   }
-}
+  
+  #mobilepager {
+    visibility: hidden;
+  }
 
 
 /* Bootstrap card override */
