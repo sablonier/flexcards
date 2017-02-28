@@ -155,16 +155,32 @@ button, input, optgroup, select, textarea {
 
 @media (max-width: 768px) {
 
-  .indicator {
+  .mobilepager {
     position: fixed;
     right: 0;
     left: auto;
     bottom: auto;
-    top: 0;
-    z-index: 9010;
+    top: 50%;
     visibility: visible;
     opacity: 0;
     transition: 2s opacity;
+    z-index: 9010;
+  }
+  
+  .btn-mobilepager {
+    color: #fff;
+    background: rgba(128, 128, 128, 0.7);
+    border-radius: 0;
+    border: 0;
+    width: 60px;
+  }
+
+  .indicator {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    background: rgba(128, 128, 128, 0.7);
+    height: auto;
+    width: 60px;
   }
   
   .fade-in {
@@ -175,32 +191,12 @@ button, input, optgroup, select, textarea {
     opacity: 0;
   }
 
-  .stick {
-    position: fixed;
-    right: 0;
-    left: auto;
-    bottom: 130px;
-    z-index: 9020;
-  }
-
-  .stickhidden {
-    visibility: hidden;
-  }
-
   #pagerdesktop {
     visibility: hidden;
   }
 }
 
 @media (min-width: 769px) {
-
-  #sticker {
-    visibility: hidden;
-}
-
-  .stickhidden {
-    visibility: hidden;
-  }
 
   #pagerdesktop {
     background: transparent;
@@ -612,3 +608,95 @@ button, input, optgroup, select, textarea {
             column-count: 4;
   }
 }
+
+/* Fontello, reduced set of symbols needed from font-awesome */
+
+@font-face {
+  font-family: 'fontello';
+  src: url('../fonts/fonts/fontello.eot?98213004');
+  src: url('../fonts/fonts/fontello.eot?98213004#iefix') format('embedded-opentype'),
+       url('../fonts/fonts/fontello.woff2?98213004') format('woff2'),
+       url('../fonts/fonts/fontello.woff?98213004') format('woff'),
+       url('../fonts/fonts/fontello.ttf?98213004') format('truetype'),
+       url('../fonts/fonts/fontello.svg?98213004#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?98213004#fontello') format('svg');
+  }
+}
+*/
+ 
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+ 
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+ 
+.icon-down-open:before { content: '\e800'; } /* '' */
+.icon-left-open:before { content: '\e801'; } /* '' */
+.icon-right-open:before { content: '\e802'; } /* '' */
+.icon-up-open:before { content: '\e803'; } /* '' */
+.icon-right-dir:before { content: '\e804'; } /* '' */
+.icon-left-dir:before { content: '\e805'; } /* '' */
+.icon-up-dir:before { content: '\e806'; } /* '' */
+.icon-down-dir:before { content: '\e807'; } /* '' */
+.icon-up-big:before { content: '\e808'; } /* '' */
+.icon-right-big:before { content: '\e809'; } /* '' */
+.icon-left-big:before { content: '\e80a'; } /* '' */
+.icon-down-big:before { content: '\e80b'; } /* '' */
+.icon-down-circled2:before { content: '\e80c'; } /* '' */
+.icon-up-circled2:before { content: '\e80d'; } /* '' */
+.icon-left-circled:before { content: '\f0a8'; } /* '' */
+.icon-right-circled:before { content: '\f0a9'; } /* '' */
+.icon-up-circled:before { content: '\f0aa'; } /* '' */
+.icon-down-circled:before { content: '\f0ab'; } /* '' */
+.icon-angle-double-left:before { content: '\f100'; } /* '' */
+.icon-angle-double-right:before { content: '\f101'; } /* '' */
+.icon-angle-double-up:before { content: '\f102'; } /* '' */
+.icon-angle-double-down:before { content: '\f103'; } /* '' */
+.icon-angle-left:before { content: '\f104'; } /* '' */
+.icon-angle-right:before { content: '\f105'; } /* '' */
+.icon-angle-up:before { content: '\f106'; } /* '' */
+.icon-angle-down:before { content: '\f107'; } /* '' */
+.icon-angle-circled-left:before { content: '\f137'; } /* '' */
+.icon-angle-circled-right:before { content: '\f138'; } /* '' */
+.icon-angle-circled-up:before { content: '\f139'; } /* '' */
+.icon-angle-circled-down:before { content: '\f13a'; } /* '' */
+.icon-right-circled2:before { content: '\f18e'; } /* '' */
+.icon-left-circled2:before { content: '\f190'; } /* '' */

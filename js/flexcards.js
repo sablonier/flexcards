@@ -198,20 +198,20 @@ window.onscroll = function() {
     var y = window.scrollY;
     var max = Math.round(doc/h);
     var step = Math.round(y/h);
-    var indicator = document.getElementById('indicator');
+    var mobilepager = document.getElementById('mobilepager');
     
     document.getElementById("indicator").innerHTML = "";
     
     for (i = 0; i < max; i++) {
-		document.getElementById("indicator").innerHTML += "<div id='ind"+i+"' style='height: 4px; border: 1px solid #000'></div>";
+		document.getElementById("indicator").innerHTML += "<div id='ind"+i+"' style='margin: auto; background: #FFF; width: 33px; height: 4px;'></div>";
 	}
 	
-	document.getElementById("ind"+step+"").style.border = "1px solid #00FF00";
+	document.getElementById("ind"+step+"").style.border = "1px solid #000";
 		
     
-    if (indicator.className !== "btn btn-primary indicator fade-in") {
-        indicator.className = "btn btn-primary indicator fade-in";
-        setTimeout(function(){ indicator.className = "btn btn-primary indicator fade-out"; }, 4000);
+    if (mobilepager.className !== "mobilepager fade-in") {
+        mobilepager.className = "mobilepager fade-in";
+        setTimeout(function(){ mobilepager.className = "mobilepager fade-out"; }, 4000);
 	}
 };
 

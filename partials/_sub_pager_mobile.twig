@@ -1,9 +1,27 @@
-    <div id="sticker" class="btn-group">
-        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <img src="{{ paths.theme }}icons/pager_neg.svg" width="29" height="29">
-        </button>
-        <div class="dropdown-menu dropdown-menu-right">
-            <div><a class="btn btn-block" href="#">^ top ^</a></div>
-            {{ pager('', 3, 'partials/_sub_pager.twig') }}
-        </div>
-    </div>
+{% set link = pager.makelink() %}
+
+<div id="mobilepager" class="mobilepager">
+
+<nav aria-label="Page navigation">
+{% if pager.totalpages > 1 %}
+{# 'first' and 'prev' #}
+{% if pager.current > 1 %}
+    <a class="btn btn-mobilepager icon-up-open" href="{{link}}{{pager.current-1}}" rel="noindex, follow"><span style="font-size: 0.8rem"><b>{{pager.current-1}}</b></span></a>
+{% else %}
+    <div style="height: 3px; background: #000">
+{% endif %}
+
+<a href="#"><div id="indicator" class="indicator">{{pager.current}}</div></a>
+
+{# 'next' and 'last' #}
+{% if pager.current < pager.totalpages %}
+    <a class="btn btn-mobilepager icon-down-open" href="{{link}}{{pager.current+1}}" rel="noindex, follow"><span style="font-size: 0.8rem;"><b>{{pager.current+1}}</b></span></a>
+{% else %}
+    <div style="height: 3px; background: #000">
+{% endif %}
+
+{% endif %}
+</nav>
+</div>
+
+
