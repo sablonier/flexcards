@@ -41,10 +41,10 @@ body {
 
 }
 
-h1, h2, h3, h4, h5, h6 {
-  /*font-family: 'HKGroteskBold', sans-serif;
-  font-weight: normal;*/
-}
+/*h1, h2, h3, h4, h5, h6 {
+  font-family: 'HKGroteskBold', sans-serif;
+  font-weight: normal;
+}*/
 
 b, strong {
   font-family: 'HKGroteskBold', sans-serif;

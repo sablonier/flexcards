@@ -5,6 +5,7 @@ var attr;
 
 var cards = document.getElementsByClassName("card");
 var ids = getCardIDs();
+var tempcols = [];
 
 displayCards("hidden");
 
@@ -18,7 +19,7 @@ function moveTo(array, old_index, new_index) {
     }
     array.splice(new_index, 0, array.splice(old_index, 1)[0]);
     return array;
-};
+}
 
 // array helper, sorting by subarray
 function sortArray(index, arr) {
@@ -31,15 +32,15 @@ function getCardIDs() {
 	var fixes = getFixedPositions();
 	
     for (var i = 0; i < cards.length; i++) {
-        if (cards[i].id != "") {
+        if (cards[i].id !== "") {
             ids.push(cards[i].id);
         } 
     }
     
     sortArray(1, fixes);
-    for (var i = 0; i < fixes.length; i++) {
-		if (fixes[i][1] <= ids.length) {
-            ids = moveTo(ids, ids.indexOf(fixes[i][0]), fixes[i][1]-1);
+    for (var j = 0; j < fixes.length; j++) {
+		if (fixes[j][1] <= ids.length) {
+            ids = moveTo(ids, ids.indexOf(fixes[j][0]), fixes[j][1]-1);
 	    }
     }
     return ids;
@@ -60,7 +61,7 @@ function getFixedPositions() {
 // switch visibility
 function displayCards(attr) {
     for (var i = 0; i < cards.length; i++) {
-        if (cards[i].id != "") {
+        if (cards[i].id !== "") {
             document.getElementById(cards[i].id).style.visibility = attr;
         }
     }
@@ -71,19 +72,19 @@ function displayCards(attr) {
 function getColumns(cols) {
     switch(true) {
     case cols === 4:
-        var tempcols = [[],[],[],[]];
+        tempcols = [[],[],[],[]];
         break;
     case cols === 3:
-        var tempcols = [[],[],[]];
+        tempcols = [[],[],[]];
         break;
     case cols === 2:
-        var tempcols = [[],[]];
+        tempcols = [[],[]];
         break;
     case cols === 1:
-        var tempcols = [[]];
+        tempcols = [[]];
         break;
     default:
-        var tempcols = [[]];
+        tempcols = [[]];
     } 
     
     //console.log(JSON.stringify(tempcols));
