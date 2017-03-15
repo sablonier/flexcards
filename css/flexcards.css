@@ -198,7 +198,27 @@ button, input, optgroup, select, textarea {
   padding-top: 5px;
 }
 
-/* Pagination */
+/* Paging */
+
+.page-item a {
+  color: #000;
+  text-decoration: none;
+}
+
+.page-item.active .page-link {
+    z-index: 2;
+    color: #fff;
+    background-image: url(images/stripes_gray_darkest.png);
+    border-color: #333;
+    border-radius: 0;
+}
+
+.page-link:focus, .page-link:hover {
+    background-image: url(images/stripes_gray_darkest.png);
+    color: #fff;
+    text-decoration: none;
+    border-color: #333;
+}
 
 @media (max-width: 768px) {
 
@@ -277,6 +297,7 @@ button, input, optgroup, select, textarea {
   border-radius: 0;
   padding-top: 10px;
   background: transparent;
+  padding-bottom: 5px;
 }
 
 .card-block {

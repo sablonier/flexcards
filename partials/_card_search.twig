@@ -2,7 +2,7 @@
         <div class="card-block">   
             {% if card.contenttype.name in theme.showmeta %}
             <p>
-                <small class="text-muted"><strong>{{ card.datepublish|localedatetime("%A %B %e") }}</strong> by {{ card.user.username }}<br>
+                <small class="text-muted">{{ card.datepublish|localedatetime("%A %B %e") }} by {{ card.user.username }}<br>
                 {% if card.taxonomy.tags is defined %}
                  {% for tag in card.taxonomy.tags %}
                      {% if slug == tag or taxonomy.options[slug] == tag %}

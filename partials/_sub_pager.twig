@@ -5,7 +5,7 @@
   <ul class="pagination">
 {# 'first' and 'prev' #}
 {% if pager.current > 1 and class!="narrow" %}
-    <li class="page-item"><a class="page-link" href="{{link}}{{pager.current-1}}" rel="noindex, follow"><span aria-hidden="true">&lsaquo;</span><span class="sr-only">Previous</span></a></li>
+    <li class="page-item"><a class="page-link" href="{{link}}{{pager.current-1}}" rel="noindex, follow"><span class="icon-left-open" aria-hidden="true"></span><span class="sr-only">Previous</span></a></li>
 {% endif %}
 {% if pager.current > surr+1 %}
     <li class="page-item"><a class="page-link" href="{{link}}{{1}}"><span aria-hidden="true">&laquo;</span><span class="sr-only">First</span></a></li>
@@ -32,7 +32,7 @@
     </li>
 {% endif %}
 {% if pager.current < pager.totalpages and class!="narrow" %}
-    <li class="page-item"><a class="page-link" href="{{link}}{{pager.current+1}}" rel="noindex, follow"><span aria-hidden="true">&rsaquo;</span><span class="sr-only">Next</span></a></li>
+    <li class="page-item"><a class="page-link" href="{{link}}{{pager.current+1}}" rel="noindex, follow"><span class="icon-right-open" aria-hidden="true"></span><span class="sr-only">Next</span></a></li>
 {% endif %}
   </ul>
 {% endif %}

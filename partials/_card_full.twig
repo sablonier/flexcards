@@ -2,7 +2,7 @@
         <div class="card-block">
         <!--<div>Id: {{card.id}}</div>-->
             <p>
-                <small class="text-muted"><strong>{{ card.datepublish|localedatetime("%A %B %e") }}</strong> by {{ card.user.username }}<br>
+                <small class="text-muted">{{ card.datepublish|localedatetime("%A %B %e") }} by {{ card.user.username }}<br>
                 {% if card.taxonomy.tags is defined %}
                  {% for tag in card.taxonomy.tags %}
                      <span class="tags"><a href="{{ paths.root }}tags/{{ tag }}">{{ tag }}</a></span>
@@ -13,12 +13,18 @@
             <h4 class="card-title">
                 <a href="{{ card.link }}">{{ card.title }}</a>
             </h4>
-            <img class="card-img" src="{{ card.image|thumbnail(600,400,'c') }}" width="100%">
+            {% if card.image is not empty %}
+                <a href="{{card.link}}"><img class="card-img" src="{{ card.image|thumbnail(600,400,'c') }}" width="100%"></a>
+            {% endif %}
+            {% if card.teaser is not empty %}
             <p class="card-text">
                 {{ card.teaser }}
             </p>
+            {% endif %}
+            {% if card.link is not empty %}
             <a href="{{card.link}}" class="btn btn-read-more">
                 Read more
             </a>
+            {% endif %}
         </div>
 </div>
