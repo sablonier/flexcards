@@ -246,7 +246,18 @@ button, input, optgroup, select, textarea {
       -webkit-flex: 1 1 auto;
       -ms-flex: 1 1 auto;
       flex: 1 1 auto;
-      padding: 0.2rem;
+      padding: 0;
+      padding-bottom: 20px;
+  }
+  .col-sm-12, .col-md-6, .col-lg-4, .col-xl-3 {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .navbar {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 10px;
   }
 }
 
