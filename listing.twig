@@ -20,7 +20,7 @@
                 {% if taxonomy.options[slug] is defined %}
                     <mark>{{ taxonomy.options[slug] }}</mark>
                 {% else %}
-                    <span class="mark-light">{{ slug }}</span>
+                    <mark>{{ slug }}</mark>
                 {% endif %}
             </h2>
             {# Taxonomies are fetched unordered by design except if 'has_sortorder'

@@ -8,9 +8,9 @@
                 {% if card.taxonomy.tags is defined %}
                  {% for tag in card.taxonomy.tags %}
                      {% if slug == tag or taxonomy.options[slug] == tag %}
-                         <a href="{{ paths.root }}tags/{{ tag }}"><span class="mark-light">{{ tag }}</span></a>
+                         <mark>{{ tag }}</mark>
                      {% else %}
-                         <a href="{{ paths.root }}tags/{{ tag }}"><span class="tags">{{ tag }}</span></a>
+                         <span class="tags"><a href="{{ paths.root }}tags/{{ tag }}">{{ tag }}</a></span>
                      {% endif %}
                  {% endfor %}
                 {% endif %}

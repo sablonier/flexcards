@@ -70,18 +70,15 @@ footer {
 }
 
 mark {
-  background-color: #b8d6d0;
+  background-image: url(images/stripes_gray_dark.png);
+  font-family: 'HKGroteskBold', sans-serif;
+  color: #fff;
 }
 
-.mark-heavy {
-  background-color: #FFFF00;
-}
-
-.mark-light {
-  background: #eeeede;
-  border-bottom: 4px solid #FFFF00;
-  margin-right: 2px;
-  padding: 2px;
+mark a {
+  background-image: url(images/stripes_gray_dark.png);
+  color: #fff;
+  text-decoration: none;
 }
 
 .bg-faded {
