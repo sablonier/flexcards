@@ -5,7 +5,7 @@
                 <small class="text-muted"><strong>{{ card.datepublish|localedatetime("%A %B %e") }}</strong> by {{ card.user.username }}<br>
                 {% if card.taxonomy.tags is defined %}
                  {% for tag in card.taxonomy.tags %}
-                     <a href="{{ paths.root }}tags/{{ tag }}"><span class="tags">{{ tag }}</span></a>
+                     <span class="tags"><a href="{{ paths.root }}tags/{{ tag }}">{{ tag }}</a></span>
                  {% endfor %}
                 {% endif %}
                 </small>

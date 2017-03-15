@@ -55,6 +55,16 @@ a, a:hover {
   color: #000;
 }
 
+p a {
+  text-decoration: underline;
+}
+
+p a:hover {
+  color: #fff;
+  background: #333;
+  text-decoration: none;
+} 
+
 footer {
   background: #FFF;
 }
@@ -103,6 +113,22 @@ button, input, optgroup, select, textarea {
 .tags {
     background-image: url(images/stripes_gray_lightest.png);
     margin-right: 2px;
+    text-decoration: none;
+    padding: 2px;
+}
+
+.tags a {
+    text-decoration: none;
+    margin-right: 2px;
+    color: #333;
+    padding: 2px;
+}
+
+.tags a:hover {
+    background-image: url(images/stripes_gray_darkest.png);
+    text-decoration: none;
+    margin-right: 2px;
+    color: #fff;
     padding: 2px;
 }
 
