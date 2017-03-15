@@ -18,9 +18,13 @@
             </p>
             {% endif %}
             
+            
             <h4 class="card-title"><a href="{{ card.link }}">{{ card.title }}</a></h4>
-            <img class="card-img" src="{{ card.image|thumbnail(600,400,'c') }}"><p></p>
-            {# display something introduction-like.. #}
+            {% if card.image is not empty %}
+                <a href="{{ card.link }}"><img class="card-img" src="{{ card.image|thumbnail(600,400,'c') }}"></a>
+            {% endif %}
+            
+            {# display something introduction-like #}
             {% if card.introduction %}
 				<p class="card-text">
                      {{ card.introduction }}
