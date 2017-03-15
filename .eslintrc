@@ -414,16 +414,6 @@ rules:
   prefer-spread: 0
   prefer-template: 0
   require-yield: 0
-ecmaFeatures:
-  modules: true
-  jsx: true
-
-env:
-  amd: true
-  browser: true
-  es6: true
-  jquery: true
-  node: true
 
 # http://eslint.org/docs/rules/
 rules:
