@@ -84,10 +84,6 @@ button, input, optgroup, select, textarea {
     padding-right: 10px;
 }
 
-.card-block {
-    margin-bottom: 20px;
-}
-
 .row {
     padding-left: 10px;
     padding-right: 10px;
@@ -207,7 +203,7 @@ button, input, optgroup, select, textarea {
   #mobilepager {
     visibility: hidden;
   }
-
+}
 
 /* Bootstrap card override */
 
@@ -241,6 +237,17 @@ button, input, optgroup, select, textarea {
           flex: 1 1 auto;
   padding: 1.25rem;
   background-color: #fff;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 576px) {
+  .card-block {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1 1 auto;
+      -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+      padding: 0.2rem;
+  }
 }
 
 .card-title {
