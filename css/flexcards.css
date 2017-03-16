@@ -668,6 +668,13 @@ button, input, optgroup, select, textarea {
         -ms-column-count: 1;
             column-count: 1;
   }
+  .nav-item {
+    border-top: 1px solid #ccc;
+  }
+
+  .navbar-nav {
+    margin-top: 20px;
+  }
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
@@ -677,6 +684,13 @@ button, input, optgroup, select, textarea {
         -ms-column-count: 2;
             column-count: 2;
   }
+  .nav-item {
+    border-top: 1px solid #ccc;
+  }
+
+  .navbar-nav {
+    margin-top: 20px;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -685,6 +699,13 @@ button, input, optgroup, select, textarea {
        -moz-column-count: 2;
         -ms-column-count: 2;
             column-count: 2;
+  }
+  .nav-item {
+    border-top: 1px solid #ccc;
+  }
+
+  .navbar-nav {
+    margin-top: 20px;
   }
 }
 
