@@ -121,18 +121,3 @@ notfound: notfound.twig
 #        myimageformat:
 #            size: [400,300]
 #            cropping: crop
-
-thumbnails:
-    aliases:
-        xlarge:
-            size: [1400, 1050]
-            cropping: crop
-        large:
-            size: [1024, 768]
-            cropping: crop
-        medium:
-            size: [640, 480]
-            cropping: crop
-        small:
-            size: [480, 320]
-            cropping: crop
