@@ -1,7 +1,8 @@
-<div class="card" id="{{card.id}}" fixedposition="{{ card.position }}">
+{# multiple content query e.g. in entries and blocks on index.twig needs unique id #}
+{% set ranid = random(9999) %}
+
+<div class="card" id="{{ranid}}" fixedposition="{{ card.position }}">
         <div class="card-block">
-        <!--<div>Id: {{card.id}}</div>-->
-        
             {% if card.contenttype.name in theme.showmeta %}
             <p>
                 <small class="text-muted">{{ card.datepublish|localedatetime("%A %B %e") }} by {{ card.user.username }}<br>
