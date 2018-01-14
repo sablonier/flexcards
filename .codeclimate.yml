@@ -1,5 +1,5 @@
----
-engines:
+version: "2"
+plugins:
   csslint:
     enabled: true
     # ... CONFIG CONTENT ...
@@ -36,12 +36,7 @@ engines:
     enabled: true
   fixme:
     enabled: true
-ratings:
-  paths:
-  - "**.css"
-  - "**.js"
-  - "**.php"
-exclude_paths:
+exclude_patterns:
   - "css/bootstrap*.*"
   - "js/bootstrap*.*"
-  - "fonts/fontello.css"
+  - "fonts/fontello.css*
