@@ -46,4 +46,4 @@ plugins:
 exclude_patterns:
   - "css/bootstrap*.*"
   - "js/bootstrap*.*"
-  - "fonts/fontello.css*
+  - "fonts/fontello.css"
