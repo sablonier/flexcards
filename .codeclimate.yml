@@ -1,46 +1,48 @@
 version: "2"
-plugins:
-  csslint:
+checks:
+  argument-count:
     enabled: true
-    # ... CONFIG CONTENT ...
-    checks:
-      fallback-colors:
-        enabled: false
-      argument-count:
-        enabled: false
-      complex-logic:
-        enabled: false
-      file-lines:
-        enabled: false
-      method-complexity:
-        enabled: false
-      method-count:
-        enabled: false
-      method-lines:
-        enabled: false
-      nested-control-flow:
-        enabled: false
-      return-statements:
-        enabled: true
-      similar-code:
-        enabled: false
-      identical-code:
-        enabled: true
-      duplication:
-        enabled: true
     config:
-      languages:
-      - javascript
-      - php
-  eslint:
+      threshold: 4
+  complex-logic:
+    enabled: false
+    config:
+      threshold: 4
+  file-lines:
     enabled: true
-  fixme:
+    config:
+      threshold: 250
+  method-complexity:
     enabled: true
-ratings:
-  paths:
-  - "**.css"
-  - "**.js"
-  - "**.php"
+    config:
+      threshold: 5
+  method-count:
+    enabled: true
+    config:
+      threshold: 20
+  method-lines:
+    enabled: true
+    config:
+      threshold: 25
+  nested-control-flow:
+    enabled: true
+    config:
+      threshold: 4
+  return-statements:
+    enabled: true
+    config:
+      threshold: 4
+  similar-code:
+    enabled: false
+    config:
+      threshold: #language-specific defaults. overrides affect all languages.
+  identical-code:
+    enabled: true
+    config:
+      threshold: #language-specific defaults. overrides affect all languages.
+plugins:
+ eslint:
+  enabled: true
 exclude_patterns:
   - "css/bootstrap*.*"
   - "js/bootstrap*.*"
