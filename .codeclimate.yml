@@ -6,8 +6,28 @@ engines:
     checks:
       fallback-colors:
         enabled: false
-  duplication:
-    enabled: true
+      argument-count:
+        enabled: false
+      complex-logic:
+        enabled: false
+      file-lines:
+        enabled: false
+      method-complexity:
+        enabled: false
+      method-count:
+        enabled: false
+      method-lines:
+        enabled: false
+      nested-control-flow:
+        enabled: false
+      return-statements:
+        enabled: true
+      similar-code:
+        enabled: false
+      identical-code:
+        enabled: true
+      duplication:
+        enabled: true
     config:
       languages:
       - javascript
