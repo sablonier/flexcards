@@ -12,10 +12,12 @@ Flexcards is made for the famous Bolt CMS (> 3.0), working with Bootstrap 4 'car
 - [Resources](#resources)
 
 :no_bell: 
-Before you start using this experimental work for production you should probably read about *what browser versions are supported with Bootstrap 4*. Have a look here: [Browsers supported](http://v4-alpha.getbootstrap.com/getting-started/browsers-devices/)
+Before you start using this experimental work for production you should probably read about *what browser versions are supported with Bootstrap 4 alpha*. Current 4.0.0beta-Version has no page available for this, but you can have a look here about former alpha version: [Browsers supported](http://v4-alpha.getbootstrap.com/getting-started/browsers-devices/)
 
 ## <a name="features"></a>Features
-Flexcards is using Bootstrap 4 Card component for a gallery-like (or 'pinterest-like' you might throw in) solution for blog entries or any other content, ordered in read direction for all devices, using paging if needed. The cards can contain any contenttypes, by default it it relies on 'entries' and 'pages' contenttypes.
+Flexcards is using Bootstrap 4 card component for a gallery-like (or 'pinterest-like' you might throw in) solution for blog entries or any other content, ordered in read direction for all devices, using paging if needed. The cards can contain any contenttypes, by default it relies on 'entries' and 'pages' contenttypes. 
+
+Since version 0.1.1beta flexcards has responsive image support with common <picture> tags and in use of built-in Bolt CMS thumbnail generation without extensions. Flexcards supports proportional image resizing, addressing width and height of the uploaded original image.
 
 ####Default structure
 ![Default structure](screenshots/readme_flex_structure.png)
@@ -25,7 +27,7 @@ It provides a responsive **4 columns grid** based on 12 columns grid of bootstra
 
 ![Ordering of content in read direction](screenshots/readme_flex_example.png)
 
->Note: Flexcards javascript does not make use of ~~jQuery~~ or ~~masonry~~ scripts, and flexcards is shipped with **slim version of jQuery** and theter.js (because bootstrap 4 needs it). And no, the theme does not cover parallax, lazy loading and other 'lost content' design. 
+>Note: Flexcards javascript does not make use of ~~jQuery~~ or ~~masonry~~ scripts, and flexcards is shipped with **slim version of jQuery** and popper.js (because bootstrap 4 needs it). And no, the theme does not cover parallax, lazy loading and other 'hidden content' design. 
 
 ## <a name="installation"></a>Installation
 
@@ -33,7 +35,7 @@ It provides a responsive **4 columns grid** based on 12 columns grid of bootstra
 * New or updated installation of [Bolt CMS >= v3.2.0](http://www.bolt.cm)
 * All assets are included with distribution
 
-You can also give older Bolt versions ^3.0 a try but, please do not file any issues based on older versions. Current 'Flexcards' development is based on Bolt CMS v3.2.6.
+You can also give older Bolt versions ^3.0 a try but, please do not file any issues based on older versions. Current 'Flexcards' development is based on Bolt CMS v3.4.
 
 #### Install via 'Extend' on Dashboard
 You will need to install the famous Bolt CMS on your server, or update your current Bolt install to latest stable release. Flexcards is available in the [Bolt extensions store](https://market.bolt.cm/) and it is available directly in your bolt dashboard. As administrator of the site navigate to 'Extend' and search for 'flexcards'. Installation is self-explaining, in case you are running into problems [read here](https://docs.bolt.cm/3.2/extensions/introduction#installing-new-extensions).
@@ -124,8 +126,8 @@ This will show up when you edit 'entries' now (after updating the database):
 ## Resources
 All the standard scripts and css are included in the theme (no CDN links). For more information about using this resources for your own work:
 
- * [Bolt CMS templating](https://docs.bolt.cm/3.2/getting-started/introduction)
- * [bootstrap 4](https://v4-alpha.getbootstrap.com/) as framework
+ * [Bolt CMS templating](https://docs.bolt.cm/3.4/getting-started/introduction)
+ * [bootstrap 4]https://getbootstrap.com/) as component library
  * [twig 1 & 2](http://twig.sensiolabs.org/doc/2.x/) docs used for advanced templating with Bolt CMS
- * [jQuery 3](https://jquery.com/download/) watch out for no-jquery solutions or use the the slim version at least
- * [theter](http://tether.io/) in case you want to use bootstrap tooltips
+ * [jQuery 3](https://jquery.com/download/) watch out for no-jquery solutions or use this slim version at least
+ * [popperjs](https://popper.js.org//) because bootstrap says it is ultimative for popups
