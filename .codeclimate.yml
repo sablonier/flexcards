@@ -36,6 +36,11 @@ plugins:
     enabled: true
   fixme:
     enabled: true
+ratings:
+  paths:
+  - "**.css"
+  - "**.js"
+  - "**.php"
 exclude_patterns:
   - "css/bootstrap*.*"
   - "js/bootstrap*.*"
