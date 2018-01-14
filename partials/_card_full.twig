@@ -14,7 +14,14 @@
                 <a href="{{ card.link }}">{{ card.title }}</a>
             </h4>
             {% if card.image is not empty %}
-                <a href="{{card.link}}"><img class="card-img" src="{{ card.image|thumbnail(600,400,'c') }}" width="100%"></a>
+            {% include 'partials/_responsive_image.twig' %}
+            <a href="{{card.link}}">
+                <picture>
+                    <source media="(max-width: {{rwidth.small}}{{'px'}})" srcset="{{ card.image|thumbnail(rwidth.small, rheight.small, 'r') }}">
+                    <source media="(max-width: {{rwidth.medium}}{{'px'}})" srcset="{{ card.image|thumbnail(rwidth.medium, rheight.medium, 'r') }}">
+                    <img src="{{ card.image|thumbnail(rwidth.medium, rheight.medium, 'r') }}" alt="{{ card.imagetitle }}">
+                </picture>
+            </a>
             {% endif %}
             {% if card.teaser is not empty %}
             <p class="card-text">

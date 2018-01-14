@@ -46,6 +46,12 @@ body {
   font-weight: normal;
 }*/
 
+img {
+    vertical-align: middle;
+    max-width: 100%;
+    max-height: 100%;
+}
+
 b, strong {
   font-family: 'HKGroteskBold', sans-serif;
   font-weight: normal;
@@ -517,7 +523,9 @@ button, input, optgroup, select, textarea {
 
 .card-img {
   border-radius: 0;
-  width: 100%;
+  height: auto;
+  max-width:100%;
+  max-height:100%;
 }
 
 .card-img-overlay {
