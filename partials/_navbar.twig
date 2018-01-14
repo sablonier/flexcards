@@ -1,31 +1,29 @@
-   <nav class="navbar navbar-toggleable-md navbar-light fixed-top bg-faded">
-   
-      <!-- Responsive Toggle -->
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-         <span class="navbar-toggler-icon"></span>
-      </button>
-      
-      <!-- Brand -->
-      <a class="navbar-brand" href="/#">
+
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-expand-md fixed-top navbar-light fixed-top bg-faded">
+        
+        <!-- Brand -->
+        <a class="navbar-brand" href="/#">
         {% if theme.logo %}
             <img src="{{ asset(theme.logo, 'theme') }}" width="33" height="33" class="d-inline-block align-top" alt=""> 
         {% endif %}   
             {{ app.config.get('general/sitename') }}   
-      </a>
-      
-      <!-- Menu -->
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        {{ menu('main', 'partials/_menu.twig') }}
+        </a>
         
-      <!-- Search -->  
+        <!-- Responsive Toggle -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Menu -->
+        <div class="collapse navbar-collapse" id="navbarsDefault">
+        {{ menu('main', 'partials/_menu.twig') }}
+         
+        <!--Search -->
         <form class="form-inline my-2 my-lg-0" method="get" action="{{ path('search') }}" id="searchform-inline" enctype="text/plain">
-        <div class="input-group">
-            <input type="search" class="form-control" value="{% if search is defined %}{{ search|escape }}{% endif %}" placeholder="{{ __('general.phrase.search-ellipsis') }}" name="search">
-            <span class="input-group-btn">
-            <button class="btn btn-primary" type="submit">{{ __('general.phrase.search') }}</button>
-            </span>
-        </div>
+          <input class="form-control mr-sm-2" value="{% if search is defined %}{{ search|escape }}{% endif %}" placeholder="{{ __('general.phrase.search-ellipsis') }}" name="search" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-primary" type="submit">{{ __('general.phrase.search') }}</button>
         </form>
+        
       </div>
-      
     </nav>
