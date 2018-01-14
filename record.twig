@@ -33,14 +33,30 @@
                 
                 {# image #}
                 {# ----- #}
-                {% if record.image!="" %}
-                    <img class="card-img" src="{{ thumbnail(record.image) }}" width="100%">
+                {% if record.image is not empty %}
+
+                {# Get width and height of origin via imageinfo #}
+                {% set oimage = {'height': imageinfo(record.image).height, 'width': imageinfo(record.image).width } %}
+
+                {# Set breakpoints (widths), change values for your own breakpoints #}
+                {% set rwidth = {'small': '480', 'medium': '640', 'large': '1024', 'xlarge': '1400'} %}
+
+                {# Calculate individual image heights for breakpoints (proportional) #}
+                {% set rheight = {'small': oimage.height*rwidth.small/oimage.width, 'medium': oimage.height*rwidth.medium/oimage.width, 'large': oimage.height*rwidth.large/oimage.width, 'xlarge': oimage.height*rwidth.xlarge/oimage.width } %}
                     
-                    {# caption #}
-                    {# ------- #}
-                    {# you will need to define a image caption text field in your contenttype #}
-                    {# to make this showing up, default bolt install has no caption per image #}
-                    {% if record.imagecaption %}<p class="small">{{ record.imagecaption }}</p>{% endif %}
+                    <picture>
+                        <source media="(max-width: {{rwidth.small}}{{'px'}})" srcset="{{ record.image|thumbnail(rwidth.small, rheight.small, 'r') }}">
+                        <source media="(max-width: {{rwidth.medium}}{{'px'}})" srcset="{{ record.image|thumbnail(rwidth.medium, rheight.medium, 'r') }}">
+                        <source media="(max-width: {{rwidth.large}}{{'px'}})" srcset="{{ record.image|thumbnail(rwidth.large, rheight.large, 'r') }}">
+                        <source media="(max-width: {{rwidth.xlarge}}{{'px'}})" srcset="{{ record.image|thumbnail(rwidth.xlarge, rheight.xlarge, 'r') }}">
+                        <img src="{{ record.image|thumbnail(rwidth.xlarge, rheight.xlarge, 'r') }}" alt="{{ record.imagetitle }}">
+                    </picture>
+                    
+                {# caption #}
+                {# ------- #}
+                {# you will need to define a image caption text field in your contenttype #}
+                {# to make this showing up, default bolt install has no caption per image #}
+                {% if record.imagecaption %}<p class="small">{{ record.imagecaption }}</p>{% endif %}
                 {% endif %}
                 
                 {# text #}
