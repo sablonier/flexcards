@@ -44,3 +44,4 @@ ratings:
 exclude_paths:
   - "css/bootstrap*.*"
   - "js/bootstrap*.*"
+  - "fonts/fontello.css"
