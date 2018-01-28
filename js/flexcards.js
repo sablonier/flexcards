@@ -128,45 +128,33 @@ window.onload = function(e) {
     displayCards("visible");
 }
 
-// on window resize, could have a delay to 'zen' resize firing
-window.onresize = function(e) { 
-    clearTimeout(resizeTimer);
-    // delay set to 0 for resize stress test
-    resizeTimer = setTimeout(breakpointChange(), 0);
-}
+// reload page after resizing, doing sorting again
+window.addEventListener('resize', function () { 
+    setTimeout(function(){
+        window.location.reload(true);
+        breakpointChange();
+    });
+});
 
 // check size and give sorting
 function breakpointChange() {
-    width = window.innerWidth;
-
-    if (!mobile && width < 577) {
-        tablet = desksmall = deskwide = desklarge = false;
-        mobile = true;
+    var width = window.innerWidth;
+    if (width < 577) {
         sortLayout(1);
     }
-
-    if (!tablet && width > 578 && width < 768) {
-        mobile = desksmall = deskwide = desklarge = false;
-        tablet = true;
+    else if (width >= 577 && width < 768) {
         sortLayout(1);
     }
-
-    if (!desksmall && width >= 769 && width < 992) {
-        mobile = tablet = deskwide = desklarge = false;
-        desksmall = true;
+    else if (width >= 769 && width < 992) {
         sortLayout(2);
     }
-    
-    if (!deskwide && width >= 992 && width < 1200) {
-        mobile = tablet = desksmall = desklarge = false;
-        deskwide = true;
+    else if (width >= 992 && width < 1200) {
         sortLayout(3);
     }
-    
-    if (!desklarge && width >= 1200) {
-        mobile = tablet = desksmall = deskwide = false;
-        desklarge = true;
+    else if (width >= 1200) {
         sortLayout(4);
+    } else {
+        // do nothing
     }
 }
 
