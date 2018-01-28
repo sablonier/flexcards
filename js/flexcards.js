@@ -1,6 +1,3 @@
-//console.log("Width: " + $(window).innerWidth());
-//console.log("Boxes: " + "{{cards|length}}");
-
 var attr;
 
 var cards = document.getElementsByClassName("card");
@@ -68,38 +65,30 @@ function displayCards(attr) {
     return;
 }
 
-// getting the new columns
+// preparing array for tempcols
+function setTempcols(cols) {
+    for (i = 0; i < cols; i += 1) {
+        tempcols.push([]);
+    }
+    return;
+}
+
+// push new order to tempcols
+function pushOrder(cols, tempcols, i) {
+    for (j = 0; j < cols; j += 1) {
+        tempcols[j].push(ids[i+j]);
+    }
+    return;
+}
+
+// get the ids and doing new sorting
 function getColumns(cols) {
-    switch(true) {
-    case cols === 4:
-        tempcols = [[],[],[],[]];
-        break;
-    case cols === 3:
-        tempcols = [[],[],[]];
-        break;
-    case cols === 2:
-        tempcols = [[],[]];
-        break;
-    case cols === 1:
-        tempcols = [[]];
-        break;
-    default:
-        tempcols = [[]];
-    } 
-    
-    //console.log(JSON.stringify(tempcols));
-    
-    for (i = 0; i < ids.length; i+=1) {
+    setTempcols(cols);
+    for (i = 0; i < ids.length; i += 1) {
         if (i % cols === 0) {
-            for (j = 0; j < cols; j += 1) {
-                if (ids[i+j] !== null) {
-                    tempcols[j].push(ids[i+j]);
-                }
-            }
+            pushOrder(cols, tempcols, i);
         }
     }
-    
-    //console.log(JSON.stringify(tempcols));
     return tempcols;
 }
 
