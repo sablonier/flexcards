@@ -1,5 +1,4 @@
 var attr;
-
 var cards = document.getElementsByClassName("card");
 var ids = getCardIDs();
 var tempcols = [];
@@ -119,13 +118,14 @@ function sortLayout(cols) {
     }
 }
 
-var resizeTimer, width;
-var mobile = tablet = desksmall = deskwide = desklarge = false;
+var width;
 
-// on (re)load, no timer needed
+// on (re)load
 window.onload = function(e) { 
     breakpointChange();
     displayCards("visible");
+    // hide spinner
+    var spinner = document.getElementById('spinner').style.display = "none";
 }
 
 // reload page after resizing, doing sorting again
@@ -185,6 +185,10 @@ window.onscroll = function() {
         setTimeout(function(){ mobilepager.className = "mobilepager fade-out"; }, 4000);
 	}
 };
+
+
+
+
 
 
 
