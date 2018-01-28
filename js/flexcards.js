@@ -176,18 +176,8 @@ var doc = document.body.clientHeight;
 var h = window.innerHeight;
 
 window.onscroll = function() {
-    var sticky = document.getElementById('sticker');
-    if (sticky !== null) {
-        if( document.body.scrollTop+document.documentElement.scrollTop > 400) {
-            sticky.className = "stick";
-        }
-        else {
-            sticky.className = "stickhidden";
-        }
-    }
     
     // get indicator
-
     var y = window.scrollY;
     var max = Math.round(doc/h);
     var step = Math.round(y/h);
