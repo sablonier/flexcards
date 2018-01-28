@@ -127,7 +127,7 @@ This will show up when you edit 'entries' now (after updating the database):
 All the standard scripts and css are included in the theme (no CDN links). For more information about using this resources for your own work:
 
  * [Bolt CMS templating](https://docs.bolt.cm/3.4/getting-started/introduction)
- * [bootstrap 4]https://getbootstrap.com/) as component library
+ * [bootstrap 4](https://getbootstrap.com/) as component library
  * [twig 1 & 2](http://twig.sensiolabs.org/doc/2.x/) docs used for advanced templating with Bolt CMS
  * [jQuery 3](https://jquery.com/download/) watch out for no-jquery solutions or use this slim version at least
  * [popperjs](https://popper.js.org//) because bootstrap says it is ultimative for popups
