@@ -92,27 +92,28 @@ function getColumns(cols) {
     return tempcols;
 }
 
-// pushing cards to the new columns
-function sortLayout(cols) {
-    
-    var tempcols = getColumns(cols);
+// append cards with new sorting to columns
+function appendCards(i, tempcols) {
     var chicken, egg;
-    
+    for (j = 0; j < tempcols[0].length; j+=1) {
+        chicken = document.getElementById(''+tempcols[i][j]);
+        egg = document.getElementById(''+tempcols[i][j+1]);
+        if (egg !== null) {
+            chicken.appendChild(egg);
+        }
+    } return;
+}
+
+// main function for building the new and sorted layout
+function sortLayout(cols) {
+    var tempcols = getColumns(cols);
     for (i = 0; i < tempcols.length; i+=1) {
-        
         var parent = document.getElementById('column-'+i);
         var child = document.getElementById(''+tempcols[i][0]);
         if (child !== null) {
             parent.insertBefore(child, parent.firstChild);
         }
-
-        for (j = 0; j < tempcols[0].length; j+=1) {
-            chicken = document.getElementById(''+tempcols[i][j]);
-            egg = document.getElementById(''+tempcols[i][j+1]);
-            if (egg !== null) {
-                chicken.appendChild(egg);
-            }
-        }
+        appendCards(i, tempcols);
     }
 }
 
