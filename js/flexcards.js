@@ -23,25 +23,27 @@ function sortArray(index, arr) {
 	arr.sort(function(a,b){return a[index] > b[index]});
 }
 
-// get card id, position and sort
+// move cards with fixed position
+function moveCards(fixes, ids) {
+    for (var j = 0; j < fixes.length; j++) {
+        if (fixes[j][1] <= ids.length) {
+            ids = moveTo(ids, ids.indexOf(fixes[j][0]), fixes[j][1]-1);
+	    }
+    } return;
+}
+
+// get card id, position and sortorder
 function getCardIDs() {
 	var ids = [];
 	var fixes = getFixedPositions();
-	
     for (var i = 0; i < cards.length; i++) {
         if (cards[i].id !== "") {
             ids.push(cards[i].id);
         } 
     }
-    
     sortArray(1, fixes);
-    for (var j = 0; j < fixes.length; j++) {
-		if (fixes[j][1] <= ids.length) {
-            ids = moveTo(ids, ids.indexOf(fixes[j][0]), fixes[j][1]-1);
-	    }
-    }
+    moveCards(fixes, ids);
     return ids;
-
 }
 
 // get fixed positions
