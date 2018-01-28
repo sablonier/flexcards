@@ -118,8 +118,6 @@ function sortLayout(cols) {
     }
 }
 
-var width;
-
 // on (re)load
 window.onload = function(e) { 
     breakpointChange();
@@ -139,13 +137,10 @@ window.addEventListener('resize', function () {
 // check size and give sorting
 function breakpointChange() {
     var width = window.innerWidth;
-    if (width < 577) {
+    if (width < 768) {
         sortLayout(1);
     }
-    else if (width >= 577 && width < 768) {
-        sortLayout(1);
-    }
-    else if (width >= 769 && width < 992) {
+    else if (width >= 768 && width < 992) {
         sortLayout(2);
     }
     else if (width >= 992 && width < 1200) {
@@ -153,8 +148,6 @@ function breakpointChange() {
     }
     else if (width >= 1200) {
         sortLayout(4);
-    } else {
-        // do nothing
     }
 }
 
