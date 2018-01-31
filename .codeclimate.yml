@@ -41,8 +41,10 @@ checks:
     config:
       threshold: #language-specific defaults. overrides affect all languages.
 plugins:
- eslint:
+  eslint:
   enabled: true
+ csslint:
+   enabled: true
 exclude_patterns:
   - "css/bootstrap*.*"
   - "js/bootstrap*.*"
