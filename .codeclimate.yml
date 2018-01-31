@@ -43,8 +43,8 @@ checks:
 plugins:
   eslint:
   enabled: true
- csslint:
-   enabled: true
+  csslint:
+  enabled: true
 exclude_patterns:
   - "css/bootstrap*.*"
   - "js/bootstrap*.*"
