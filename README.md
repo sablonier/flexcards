@@ -54,26 +54,26 @@ In case you will give an older Bolt CMS install a try or unknown restrictions on
 contenttypes: entries
 orderby: -datepublish
 limit: 10
-	
+    
 # Logo
 # ----
 # default is 'brand/flexcard.svg'
 # set to 'false' to skip logo at all
 logo: 'brand/flexcard.svg'
-	
+    
 # Footer
 # ------
 # You can bring up your own html here, but
 # in case you want to extend your footer with additional content like
 # menus or widgets you better have a look to partials/_footer.twig
 footerhtml: "<p>Your footer html goes here.</p>"
-	
+    
 # Pager
 # -----
 # These are experimental responsive pagers (pagination) for Bolt CMS.
 # You can activate this stuff separately, or disable it at all
 # with setting it to 'false' and implementing your custom paging system.
-	
+    
 # Listing pages
 # -------------
 # Define which contenttypes should show up with date and authors

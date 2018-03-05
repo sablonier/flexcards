@@ -1,14 +1,14 @@
 {% include 'partials/_header.twig' %}
   <body>
 {% include 'partials/_navbar.twig' %}
-    
+
     {# fetching content #}
     {# ---------------- #}
     {% setcontent cards = '('~theme.contenttypes~')' orderby theme.orderby limit theme.limit allowpaging %}
-    
+
     {# example for mixed content #}
     {#{% setcontent cards = '('~theme.contenttypes~')' orderby theme.orderby limit theme.limit %}#}
-    
+
     {# getting the magic with rows and columns            #}
     {# i.e. 10 entries should give = 3/3/2/2, not 3/3/3/1 #}
     {# -------------------------------------------------- #}
@@ -19,7 +19,7 @@
     {% else %}
         {% set magic = [ [0,1], [1,1], [2,1], [3,1] ] %}
     {% endif %}
-    
+
     {# container #}
     {# --------- #}
     <div class="container-fluid">
@@ -27,12 +27,12 @@
                 {# get the 4 columns #}
                 {% for key in magic|keys %}
                     <div id="column-{{key}}" class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-			        
+
                     {# push rows in columns #}
                     {% for card in cards|slice(magic[key][0],magic[key][1]) %}
                     {% include 'partials/_card_full.twig' %}
                     {% endfor %}
-                
+
                 {# pager desktop #}
                 {% if loop.last %}
                     {% if theme.pagerdesktop %}
@@ -43,7 +43,7 @@
                 {% endfor %}
         </div>
     </div>
-    
+
     {# pager mobile #}
     {% if theme.pagermobile %}
         {{ pager('', '', 'partials/_sub_pager_mobile.twig') }}

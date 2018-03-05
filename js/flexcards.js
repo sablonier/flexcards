@@ -19,7 +19,7 @@ function moveTo(array, old_index, new_index) {
 
 // array helper, sorting by subarray
 function sortArray(index, arr) {
-	arr.sort(function(a,b){return a[index] > b[index]});
+    arr.sort(function(a,b){return a[index] > b[index]});
 }
 
 // move cards with fixed position
@@ -27,18 +27,18 @@ function moveCards(fixes, ids) {
     for (var j = 0; j < fixes.length; j++) {
         if (fixes[j][1] <= ids.length) {
             ids = moveTo(ids, ids.indexOf(fixes[j][0]), fixes[j][1]-1);
-	    }
+        }
     } return;
 }
 
 // get card id, position and sortorder
 function getCardIDs() {
-	var ids = [];
-	var fixes = getFixedPositions();
+    var ids = [];
+    var fixes = getFixedPositions();
     for (var i = 0; i < cards.length; i++) {
         if (cards[i].id !== "") {
             ids.push(cards[i].id);
-        } 
+        }
     }
     sortArray(1, fixes);
     moveCards(fixes, ids);
@@ -47,11 +47,11 @@ function getCardIDs() {
 
 // get fixed positions
 function getFixedPositions() {
-	var fixes = [];
+    var fixes = [];
     for (var i = 0; i < cards.length; i++) {
         if (cards[i].getAttribute("fixedposition") !== "0" && cards[i].getAttribute("fixedposition") !== null) {
             fixes.push([cards[i].id, cards[i].getAttribute("fixedposition")]);
-        } 
+        }
     }
     return fixes;
 }
@@ -119,7 +119,7 @@ function sortLayout(cols) {
 }
 
 // on (re)load
-window.onload = function(e) { 
+window.onload = function(e) {
     breakpointChange();
     displayCards("visible");
     // hide spinner
@@ -127,7 +127,7 @@ window.onload = function(e) {
 }
 
 // reload page after resizing, doing sorting again
-window.addEventListener('resize', function () { 
+window.addEventListener('resize', function () {
     setTimeout(function(){
         window.location.reload(true);
         breakpointChange();
@@ -157,26 +157,26 @@ var doc = document.body.clientHeight;
 var h = window.innerHeight;
 
 window.onscroll = function() {
-    
+
     // get indicator
     var y = window.scrollY;
     var max = Math.round(doc/h);
     var step = Math.round(y/h);
     var mobilepager = document.getElementById('mobilepager');
-    
+
     document.getElementById("indicator").innerHTML = "";
-    
+
     for (i = 0; i < max; i++) {
-		document.getElementById("indicator").innerHTML += "<div id='ind"+i+"' style='margin: auto; background: #FFF; width: 33px; height: 4px;'></div>";
-	}
-	
-	document.getElementById("ind"+step+"").style.border = "1px solid #000";
-		
-    
+        document.getElementById("indicator").innerHTML += "<div id='ind"+i+"' style='margin: auto; background: #FFF; width: 33px; height: 4px;'></div>";
+    }
+
+    document.getElementById("ind"+step+"").style.border = "1px solid #000";
+
+
     if (mobilepager.className !== "mobilepager fade-in") {
         mobilepager.className = "mobilepager fade-in";
         setTimeout(function(){ mobilepager.className = "mobilepager fade-out"; }, 4000);
-	}
+    }
 };
 
 
@@ -185,4 +185,4 @@ window.onscroll = function() {
 
 
 
-    
+
