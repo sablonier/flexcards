@@ -18,10 +18,10 @@
                 </small>
             </p>
             {% endif %}
-            
-            
+
+
             <h4 class="card-title"><a href="{{ card.link }}">{{ card.title }}</a></h4>
-            
+
             {# Responsive image #}
             {% if card.image is not empty %}
             <a href="{{card.link}}">
@@ -33,7 +33,7 @@
 
                 {# Calculate individual image heights for breakpoints (proportional) #}
                 {% set rheight = {'small': oimage.height*rwidth.small/oimage.width, 'medium': oimage.height*rwidth.medium/oimage.width, 'large': oimage.height*rwidth.large/oimage.width, 'xlarge': oimage.height*rwidth.xlarge/oimage.width } %}
-                
+
                 {# Only small and medium sizes because of small columns with this type of card #}
                 <picture>
                     <source media="(max-width: {{rwidth.small}}{{'px'}})" srcset="{{ card.image|thumbnail(rwidth.small, rheight.small, 'r') }}">
@@ -42,10 +42,10 @@
                 </picture>
             </a>
             {% endif %}
-            
+
             {# display something introduction-like #}
             {% if card.introduction %}
-				<p class="card-text">
+                <p class="card-text">
                      {{ card.introduction }}
                 </p>
             {% elseif card.teaser %}
