@@ -18,7 +18,7 @@
                 {# datepublish, author, tags #}
                 {# ------------------------- #}
                 <p>
-                <small class="text-muted"><strong>{{ card.datepublish|localedatetime("%A %B %e") }}</strong> by {{ record.user.username }}<br>
+                <small class="text-muted"><strong>{{ record.datepublish|localedatetime("%A %B %e") }}</strong> by {{ record.user.username }}<br>
                 {% if record.taxonomy.tags is defined %}
                     {% for tag in record.taxonomy.tags %}
                          <a href="{{ paths.root }}tags/{{ tag }}"><span class="tags">{{ tag }}</span></a>
