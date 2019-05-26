@@ -23,15 +23,7 @@ logo: 'brand/flexcard.svg'
 # You can bring up your own html here, but
 # in case you want to extend your footer with additional content like
 # menus or widgets you better have a look to partials/_footer.twig
-footerhtml: "<p>This website is <a href='http://bolt.cm' target='_blank' title='Sophisticated, lightweight & simple CMS'>Built with <strong>Bolt</strong></a>.Theme <a href='https://github.com/sablonier/flexcards' target='_blank' title='fork on github'>flexcards</a> built with Bootstrap 4 (alpha 6). (c) 2017 Yves Sablonier, Zurich (MIT License)</p>"
-
-# Content for frontpage
-# ---------------------
-# Defines the content lookup for the cards on frontpage.
-# By default flexcards takes 10 latest records of contenttype 'entries'
-contenttypes: entries
-orderby: -datepublish
-limit: 10
+footerhtml: "<p>This website is <a href='http://bolt.cm' target='_blank' title='Sophisticated, lightweight & simple CMS'>Built with <strong>Bolt</strong></a>.Theme <a href='https://github.com/sablonier/flexcards' target='_blank' title='fork on github'>flexcards</a> built with Bootstrap 4. (c) 2019 Yves Sablonier, Zurich (MIT License)</p>"
 
 # Pager
 # -----
